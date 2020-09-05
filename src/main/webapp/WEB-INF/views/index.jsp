@@ -97,7 +97,7 @@
     <li><a href="rest/page/qmpAnalysis" id="qmpAnalysis">
       水质变化趋势分析
     </a></li>
-    <li><a href="#">污染源信息</a></li>
+<%--    <li><a href="#">污染源信息</a></li>--%>
     <li><a href="#">单元负荷核定</a></li>
     <li><a href="#">单元容量计算</a></li>
     <li><a href="#">排污许可分配</a></li>

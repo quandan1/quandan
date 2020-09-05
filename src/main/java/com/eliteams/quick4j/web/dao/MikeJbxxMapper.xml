@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.eliteams.quick4j.web.dao.MikeJbxxMapper" >
+  <resultMap id="BaseResultMap" type="com.eliteams.quick4j.web.model.MikeJbxx" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="mike_hlmc" property="mikeHlmc" jdbcType="VARCHAR" />
+    <result column="mike_hlbh" property="mikeHlbh" jdbcType="VARCHAR" />
+    <result column="mike_hldj" property="mikeHldj" jdbcType="VARCHAR" />
+    <result column="mike_lymc" property="mikeLymc" jdbcType="VARCHAR" />
+    <result column="mike_sxmc" property="mikeSxmc" jdbcType="VARCHAR" />
+    <result column="mike_gl" property="mikeGl" jdbcType="VARCHAR" />
+    <result column="mike_1jhl" property="mike1jhl" jdbcType="VARCHAR" />
+    <result column="mike_2jhl" property="mike2jhl" jdbcType="VARCHAR" />
+    <result column="mike_3jhl" property="mike3jhl" jdbcType="VARCHAR" />
+    <result column="mike_4jhl" property="mike4jhl" jdbcType="VARCHAR" />
+    <result column="mike_5jhl" property="mike5jhl" jdbcType="VARCHAR" />
+    <result column="mike_swnf" property="mikeSwnf" jdbcType="INTEGER" />
+    <result column="mike_mnnf" property="mikeMnnf" jdbcType="INTEGER" />
+    <result column="mike_sjly" property="mikeSjly" jdbcType="VARCHAR" />
+    <result column="mike_mnzb" property="mikeMnzb" jdbcType="VARCHAR" />
+    <result column="mike_famc" property="mikeFamc" jdbcType="VARCHAR" />
+    <result column="mike_cclj" property="mikeCclj" jdbcType="VARCHAR" />
+    <result column="mike_fxsj" property="mikeFxsj" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, mike_hlmc, mike_hlbh, mike_hldj, mike_lymc, mike_sxmc, mike_gl, mike_1jhl, mike_2jhl, 
+    mike_3jhl, mike_4jhl, mike_5jhl, mike_swnf, mike_mnnf, mike_sjly, mike_mnzb, mike_famc, 
+    mike_cclj, mike_fxsj
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.eliteams.quick4j.web.model.MikeJbxxExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tbl_mike_jbxx
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_mike_jbxx
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tbl_mike_jbxx
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.eliteams.quick4j.web.model.MikeJbxxExample" >
+    delete from tbl_mike_jbxx
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.eliteams.quick4j.web.model.MikeJbxx" >
+    insert into tbl_mike_jbxx (id, mike_hlmc, mike_hlbh, 
+      mike_hldj, mike_lymc, mike_sxmc, 
+      mike_gl, mike_1jhl, mike_2jhl, 
+      mike_3jhl, mike_4jhl, mike_5jhl, 
+      mike_swnf, mike_mnnf, mike_sjly, 
+      mike_mnzb, mike_famc, mike_cclj, 
+      mike_fxsj)
+    values (#{id,jdbcType=INTEGER}, #{mikeHlmc,jdbcType=VARCHAR}, #{mikeHlbh,jdbcType=VARCHAR}, 
+      #{mikeHldj,jdbcType=VARCHAR}, #{mikeLymc,jdbcType=VARCHAR}, #{mikeSxmc,jdbcType=VARCHAR}, 
+      #{mikeGl,jdbcType=VARCHAR}, #{mike1jhl,jdbcType=VARCHAR}, #{mike2jhl,jdbcType=VARCHAR}, 
+      #{mike3jhl,jdbcType=VARCHAR}, #{mike4jhl,jdbcType=VARCHAR}, #{mike5jhl,jdbcType=VARCHAR}, 
+      #{mikeSwnf,jdbcType=INTEGER}, #{mikeMnnf,jdbcType=INTEGER}, #{mikeSjly,jdbcType=VARCHAR}, 
+      #{mikeMnzb,jdbcType=VARCHAR}, #{mikeFamc,jdbcType=VARCHAR}, #{mikeCclj,jdbcType=VARCHAR}, 
+      #{mikeFxsj,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.eliteams.quick4j.web.model.MikeJbxx" >
+    insert into tbl_mike_jbxx
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="mikeHlmc != null" >
+        mike_hlmc,
+      </if>
+      <if test="mikeHlbh != null" >
+        mike_hlbh,
+      </if>
+      <if test="mikeHldj != null" >
+        mike_hldj,
+      </if>
+      <if test="mikeLymc != null" >
+        mike_lymc,
+      </if>
+      <if test="mikeSxmc != null" >
+        mike_sxmc,
+      </if>
+      <if test="mikeGl != null" >
+        mike_gl,
+      </if>
+      <if test="mike1jhl != null" >
+        mike_1jhl,
+      </if>
+      <if test="mike2jhl != null" >
+        mike_2jhl,
+      </if>
+      <if test="mike3jhl != null" >
+        mike_3jhl,
+      </if>
+      <if test="mike4jhl != null" >
+        mike_4jhl,
+      </if>
+      <if test="mike5jhl != null" >
+        mike_5jhl,
+      </if>
+      <if test="mikeSwnf != null" >
+        mike_swnf,
+      </if>
+      <if test="mikeMnnf != null" >
+        mike_mnnf,
+      </if>
+      <if test="mikeSjly != null" >
+        mike_sjly,
+      </if>
+      <if test="mikeMnzb != null" >
+        mike_mnzb,
+      </if>
+      <if test="mikeFamc != null" >
+        mike_famc,
+      </if>
+      <if test="mikeCclj != null" >
+        mike_cclj,
+      </if>
+      <if test="mikeFxsj != null" >
+        mike_fxsj,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="mikeHlmc != null" >
+        #{mikeHlmc,jdbcType=VARCHAR},
+      </if>
+      <if test="mikeHlbh != null" >
+        #{mikeHlbh,jdbcType=VARCHAR},
+      </if>
+      <if test="mikeHldj != null" >
+        #{mikeHldj,jdbcType=VARCHAR},
+      </if>
+      <if test="mikeLymc != null" >
+        #{mikeLymc,jdbcType=VARCHAR},
+      </if>
+      <if test="mikeSxmc != null" >
+        #{mikeSxmc,jdbcType=VARCHAR},
+      </if>
+      <if test="mikeGl != null" >
+        #{mikeGl,jdbcType=VARCHAR},
+      </if>
+      <if test="mike1jhl != null" >
+        #{mike1jhl,jdbcType=VARCHAR},
+      </if>
+      <if test="mike2jhl != null" >
+        #{mike2jhl,jdbcType=VARCHAR},
+      </if>
+      <if test="mike3jhl != null" >
+        #{mike3jhl,jdbcType=VARCHAR},
+      </if>
+      <if test="mike4jhl != null" >
+        #{mike4jhl,jdbcType=VARCHAR},
+      </if>
+      <if test="mike5jhl != null" >
+        #{mike5jhl,jdbcType=VARCHAR},
+      </if>
+      <if test="mikeSwnf != null" >
+        #{mikeSwnf,jdbcType=INTEGER},
+      </if>
+      <if test="mikeMnnf != null" >
+        #{mikeMnnf,jdbcType=INTEGER},
+      </if>
+      <if test="mikeSjly != null" >
+        #{mikeSjly,jdbcType=VARCHAR},
+      </if>
+      <if test="mikeMnzb != null" >
+        #{mikeMnzb,jdbcType=VARCHAR},
+      </if>
+      <if test="mikeFamc != null" >
+        #{mikeFamc,jdbcType=VARCHAR},
+      </if>
+      <if test="mikeCclj != null" >
+        #{mikeCclj,jdbcType=VARCHAR},
+      </if>
+      <if test="mikeFxsj != null" >
+        #{mikeFxsj,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.eliteams.quick4j.web.model.MikeJbxxExample" resultType="java.lang.Integer" >
+    select count(*) from tbl_mike_jbxx
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tbl_mike_jbxx
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.mikeHlmc != null" >
+        mike_hlmc = #{record.mikeHlmc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mikeHlbh != null" >
+        mike_hlbh = #{record.mikeHlbh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mikeHldj != null" >
+        mike_hldj = #{record.mikeHldj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mikeLymc != null" >
+        mike_lymc = #{record.mikeLymc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mikeSxmc != null" >
+        mike_sxmc = #{record.mikeSxmc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mikeGl != null" >
+        mike_gl = #{record.mikeGl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mike1jhl != null" >
+        mike_1jhl = #{record.mike1jhl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mike2jhl != null" >
+        mike_2jhl = #{record.mike2jhl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mike3jhl != null" >
+        mike_3jhl = #{record.mike3jhl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mike4jhl != null" >
+        mike_4jhl = #{record.mike4jhl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mike5jhl != null" >
+        mike_5jhl = #{record.mike5jhl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mikeSwnf != null" >
+        mike_swnf = #{record.mikeSwnf,jdbcType=INTEGER},
+      </if>
+      <if test="record.mikeMnnf != null" >
+        mike_mnnf = #{record.mikeMnnf,jdbcType=INTEGER},
+      </if>
+      <if test="record.mikeSjly != null" >
+        mike_sjly = #{record.mikeSjly,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mikeMnzb != null" >
+        mike_mnzb = #{record.mikeMnzb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mikeFamc != null" >
+        mike_famc = #{record.mikeFamc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mikeCclj != null" >
+        mike_cclj = #{record.mikeCclj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mikeFxsj != null" >
+        mike_fxsj = #{record.mikeFxsj,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tbl_mike_jbxx
+    set id = #{record.id,jdbcType=INTEGER},
+      mike_hlmc = #{record.mikeHlmc,jdbcType=VARCHAR},
+      mike_hlbh = #{record.mikeHlbh,jdbcType=VARCHAR},
+      mike_hldj = #{record.mikeHldj,jdbcType=VARCHAR},
+      mike_lymc = #{record.mikeLymc,jdbcType=VARCHAR},
+      mike_sxmc = #{record.mikeSxmc,jdbcType=VARCHAR},
+      mike_gl = #{record.mikeGl,jdbcType=VARCHAR},
+      mike_1jhl = #{record.mike1jhl,jdbcType=VARCHAR},
+      mike_2jhl = #{record.mike2jhl,jdbcType=VARCHAR},
+      mike_3jhl = #{record.mike3jhl,jdbcType=VARCHAR},
+      mike_4jhl = #{record.mike4jhl,jdbcType=VARCHAR},
+      mike_5jhl = #{record.mike5jhl,jdbcType=VARCHAR},
+      mike_swnf = #{record.mikeSwnf,jdbcType=INTEGER},
+      mike_mnnf = #{record.mikeMnnf,jdbcType=INTEGER},
+      mike_sjly = #{record.mikeSjly,jdbcType=VARCHAR},
+      mike_mnzb = #{record.mikeMnzb,jdbcType=VARCHAR},
+      mike_famc = #{record.mikeFamc,jdbcType=VARCHAR},
+      mike_cclj = #{record.mikeCclj,jdbcType=VARCHAR},
+      mike_fxsj = #{record.mikeFxsj,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.eliteams.quick4j.web.model.MikeJbxx" >
+    update tbl_mike_jbxx
+    <set >
+      <if test="mikeHlmc != null" >
+        mike_hlmc = #{mikeHlmc,jdbcType=VARCHAR},
+      </if>
+      <if test="mikeHlbh != null" >
+        mike_hlbh = #{mikeHlbh,jdbcType=VARCHAR},
+      </if>
+      <if test="mikeHldj != null" >
+        mike_hldj = #{mikeHldj,jdbcType=VARCHAR},
+      </if>
+      <if test="mikeLymc != null" >
+        mike_lymc = #{mikeLymc,jdbcType=VARCHAR},
+      </if>
+      <if test="mikeSxmc != null" >
+        mike_sxmc = #{mikeSxmc,jdbcType=VARCHAR},
+      </if>
+      <if test="mikeGl != null" >
+        mike_gl = #{mikeGl,jdbcType=VARCHAR},
+      </if>
+      <if test="mike1jhl != null" >
+        mike_1jhl = #{mike1jhl,jdbcType=VARCHAR},
+      </if>
+      <if test="mike2jhl != null" >
+        mike_2jhl = #{mike2jhl,jdbcType=VARCHAR},
+      </if>
+      <if test="mike3jhl != null" >
+        mike_3jhl = #{mike3jhl,jdbcType=VARCHAR},
+      </if>
+      <if test="mike4jhl != null" >
+        mike_4jhl = #{mike4jhl,jdbcType=VARCHAR},
+      </if>
+      <if test="mike5jhl != null" >
+        mike_5jhl = #{mike5jhl,jdbcType=VARCHAR},
+      </if>
+      <if test="mikeSwnf != null" >
+        mike_swnf = #{mikeSwnf,jdbcType=INTEGER},
+      </if>
+      <if test="mikeMnnf != null" >
+        mike_mnnf = #{mikeMnnf,jdbcType=INTEGER},
+      </if>
+      <if test="mikeSjly != null" >
+        mike_sjly = #{mikeSjly,jdbcType=VARCHAR},
+      </if>
+      <if test="mikeMnzb != null" >
+        mike_mnzb = #{mikeMnzb,jdbcType=VARCHAR},
+      </if>
+      <if test="mikeFamc != null" >
+        mike_famc = #{mikeFamc,jdbcType=VARCHAR},
+      </if>
+      <if test="mikeCclj != null" >
+        mike_cclj = #{mikeCclj,jdbcType=VARCHAR},
+      </if>
+      <if test="mikeFxsj != null" >
+        mike_fxsj = #{mikeFxsj,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.eliteams.quick4j.web.model.MikeJbxx" >
+    update tbl_mike_jbxx
+    set mike_hlmc = #{mikeHlmc,jdbcType=VARCHAR},
+      mike_hlbh = #{mikeHlbh,jdbcType=VARCHAR},
+      mike_hldj = #{mikeHldj,jdbcType=VARCHAR},
+      mike_lymc = #{mikeLymc,jdbcType=VARCHAR},
+      mike_sxmc = #{mikeSxmc,jdbcType=VARCHAR},
+      mike_gl = #{mikeGl,jdbcType=VARCHAR},
+      mike_1jhl = #{mike1jhl,jdbcType=VARCHAR},
+      mike_2jhl = #{mike2jhl,jdbcType=VARCHAR},
+      mike_3jhl = #{mike3jhl,jdbcType=VARCHAR},
+      mike_4jhl = #{mike4jhl,jdbcType=VARCHAR},
+      mike_5jhl = #{mike5jhl,jdbcType=VARCHAR},
+      mike_swnf = #{mikeSwnf,jdbcType=INTEGER},
+      mike_mnnf = #{mikeMnnf,jdbcType=INTEGER},
+      mike_sjly = #{mikeSjly,jdbcType=VARCHAR},
+      mike_mnzb = #{mikeMnzb,jdbcType=VARCHAR},
+      mike_famc = #{mikeFamc,jdbcType=VARCHAR},
+      mike_cclj = #{mikeCclj,jdbcType=VARCHAR},
+      mike_fxsj = #{mikeFxsj,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectAll" parameterType="com.eliteams.quick4j.web.model.MikeJbxxExample" resultMap="BaseResultMap" >
+    select * from tbl_mike_jbxx
+  </select>
+  <select id="selectOne" parameterType="java.util.Map" resultMap="BaseResultMap" >
+    select distinct *
+    from
+    tbl_mike_jbxx
+    <where>
+      <if test="map.mike_hlmc != null">
+        mike_hlmc = #{map.mike_hlmc}
+      </if>
+      <if test="map.mike_hlbh != null">
+        and  mike_hldj = #{map.mike_hlbh}
+      </if>
+      <if test="map.mike_hldj != null">
+        and  mike_hldj LIKE CONCAT('%', #{map.mike_hldj}, '%')
+      </if>
+      <if test="map.mike_lymc != null">
+        and mike_lymc LIKE CONCAT('%', #{map.mike_lymc}, '%')
+      </if>
+      <if test="map.mike_sxmc != null">
+        and mike_sxmc LIKE CONCAT('%', #{map.mike_sxmc}, '%')
+      </if>
+      <if test="map.mike_gl != null">
+        and mike_gl LIKE CONCAT('%', #{map.mike_gl}, '%')
+      </if>
+      <if test="map.mike_1jhl != null">
+        and  mike_1jhl LIKE CONCAT('%', #{map.mike_1jhl}, '%')
+      </if>
+      <if test="map.mike_2jhl != null">
+        and  mike_2jhl LIKE CONCAT('%', #{map.mike_2jhl}, '%')
+      </if>
+      <if test="map.mike_3jhl != null">
+        and mike_3jhl LIKE CONCAT('%', #{map.mike_3jhl}, '%')
+      </if>
+      <if test="map.mike_4jhl != null">
+        and   mike_4jhl LIKE CONCAT('%', #{map.mike_4jhl}, '%')
+      </if>
+      <if test="map.mike_5jhl != null">
+        and mike_5jhl LIKE CONCAT('%', #{map.mike_5jhl}, '%')
+      </if>
+      <if test="map.mike_swnf != null">
+        and mike_swnf LIKE CONCAT('%', #{map.mike_swnf}, '%')
+      </if>
+      <if test="map.mike_mnnf != null">
+        and  mike_mnnf LIKE CONCAT('%', #{map.mike_mnnf}, '%')
+      </if>
+      <if test="map.mike_sjly != null">
+        and mike_sjly LIKE CONCAT('%', #{map.mike_sjly}, '%')
+      </if>
+      <if test="map.mike_mnzb != null">
+        and mike_mnzb LIKE CONCAT('%', #{map.mike_mnzb}, '%')
+      </if>
+      <if test="map.mike_famc != null">
+        and mike_famc LIKE CONCAT('%', #{map.mike_famc}, '%')
+      </if>
+      <if test="map.mike_cclj != null">
+        and  mike_cclj LIKE CONCAT('%', #{map.mike_cclj}, '%')
+      </if>
+      <if test="map.mike_fxsj != null">
+        and mike_fxsj LIKE CONCAT('%', #{map.mike_fxsj}, '%')
+      </if>
+    </where>
+
+  </select>
+</mapper>

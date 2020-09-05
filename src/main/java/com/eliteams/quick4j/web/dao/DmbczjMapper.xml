@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eliteams.quick4j.web.dao.DmbczjMapper">
+  <resultMap id="BaseResultMap" type="com.eliteams.quick4j.web.model.Dmbczj">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="month" jdbcType="INTEGER" property="month" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="loc_river" jdbcType="VARCHAR" property="locRiver" />
+    <result column="section_name" jdbcType="VARCHAR" property="sectionName" />
+    <result column="section_sx" jdbcType="VARCHAR" property="sectionSx" />
+    <result column="objective_2018" jdbcType="VARCHAR" property="objective2018" />
+    <result column="szlb" jdbcType="VARCHAR" property="szlb" />
+    <result column="cbxm" jdbcType="VARCHAR" property="cbxm" />
+    <result column="jl_jnzj" jdbcType="VARCHAR" property="jlJnzj" />
+    <result column="lwjf_jnzj" jdbcType="VARCHAR" property="lwjfJnzj" />
+    <result column="hj_jnzj" jdbcType="VARCHAR" property="hjJnzj" />
+    <result column="bcxy_jnzj" jdbcType="VARCHAR" property="bcxyJnzj" />
+    <result column="bccs_jnzj" jdbcType="VARCHAR" property="bccsJnzj" />
+    <result column="bcsl_jnzj" jdbcType="VARCHAR" property="bcslJnzj" />
+    <result column="bz" jdbcType="VARCHAR" property="bz" />
+    <result column="year" jdbcType="VARCHAR" property="year" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+   <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, month, city, loc_river, section_name, section_sx, objective_2018, szlb, cbxm,
+    jl_jnzj, lwjf_jnzj, hj_jnzj, bcxy_jnzj, bccs_jnzj, bcsl_jnzj, bz, year
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.eliteams.quick4j.web.model.DmbczjExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from dmbczj
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from dmbczj
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from dmbczj
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.eliteams.quick4j.web.model.DmbczjExample" >
+    delete from dmbczj
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.eliteams.quick4j.web.model.Dmbczj" >
+    insert ignore into dmbczj (id, month, city,
+      loc_river, section_name, section_sx, 
+      objective_2018, szlb, cbxm, 
+      jl_jnzj, lwjf_jnzj, hj_jnzj, 
+      bcxy_jnzj, bccs_jnzj, bcsl_jnzj,
+      bz, year)
+    values (#{id,jdbcType=INTEGER}, #{month,jdbcType=INTEGER}, #{city,jdbcType=VARCHAR},
+      #{locRiver,jdbcType=VARCHAR}, #{sectionName,jdbcType=VARCHAR}, #{sectionSx,jdbcType=VARCHAR}, 
+      #{objective2018,jdbcType=VARCHAR}, #{szlb,jdbcType=VARCHAR}, #{cbxm,jdbcType=VARCHAR}, 
+      #{jlJnzj,jdbcType=VARCHAR}, #{lwjfJnzj,jdbcType=VARCHAR}, #{hjJnzj,jdbcType=VARCHAR}, 
+      #{bcxyJnzj,jdbcType=VARCHAR}, #{bccsJnzj,jdbcType=VARCHAR}, #{bcslJnzj,jdbcType=VARCHAR}, 
+      #{bz,jdbcType=VARCHAR}, #{year,jdbcType=VARCHAR})
+  </insert>
+
+
+  <insert id="replace" parameterType="com.eliteams.quick4j.web.model.Dmbczj" >
+    replace into dmbczj (id, month, city,
+    loc_river, section_name, section_sx,
+    objective_2018, szlb, cbxm,
+    jl_jnzj, lwjf_jnzj, hj_jnzj,
+    bcxy_jnzj, bccs_jnzj, bcsl_jnzj,
+    bz, year)
+    values (#{id,jdbcType=INTEGER}, #{month,jdbcType=INTEGER}, #{city,jdbcType=VARCHAR},
+    #{locRiver,jdbcType=VARCHAR}, #{sectionName,jdbcType=VARCHAR}, #{sectionSx,jdbcType=VARCHAR},
+    #{objective2018,jdbcType=VARCHAR}, #{szlb,jdbcType=VARCHAR}, #{cbxm,jdbcType=VARCHAR},
+    #{jlJnzj,jdbcType=VARCHAR}, #{lwjfJnzj,jdbcType=VARCHAR}, #{hjJnzj,jdbcType=VARCHAR},
+    #{bcxyJnzj,jdbcType=VARCHAR}, #{bccsJnzj,jdbcType=VARCHAR}, #{bcslJnzj,jdbcType=VARCHAR},
+    #{bz,jdbcType=VARCHAR}, #{year,jdbcType=VARCHAR})
+  </insert>
+
+
+
+
+  <insert id="insertD" parameterType="com.eliteams.quick4j.web.model.Dmbczj" >
+    replace into dmbczj (id, month, city,
+    loc_river, section_name, section_sx,
+    objective_2018, szlb, cbxm,
+    jl_jnzj, lwjf_jnzj, hj_jnzj,
+    bcxy_jnzj, bccs_jnzj, bcsl_jnzj,
+    bz, year)
+    select (#{id,jdbcType=INTEGER}, #{month,jdbcType=INTEGER}, #{city,jdbcType=VARCHAR},
+    #{locRiver,jdbcType=VARCHAR}, #{sectionName,jdbcType=VARCHAR}, #{sectionSx,jdbcType=VARCHAR},
+    #{objective2018,jdbcType=VARCHAR}, #{szlb,jdbcType=VARCHAR}, #{cbxm,jdbcType=VARCHAR},
+    #{jlJnzj,jdbcType=VARCHAR}, #{lwjfJnzj,jdbcType=VARCHAR}, #{hjJnzj,jdbcType=VARCHAR},
+    #{bcxyJnzj,jdbcType=VARCHAR}, #{bccsJnzj,jdbcType=VARCHAR}, #{bcslJnzj,jdbcType=VARCHAR},
+    #{bz,jdbcType=VARCHAR}, #{year,jdbcType=VARCHAR})
+    from dmbczj d
+    WHERE d.month = #{month,jdbcType=INTEGER}
+    AND d.year = #{year,jdbcType=VARCHAR}
+    AND  d.section_name = #{sectionName,jdbcType=VARCHAR}
+    AND  d.loc_river =  #{locRiver,jdbcType=VARCHAR}
+  </insert>
+
+  <insert id="insertSelective" parameterType="com.eliteams.quick4j.web.model.Dmbczj" >
+    insert into dmbczj
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="month != null" >
+        month,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="locRiver != null" >
+        loc_river,
+      </if>
+      <if test="sectionName != null" >
+        section_name,
+      </if>
+      <if test="sectionSx != null" >
+        section_sx,
+      </if>
+      <if test="objective2018 != null" >
+        objective_2018,
+      </if>
+      <if test="szlb != null" >
+        szlb,
+      </if>
+      <if test="cbxm != null" >
+        cbxm,
+      </if>
+      <if test="jlJnzj != null" >
+        jl_jnzj,
+      </if>
+      <if test="lwjfJnzj != null" >
+        lwjf_jnzj,
+      </if>
+      <if test="hjJnzj != null" >
+        hj_jnzj,
+      </if>
+      <if test="bcxyJnzj != null" >
+        bcxy_jnzj,
+      </if>
+      <if test="bccsJnzj != null" >
+        bccs_jnzj,
+      </if>
+      <if test="bcslJnzj != null" >
+        bcsl_jnzj,
+      </if>
+      <if test="bz != null" >
+        bz,
+      </if>
+      <if test="year != null" >
+        year,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="month != null" >
+        #{month,jdbcType=INTEGER},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="locRiver != null" >
+        #{locRiver,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionName != null" >
+        #{sectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionSx != null" >
+        #{sectionSx,jdbcType=VARCHAR},
+      </if>
+      <if test="objective2018 != null" >
+        #{objective2018,jdbcType=VARCHAR},
+      </if>
+      <if test="szlb != null" >
+        #{szlb,jdbcType=VARCHAR},
+      </if>
+      <if test="cbxm != null" >
+        #{cbxm,jdbcType=VARCHAR},
+      </if>
+      <if test="jlJnzj != null" >
+        #{jlJnzj,jdbcType=VARCHAR},
+      </if>
+      <if test="lwjfJnzj != null" >
+        #{lwjfJnzj,jdbcType=VARCHAR},
+      </if>
+      <if test="hjJnzj != null" >
+        #{hjJnzj,jdbcType=VARCHAR},
+      </if>
+      <if test="bcxyJnzj != null" >
+        #{bcxyJnzj,jdbcType=VARCHAR},
+      </if>
+      <if test="bccsJnzj != null" >
+        #{bccsJnzj,jdbcType=VARCHAR},
+      </if>
+      <if test="bcslJnzj != null" >
+        #{bcslJnzj,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null" >
+        #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null" >
+        #{year,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.eliteams.quick4j.web.model.DmbczjExample" resultType="java.lang.Integer" >
+    select count(*) from dmbczj
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update dmbczj
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.month != null" >
+        month = #{record.month,jdbcType=INTEGER},
+      </if>
+      <if test="record.city != null" >
+        city = #{record.city,jdbcType=VARCHAR},
+      </if>
+      <if test="record.locRiver != null" >
+        loc_river = #{record.locRiver,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sectionName != null" >
+        section_name = #{record.sectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sectionSx != null" >
+        section_sx = #{record.sectionSx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.objective2018 != null" >
+        objective_2018 = #{record.objective2018,jdbcType=VARCHAR},
+      </if>
+      <if test="record.szlb != null" >
+        szlb = #{record.szlb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cbxm != null" >
+        cbxm = #{record.cbxm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jlJnzj != null" >
+        jl_jnzj = #{record.jlJnzj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lwjfJnzj != null" >
+        lwjf_jnzj = #{record.lwjfJnzj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hjJnzj != null" >
+        hj_jnzj = #{record.hjJnzj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bcxyJnzj != null" >
+        bcxy_jnzj = #{record.bcxyJnzj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bccsJnzj != null" >
+        bccs_jnzj = #{record.bccsJnzj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bcslJnzj != null" >
+        bcsl_jnzj = #{record.bcslJnzj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bz != null" >
+        bz = #{record.bz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.year != null" >
+        year = #{record.year,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update dmbczj
+    set id = #{record.id,jdbcType=INTEGER},
+      month = #{record.month,jdbcType=INTEGER},
+      city = #{record.city,jdbcType=VARCHAR},
+      loc_river = #{record.locRiver,jdbcType=VARCHAR},
+      section_name = #{record.sectionName,jdbcType=VARCHAR},
+      section_sx = #{record.sectionSx,jdbcType=VARCHAR},
+      objective_2018 = #{record.objective2018,jdbcType=VARCHAR},
+      szlb = #{record.szlb,jdbcType=VARCHAR},
+      cbxm = #{record.cbxm,jdbcType=VARCHAR},
+      jl_jnzj = #{record.jlJnzj,jdbcType=VARCHAR},
+      lwjf_jnzj = #{record.lwjfJnzj,jdbcType=VARCHAR},
+      hj_jnzj = #{record.hjJnzj,jdbcType=VARCHAR},
+      bcxy_jnzj = #{record.bcxyJnzj,jdbcType=VARCHAR},
+      bccs_jnzj = #{record.bccsJnzj,jdbcType=VARCHAR},
+      bcsl_jnzj = #{record.bcslJnzj,jdbcType=VARCHAR},
+      bz = #{record.bz,jdbcType=VARCHAR},
+      year = #{record.year,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.eliteams.quick4j.web.model.Dmbczj" >
+    update dmbczj
+    <set >
+      <if test="month != null" >
+        month = #{month,jdbcType=INTEGER},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="locRiver != null" >
+        loc_river = #{locRiver,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionName != null" >
+        section_name = #{sectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionSx != null" >
+        section_sx = #{sectionSx,jdbcType=VARCHAR},
+      </if>
+      <if test="objective2018 != null" >
+        objective_2018 = #{objective2018,jdbcType=VARCHAR},
+      </if>
+      <if test="szlb != null" >
+        szlb = #{szlb,jdbcType=VARCHAR},
+      </if>
+      <if test="cbxm != null" >
+        cbxm = #{cbxm,jdbcType=VARCHAR},
+      </if>
+      <if test="jlJnzj != null" >
+        jl_jnzj = #{jlJnzj,jdbcType=VARCHAR},
+      </if>
+      <if test="lwjfJnzj != null" >
+        lwjf_jnzj = #{lwjfJnzj,jdbcType=VARCHAR},
+      </if>
+      <if test="hjJnzj != null" >
+        hj_jnzj = #{hjJnzj,jdbcType=VARCHAR},
+      </if>
+      <if test="bcxyJnzj != null" >
+        bcxy_jnzj = #{bcxyJnzj,jdbcType=VARCHAR},
+      </if>
+      <if test="bccsJnzj != null" >
+        bccs_jnzj = #{bccsJnzj,jdbcType=VARCHAR},
+      </if>
+      <if test="bcslJnzj != null" >
+        bcsl_jnzj = #{bcslJnzj,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null" >
+        bz = #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null" >
+        year = #{year,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.eliteams.quick4j.web.model.Dmbczj" >
+    update dmbczj
+    set month = #{month,jdbcType=INTEGER},
+      city = #{city,jdbcType=VARCHAR},
+      loc_river = #{locRiver,jdbcType=VARCHAR},
+      section_name = #{sectionName,jdbcType=VARCHAR},
+      section_sx = #{sectionSx,jdbcType=VARCHAR},
+      objective_2018 = #{objective2018,jdbcType=VARCHAR},
+      szlb = #{szlb,jdbcType=VARCHAR},
+      cbxm = #{cbxm,jdbcType=VARCHAR},
+      jl_jnzj = #{jlJnzj,jdbcType=VARCHAR},
+      lwjf_jnzj = #{lwjfJnzj,jdbcType=VARCHAR},
+      hj_jnzj = #{hjJnzj,jdbcType=VARCHAR},
+      bcxy_jnzj = #{bcxyJnzj,jdbcType=VARCHAR},
+      bccs_jnzj = #{bccsJnzj,jdbcType=VARCHAR},
+      bcsl_jnzj = #{bcslJnzj,jdbcType=VARCHAR},
+      bz = #{bz,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <!--selectDmbczjByYearAndMonth-->
+  <select id="selectDmbczj" resultMap="BaseResultMap">
+    select * from dmbczj WHERE years
+    select count(*) from dmbczj
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+
+
+  <select id="selectDmbczjByYearAndMonth" resultType="java.util.Map" parameterType="java.util.Map">
+    select
+    *
+    from dmbczj,qmp_bas_info
+    WHERE
+    YEAR=#{map.year} and MONTH=#{map.month}
+    and qmp_bas_info.section_name = dmbczj.section_name
+
+    <if test="map.city != null">
+      AND  city=#{map.city}
+    </if>
+  </select>
+
+
+  <select id="selectDmbczjByYearBetweenMonth"  resultType="java.util.Map" parameterType="java.util.Map">
+    select
+    *
+    from dmbczj,qmp_bas_info
+    WHERE
+    YEAR = #{map.year} and (MONTH  &gt;= #{map.start_month} and  MONTH  &lt;=  #{map.end_month})
+    and qmp_bas_info.section_name = dmbczj.section_name
+
+    <if test="map.city != null">
+      AND city=#{map.city}
+    </if>
+  </select>
+    <select id="selectDmbczjByYear"  resultType="java.util.Map" parameterType="java.util.Map">
+    select * from dmbczj WHERE year=#{map.year} ORDER BY YEAR ASC, MONTH ASC, convert(city USING gbk) asc, CONVERT(section_name USING gbk)
+  </select>
+
+  <select id="selectDmbczjByYearWithMonth"  resultType="java.util.Map" parameterType="java.util.Map">
+    select * from dmbczj LEFT JOIN csjb on dmbczj.city = csjb.cs_name WHERE cbxm != "" and year=#{map.year} and  (MONTH  &gt;= #{map.start_month} and  MONTH  &lt;=  #{map.end_month}) ORDER BY MONTH ASC, jbpx ASC
+</select>
+
+  <select id="selectDmbczjByYearWithMonthWithRegion"  resultType="java.util.Map" parameterType="java.util.Map">
+    select * from dmbczj WHERE city =#{map.region} and year=#{map.year} and (MONTH   &gt;= #{map.start_month} and  MONTH  &lt;=  #{map.end_month}) ORDER BY YEAR ASC, MONTH ASC, city
+  </select>
+  <!--["沈阳","大连","鞍山","抚顺","本溪","丹东","阜新","辽阳","铁岭","朝阳","盘锦","葫芦岛"]-->
+
+  <!--select-->
+  <!--dmbczj.*, csjb.jbpx, qmp_base.id 'dm_px'-->
+  <!--from-->
+  <!--(-->
+  <!--(dmbczj left join csjb on dmbczj.city=csjb.cs_name)-->
+  <!--left join (select id, section_level, section_name from qmp_bas_info) as qmp_base-->
+  <!--on dmbczj.section_name=qmp_base.section_name-->
+  <!--)-->
+  <!--where-->
+  <!--dmbczj.year = 2018 and `month` >=1 and `month` <= 11-->
+  <!--ORDER BY-->
+  <!--jbpx ASC, qmp_base.id asc, dmbczj.section_name asc, month ASC -->
+  <select id="selectDmbczjByYearWithMonth_kj"  resultType="java.util.Map" parameterType="java.util.Map">
+    select
+    dmbczj.*, csjb.jbpx, qmp_base.id 'dm_px'
+    from
+    ((dmbczj left join csjb on dmbczj.city=csjb.cs_name)
+    left join (select id, section_level, section_name from qmp_bas_info) as qmp_base
+    on dmbczj.section_name=qmp_base.section_name)
+    where
+    dmbczj.year = #{map.year} and `month` &gt;= #{map.start_month} and `month` &lt;=  #{map.end_month} and dmbczj.hj_jnzj <![CDATA[<>]]> 0
+    ORDER BY
+    jbpx ASC, qmp_base.id asc, dmbczj.section_name asc, month ASC
+  </select>
+</mapper>

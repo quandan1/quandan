@@ -1,0 +1,1195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.eliteams.quick4j.web.dao.QmpTestDataMapper" >
+  <resultMap id="BaseResultMap" type="com.eliteams.quick4j.web.model.QmpTestData" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="year" property="year" jdbcType="VARCHAR" />
+    <result column="month" property="month" jdbcType="VARCHAR" />
+    <result column="section_bm" property="sectionBm" jdbcType="VARCHAR" />
+    <result column="section_name" property="sectionName" jdbcType="VARCHAR" />
+    <result column="loc_city" property="locCity" jdbcType="VARCHAR" />
+    <result column="loc_river" property="locRiver" jdbcType="VARCHAR" />
+    <result column="ddl" property="ddl" jdbcType="VARCHAR" />
+    <result column="water_temperature" property="waterTemperature" jdbcType="VARCHAR" />
+    <result column="ph" property="ph" jdbcType="VARCHAR" />
+    <result column="rjy" property="rjy" jdbcType="VARCHAR" />
+    <result column="tmd" property="tmd" jdbcType="VARCHAR" />
+    <result column="yd" property="yd" jdbcType="VARCHAR" />
+    <result column="cod_mn" property="codMn" jdbcType="VARCHAR" />
+    <result column="cod_cr" property="codCr" jdbcType="VARCHAR" />
+    <result column="nh_n" property="nhN" jdbcType="VARCHAR" />
+    <result column="t_p" property="tP" jdbcType="VARCHAR" />
+    <result column="t_n" property="tN" jdbcType="VARCHAR" />
+    <result column="cu" property="cu" jdbcType="VARCHAR" />
+    <result column="zn" property="zn" jdbcType="VARCHAR" />
+    <result column="pb" property="pb" jdbcType="VARCHAR" />
+    <result column="cd" property="cd" jdbcType="VARCHAR" />
+    <result column="bod5" property="bod5" jdbcType="VARCHAR" />
+    <result column="t_as" property="tAs" jdbcType="VARCHAR" />
+    <result column="t_se" property="tSe" jdbcType="VARCHAR" />
+    <result column="t_hg" property="tHg" jdbcType="VARCHAR" />
+    <result column="cr_6" property="cr6" jdbcType="VARCHAR" />
+    <result column="f_" property="f" jdbcType="VARCHAR" />
+    <result column="cn_" property="cn" jdbcType="VARCHAR" />
+    <result column="hff" property="hff" jdbcType="VARCHAR" />
+    <result column="syl" property="syl" jdbcType="VARCHAR" />
+    <result column="las" property="las" jdbcType="VARCHAR" />
+    <result column="s2_" property="s2" jdbcType="VARCHAR" />
+    <result column="chla" property="chla" jdbcType="VARCHAR" />
+    <result column="no3" property="no3" jdbcType="VARCHAR" />
+    <result column="no2" property="no2" jdbcType="VARCHAR" />
+    <result column="ll" property="ll" jdbcType="VARCHAR" />
+    <result column="sw" property="sw" jdbcType="VARCHAR" />
+    <result column="is_del" property="isDel" jdbcType="VARCHAR" />
+    <result column="fdcjqbz" property="fdcjqbz" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, year, month, section_bm, section_name, loc_city, loc_river, ddl, water_temperature, 
+    ph, rjy, tmd, yd, cod_mn, cod_cr, nh_n, t_p, t_n, cu, zn, pb, cd, bod5, t_as, t_se, 
+    t_hg, cr_6, f_, cn_, hff, syl, las, s2_, chla, no3, no2, ll, sw, is_del, fdcjqbz
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.eliteams.quick4j.web.model.QmpTestDataExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from qmp_test_data
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from qmp_test_data
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from qmp_test_data
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.eliteams.quick4j.web.model.QmpTestDataExample" >
+    delete from qmp_test_data
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.eliteams.quick4j.web.model.QmpTestData" >
+    insert into qmp_test_data (id, year, month,
+      section_bm, section_name, loc_city,
+      loc_river, ddl, water_temperature,
+      ph, rjy, tmd, yd,
+      cod_mn, cod_cr, nh_n,
+      t_p, t_n, cu, zn,
+      pb, cd, bod5, t_as,
+      t_se, t_hg, cr_6, f_,
+      cn_, hff, syl, las,
+      s2_, chla, no3, no2,
+      ll, sw, is_del, fdcjqbz
+      )
+    values (#{id,jdbcType=INTEGER}, #{year,jdbcType=VARCHAR}, #{month,jdbcType=VARCHAR},
+      #{sectionBm,jdbcType=VARCHAR}, #{sectionName,jdbcType=VARCHAR}, #{locCity,jdbcType=VARCHAR},
+      #{locRiver,jdbcType=VARCHAR}, #{ddl,jdbcType=VARCHAR}, #{waterTemperature,jdbcType=VARCHAR},
+      #{ph,jdbcType=VARCHAR}, #{rjy,jdbcType=VARCHAR}, #{tmd,jdbcType=VARCHAR}, #{yd,jdbcType=VARCHAR},
+      #{codMn,jdbcType=VARCHAR}, #{codCr,jdbcType=VARCHAR}, #{nhN,jdbcType=VARCHAR},
+      #{tP,jdbcType=VARCHAR}, #{tN,jdbcType=VARCHAR}, #{cu,jdbcType=VARCHAR}, #{zn,jdbcType=VARCHAR},
+      #{pb,jdbcType=VARCHAR}, #{cd,jdbcType=VARCHAR}, #{bod5,jdbcType=VARCHAR}, #{tAs,jdbcType=VARCHAR},
+      #{tSe,jdbcType=VARCHAR}, #{tHg,jdbcType=VARCHAR}, #{cr6,jdbcType=VARCHAR}, #{f,jdbcType=VARCHAR},
+      #{cn,jdbcType=VARCHAR}, #{hff,jdbcType=VARCHAR}, #{syl,jdbcType=VARCHAR}, #{las,jdbcType=VARCHAR},
+      #{s2,jdbcType=VARCHAR}, #{chla,jdbcType=VARCHAR}, #{no3,jdbcType=VARCHAR}, #{no2,jdbcType=VARCHAR},
+      #{ll,jdbcType=VARCHAR}, #{sw,jdbcType=VARCHAR}, #{isDel,jdbcType=VARCHAR}, #{fdcjqbz,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.eliteams.quick4j.web.model.QmpTestData" >
+    insert into qmp_test_data
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="year != null" >
+        year,
+      </if>
+      <if test="month != null" >
+        month,
+      </if>
+      <if test="sectionBm != null" >
+        section_bm,
+      </if>
+      <if test="sectionName != null" >
+        section_name,
+      </if>
+      <if test="locCity != null" >
+        loc_city,
+      </if>
+      <if test="locRiver != null" >
+        loc_river,
+      </if>
+      <if test="ddl != null" >
+        ddl,
+      </if>
+      <if test="waterTemperature != null" >
+        water_temperature,
+      </if>
+      <if test="ph != null" >
+        ph,
+      </if>
+      <if test="rjy != null" >
+        rjy,
+      </if>
+      <if test="tmd != null" >
+        tmd,
+      </if>
+      <if test="yd != null" >
+        yd,
+      </if>
+      <if test="codMn != null" >
+        cod_mn,
+      </if>
+      <if test="codCr != null" >
+        cod_cr,
+      </if>
+      <if test="nhN != null" >
+        nh_n,
+      </if>
+      <if test="tP != null" >
+        t_p,
+      </if>
+      <if test="tN != null" >
+        t_n,
+      </if>
+      <if test="cu != null" >
+        cu,
+      </if>
+      <if test="zn != null" >
+        zn,
+      </if>
+      <if test="pb != null" >
+        pb,
+      </if>
+      <if test="cd != null" >
+        cd,
+      </if>
+      <if test="bod5 != null" >
+        bod5,
+      </if>
+      <if test="tAs != null" >
+        t_as,
+      </if>
+      <if test="tSe != null" >
+        t_se,
+      </if>
+      <if test="tHg != null" >
+        t_hg,
+      </if>
+      <if test="cr6 != null" >
+        cr_6,
+      </if>
+      <if test="f != null" >
+        f_,
+      </if>
+      <if test="cn != null" >
+        cn_,
+      </if>
+      <if test="hff != null" >
+        hff,
+      </if>
+      <if test="syl != null" >
+        syl,
+      </if>
+      <if test="las != null" >
+        las,
+      </if>
+      <if test="s2 != null" >
+        s2_,
+      </if>
+      <if test="chla != null" >
+        chla,
+      </if>
+      <if test="no3 != null" >
+        no3,
+      </if>
+      <if test="no2 != null" >
+        no2,
+      </if>
+      <if test="ll != null" >
+        ll,
+      </if>
+      <if test="sw != null" >
+        sw,
+      </if>
+      <if test="isDel != null" >
+        is_del,
+      </if>
+      <if test="fdcjqbz != null" >
+        fdcjqbz,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="year != null" >
+        #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="month != null" >
+        #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionBm != null" >
+        #{sectionBm,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionName != null" >
+        #{sectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="locCity != null" >
+        #{locCity,jdbcType=VARCHAR},
+      </if>
+      <if test="locRiver != null" >
+        #{locRiver,jdbcType=VARCHAR},
+      </if>
+      <if test="ddl != null" >
+        #{ddl,jdbcType=VARCHAR},
+      </if>
+      <if test="waterTemperature != null" >
+        #{waterTemperature,jdbcType=VARCHAR},
+      </if>
+      <if test="ph != null" >
+        #{ph,jdbcType=VARCHAR},
+      </if>
+      <if test="rjy != null" >
+        #{rjy,jdbcType=VARCHAR},
+      </if>
+      <if test="tmd != null" >
+        #{tmd,jdbcType=VARCHAR},
+      </if>
+      <if test="yd != null" >
+        #{yd,jdbcType=VARCHAR},
+      </if>
+      <if test="codMn != null" >
+        #{codMn,jdbcType=VARCHAR},
+      </if>
+      <if test="codCr != null" >
+        #{codCr,jdbcType=VARCHAR},
+      </if>
+      <if test="nhN != null" >
+        #{nhN,jdbcType=VARCHAR},
+      </if>
+      <if test="tP != null" >
+        #{tP,jdbcType=VARCHAR},
+      </if>
+      <if test="tN != null" >
+        #{tN,jdbcType=VARCHAR},
+      </if>
+      <if test="cu != null" >
+        #{cu,jdbcType=VARCHAR},
+      </if>
+      <if test="zn != null" >
+        #{zn,jdbcType=VARCHAR},
+      </if>
+      <if test="pb != null" >
+        #{pb,jdbcType=VARCHAR},
+      </if>
+      <if test="cd != null" >
+        #{cd,jdbcType=VARCHAR},
+      </if>
+      <if test="bod5 != null" >
+        #{bod5,jdbcType=VARCHAR},
+      </if>
+      <if test="tAs != null" >
+        #{tAs,jdbcType=VARCHAR},
+      </if>
+      <if test="tSe != null" >
+        #{tSe,jdbcType=VARCHAR},
+      </if>
+      <if test="tHg != null" >
+        #{tHg,jdbcType=VARCHAR},
+      </if>
+      <if test="cr6 != null" >
+        #{cr6,jdbcType=VARCHAR},
+      </if>
+      <if test="f != null" >
+        #{f,jdbcType=VARCHAR},
+      </if>
+      <if test="cn != null" >
+        #{cn,jdbcType=VARCHAR},
+      </if>
+      <if test="hff != null" >
+        #{hff,jdbcType=VARCHAR},
+      </if>
+      <if test="syl != null" >
+        #{syl,jdbcType=VARCHAR},
+      </if>
+      <if test="las != null" >
+        #{las,jdbcType=VARCHAR},
+      </if>
+      <if test="s2 != null" >
+        #{s2,jdbcType=VARCHAR},
+      </if>
+      <if test="chla != null" >
+        #{chla,jdbcType=VARCHAR},
+      </if>
+      <if test="no3 != null" >
+        #{no3,jdbcType=VARCHAR},
+      </if>
+      <if test="no2 != null" >
+        #{no2,jdbcType=VARCHAR},
+      </if>
+      <if test="ll != null" >
+        #{ll,jdbcType=VARCHAR},
+      </if>
+      <if test="sw != null" >
+        #{sw,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=VARCHAR},
+      </if>
+      <if test="fdcjqbz != null" >
+        #{fdcjqbz,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.eliteams.quick4j.web.model.QmpTestDataExample" resultType="java.lang.Integer" >
+    select count(*) from qmp_test_data
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update qmp_test_data
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.year != null" >
+        year = #{record.year,jdbcType=VARCHAR},
+      </if>
+      <if test="record.month != null" >
+        month = #{record.month,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sectionBm != null" >
+        section_bm = #{record.sectionBm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sectionName != null" >
+        section_name = #{record.sectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.locCity != null" >
+        loc_city = #{record.locCity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.locRiver != null" >
+        loc_river = #{record.locRiver,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ddl != null" >
+        ddl = #{record.ddl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.waterTemperature != null" >
+        water_temperature = #{record.waterTemperature,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ph != null" >
+        ph = #{record.ph,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rjy != null" >
+        rjy = #{record.rjy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tmd != null" >
+        tmd = #{record.tmd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yd != null" >
+        yd = #{record.yd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.codMn != null" >
+        cod_mn = #{record.codMn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.codCr != null" >
+        cod_cr = #{record.codCr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nhN != null" >
+        nh_n = #{record.nhN,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tP != null" >
+        t_p = #{record.tP,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tN != null" >
+        t_n = #{record.tN,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cu != null" >
+        cu = #{record.cu,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zn != null" >
+        zn = #{record.zn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pb != null" >
+        pb = #{record.pb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cd != null" >
+        cd = #{record.cd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bod5 != null" >
+        bod5 = #{record.bod5,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tAs != null" >
+        t_as = #{record.tAs,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tSe != null" >
+        t_se = #{record.tSe,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tHg != null" >
+        t_hg = #{record.tHg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cr6 != null" >
+        cr_6 = #{record.cr6,jdbcType=VARCHAR},
+      </if>
+      <if test="record.f != null" >
+        f_ = #{record.f,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cn != null" >
+        cn_ = #{record.cn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hff != null" >
+        hff = #{record.hff,jdbcType=VARCHAR},
+      </if>
+      <if test="record.syl != null" >
+        syl = #{record.syl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.las != null" >
+        las = #{record.las,jdbcType=VARCHAR},
+      </if>
+      <if test="record.s2 != null" >
+        s2_ = #{record.s2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chla != null" >
+        chla = #{record.chla,jdbcType=VARCHAR},
+      </if>
+      <if test="record.no3 != null" >
+        no3 = #{record.no3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.no2 != null" >
+        no2 = #{record.no2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ll != null" >
+        ll = #{record.ll,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sw != null" >
+        sw = #{record.sw,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isDel != null" >
+        is_del = #{record.isDel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fdcjqbz != null" >
+        fdcjqbz = #{record.fdcjqbz,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update qmp_test_data
+    set id = #{record.id,jdbcType=INTEGER},
+    year = #{record.year,jdbcType=VARCHAR},
+    month = #{record.month,jdbcType=VARCHAR},
+    section_bm = #{record.sectionBm,jdbcType=VARCHAR},
+    section_name = #{record.sectionName,jdbcType=VARCHAR},
+    loc_city = #{record.locCity,jdbcType=VARCHAR},
+    loc_river = #{record.locRiver,jdbcType=VARCHAR},
+    ddl = #{record.ddl,jdbcType=VARCHAR},
+    water_temperature = #{record.waterTemperature,jdbcType=VARCHAR},
+    ph = #{record.ph,jdbcType=VARCHAR},
+    rjy = #{record.rjy,jdbcType=VARCHAR},
+    tmd = #{record.tmd,jdbcType=VARCHAR},
+    yd = #{record.yd,jdbcType=VARCHAR},
+    cod_mn = #{record.codMn,jdbcType=VARCHAR},
+    cod_cr = #{record.codCr,jdbcType=VARCHAR},
+    nh_n = #{record.nhN,jdbcType=VARCHAR},
+    t_p = #{record.tP,jdbcType=VARCHAR},
+    t_n = #{record.tN,jdbcType=VARCHAR},
+    cu = #{record.cu,jdbcType=VARCHAR},
+    zn = #{record.zn,jdbcType=VARCHAR},
+    pb = #{record.pb,jdbcType=VARCHAR},
+    cd = #{record.cd,jdbcType=VARCHAR},
+    bod5 = #{record.bod5,jdbcType=VARCHAR},
+    t_as = #{record.tAs,jdbcType=VARCHAR},
+    t_se = #{record.tSe,jdbcType=VARCHAR},
+    t_hg = #{record.tHg,jdbcType=VARCHAR},
+    cr_6 = #{record.cr6,jdbcType=VARCHAR},
+    f_ = #{record.f,jdbcType=VARCHAR},
+    cn_ = #{record.cn,jdbcType=VARCHAR},
+    hff = #{record.hff,jdbcType=VARCHAR},
+    syl = #{record.syl,jdbcType=VARCHAR},
+    las = #{record.las,jdbcType=VARCHAR},
+    s2_ = #{record.s2,jdbcType=VARCHAR},
+    chla = #{record.chla,jdbcType=VARCHAR},
+    no3 = #{record.no3,jdbcType=VARCHAR},
+    no2 = #{record.no2,jdbcType=VARCHAR},
+    ll = #{record.ll,jdbcType=VARCHAR},
+    sw = #{record.sw,jdbcType=VARCHAR},
+    is_del = #{record.isDel,jdbcType=VARCHAR},
+    fdcjqbz = #{record.fdcjqbz,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.eliteams.quick4j.web.model.QmpTestData" >
+    update qmp_test_data
+    <set >
+      <if test="year != null" >
+        year = #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="month != null" >
+        month = #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionBm != null" >
+        section_bm = #{sectionBm,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionName != null" >
+        section_name = #{sectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="locCity != null" >
+        loc_city = #{locCity,jdbcType=VARCHAR},
+      </if>
+      <if test="locRiver != null" >
+        loc_river = #{locRiver,jdbcType=VARCHAR},
+      </if>
+      <if test="ddl != null" >
+        ddl = #{ddl,jdbcType=VARCHAR},
+      </if>
+      <if test="waterTemperature != null" >
+        water_temperature = #{waterTemperature,jdbcType=VARCHAR},
+      </if>
+      <if test="ph != null" >
+        ph = #{ph,jdbcType=VARCHAR},
+      </if>
+      <if test="rjy != null" >
+        rjy = #{rjy,jdbcType=VARCHAR},
+      </if>
+      <if test="tmd != null" >
+        tmd = #{tmd,jdbcType=VARCHAR},
+      </if>
+      <if test="yd != null" >
+        yd = #{yd,jdbcType=VARCHAR},
+      </if>
+      <if test="codMn != null" >
+        cod_mn = #{codMn,jdbcType=VARCHAR},
+      </if>
+      <if test="codCr != null" >
+        cod_cr = #{codCr,jdbcType=VARCHAR},
+      </if>
+      <if test="nhN != null" >
+        nh_n = #{nhN,jdbcType=VARCHAR},
+      </if>
+      <if test="tP != null" >
+        t_p = #{tP,jdbcType=VARCHAR},
+      </if>
+      <if test="tN != null" >
+        t_n = #{tN,jdbcType=VARCHAR},
+      </if>
+      <if test="cu != null" >
+        cu = #{cu,jdbcType=VARCHAR},
+      </if>
+      <if test="zn != null" >
+        zn = #{zn,jdbcType=VARCHAR},
+      </if>
+      <if test="pb != null" >
+        pb = #{pb,jdbcType=VARCHAR},
+      </if>
+      <if test="cd != null" >
+        cd = #{cd,jdbcType=VARCHAR},
+      </if>
+      <if test="bod5 != null" >
+        bod5 = #{bod5,jdbcType=VARCHAR},
+      </if>
+      <if test="tAs != null" >
+        t_as = #{tAs,jdbcType=VARCHAR},
+      </if>
+      <if test="tSe != null" >
+        t_se = #{tSe,jdbcType=VARCHAR},
+      </if>
+      <if test="tHg != null" >
+        t_hg = #{tHg,jdbcType=VARCHAR},
+      </if>
+      <if test="cr6 != null" >
+        cr_6 = #{cr6,jdbcType=VARCHAR},
+      </if>
+      <if test="f != null" >
+        f_ = #{f,jdbcType=VARCHAR},
+      </if>
+      <if test="cn != null" >
+        cn_ = #{cn,jdbcType=VARCHAR},
+      </if>
+      <if test="hff != null" >
+        hff = #{hff,jdbcType=VARCHAR},
+      </if>
+      <if test="syl != null" >
+        syl = #{syl,jdbcType=VARCHAR},
+      </if>
+      <if test="las != null" >
+        las = #{las,jdbcType=VARCHAR},
+      </if>
+      <if test="s2 != null" >
+        s2_ = #{s2,jdbcType=VARCHAR},
+      </if>
+      <if test="chla != null" >
+        chla = #{chla,jdbcType=VARCHAR},
+      </if>
+      <if test="no3 != null" >
+        no3 = #{no3,jdbcType=VARCHAR},
+      </if>
+      <if test="no2 != null" >
+        no2 = #{no2,jdbcType=VARCHAR},
+      </if>
+      <if test="ll != null" >
+        ll = #{ll,jdbcType=VARCHAR},
+      </if>
+      <if test="sw != null" >
+        sw = #{sw,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        is_del = #{isDel,jdbcType=VARCHAR},
+      </if>
+      <if test="fdcjqbz != null" >
+        fdcjqbz = #{fdcjqbz,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.eliteams.quick4j.web.model.QmpTestData" >
+    update qmp_test_data
+    set year = #{year,jdbcType=VARCHAR},
+      month = #{month,jdbcType=VARCHAR},
+      section_bm = #{sectionBm,jdbcType=VARCHAR},
+      section_name = #{sectionName,jdbcType=VARCHAR},
+      loc_city = #{locCity,jdbcType=VARCHAR},
+      loc_river = #{locRiver,jdbcType=VARCHAR},
+      ddl = #{ddl,jdbcType=VARCHAR},
+      water_temperature = #{waterTemperature,jdbcType=VARCHAR},
+      ph = #{ph,jdbcType=VARCHAR},
+      rjy = #{rjy,jdbcType=VARCHAR},
+      tmd = #{tmd,jdbcType=VARCHAR},
+      yd = #{yd,jdbcType=VARCHAR},
+      cod_mn = #{codMn,jdbcType=VARCHAR},
+      cod_cr = #{codCr,jdbcType=VARCHAR},
+      nh_n = #{nhN,jdbcType=VARCHAR},
+      t_p = #{tP,jdbcType=VARCHAR},
+      t_n = #{tN,jdbcType=VARCHAR},
+      cu = #{cu,jdbcType=VARCHAR},
+      zn = #{zn,jdbcType=VARCHAR},
+      pb = #{pb,jdbcType=VARCHAR},
+      cd = #{cd,jdbcType=VARCHAR},
+      bod5 = #{bod5,jdbcType=VARCHAR},
+      t_as = #{tAs,jdbcType=VARCHAR},
+      t_se = #{tSe,jdbcType=VARCHAR},
+      t_hg = #{tHg,jdbcType=VARCHAR},
+      cr_6 = #{cr6,jdbcType=VARCHAR},
+      f_ = #{f,jdbcType=VARCHAR},
+      cn_ = #{cn,jdbcType=VARCHAR},
+      hff = #{hff,jdbcType=VARCHAR},
+      syl = #{syl,jdbcType=VARCHAR},
+      las = #{las,jdbcType=VARCHAR},
+      s2_ = #{s2,jdbcType=VARCHAR},
+      chla = #{chla,jdbcType=VARCHAR},
+      no3 = #{no3,jdbcType=VARCHAR},
+      no2 = #{no2,jdbcType=VARCHAR},
+      ll = #{ll,jdbcType=VARCHAR},
+      sw = #{sw,jdbcType=VARCHAR},
+      is_del = #{isDel,jdbcType=VARCHAR},
+      fdcjqbz = #{fdcjqbz,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="searchByPage" resultMap="BaseResultMap">
+    select
+    *
+    from qmp_test_data
+    WHERE
+    <trim>
+      <if test="map.id != null">
+        id = #{map.id} and
+      </if>
+      <if test="map.year != null">
+        year LIKE CONCAT('%', #{map.year}, '%') and
+      </if>
+      <if test="map.month != null">
+        month LIKE CONCAT('%', #{map.month}, '%') and
+      </if>
+      <if test="map.section_bm != null">
+        section_bm LIKE CONCAT('%', #{map.section_bm}, '%') and
+      </if>
+      <if test="map.section_name != null">
+        section_name LIKE CONCAT('%', #{map.section_name}, '%') and
+      </if>
+      <if test="map.loc_city != null">
+        loc_city LIKE CONCAT('%', #{map.loc_city}, '%') and
+      </if>
+      <if test="map.loc_river != null">
+        loc_river LIKE CONCAT('%', #{map.loc_river}, '%') and
+      </if>
+      <if test="map.ddl != null">
+        ddl LIKE CONCAT('%', #{map.ddl}, '%') and
+      </if>
+      <if test="map.water_temperature != null">
+        water_temperature LIKE CONCAT('%', #{map.water_temperature}, '%') and
+      </if>
+      <if test="map.ph != null">
+        ph LIKE CONCAT('%', #{map.ph}, '%') and
+      </if>
+      <if test="map.rjy != null">
+        rjy LIKE CONCAT('%', #{map.rjy}, '%') and
+      </if>
+      <if test="map.tmd != null">
+        tmd LIKE CONCAT('%', #{map.tmd}, '%') and
+      </if>
+      <if test="map.yd != null">
+        yd LIKE CONCAT('%', #{map.yd}, '%') and
+      </if>
+      <if test="map.cod_mn != null">
+        cod_mn LIKE CONCAT('%', #{map.cod_mn}, '%') and
+      </if>
+      <if test="map.cod_cr != null">
+        cod_cr LIKE CONCAT('%', #{map.cod_cr}, '%') and
+      </if>
+      <if test="map.nh_n != null">
+        nh_n LIKE CONCAT('%', #{map.nh_n}, '%') and
+      </if>
+      <if test="map.t_p != null">
+        t_p LIKE CONCAT('%', #{map.t_p}, '%') and
+      </if>
+      <if test="map.t_n != null">
+        t_n LIKE CONCAT('%', #{map.t_n}, '%') and
+      </if>
+      <if test="map.cu != null">
+        cu LIKE CONCAT('%', #{map.cu}, '%') and
+      </if>
+      <if test="map.zu != null">
+        zu LIKE CONCAT('%', #{map.zu}, '%') and
+      </if>
+      <if test="map.pb != null">
+        pb LIKE CONCAT('%', #{map.pb}, '%') and
+      </if>
+      <if test="map.cd != null">
+        cd LIKE CONCAT('%', #{map.cd}, '%') and
+      </if>
+      <if test="map.bod5 != null">
+        bod5 LIKE CONCAT('%', #{map.bod5}, '%') and
+      </if>
+      <if test="map.t_as != null">
+        t_as LIKE CONCAT('%', #{map.t_as}, '%') and
+      </if>
+      <if test="map.t_se != null">
+        t_se LIKE CONCAT('%', #{map.t_se}, '%') and
+      </if>
+      <if test="map.t_hg != null">
+        t_hg LIKE CONCAT('%', #{map.t_hg}, '%') and
+      </if>
+      <if test="map.cr_6 != null">
+        cr_6 LIKE CONCAT('%', #{map.cr_6}, '%') and
+      </if>
+      <if test="map.f_ != null">
+        f_ LIKE CONCAT('%', #{map.f_}, '%') and
+      </if>
+      <if test="map.cn_ != null">
+        cn_ LIKE CONCAT('%', #{map.cn_}, '%') and
+      </if>
+      <if test="map.hff != null">
+        hff LIKE CONCAT('%', #{map.hff}, '%') and
+      </if>
+      <if test="map.syl != null">
+        syl LIKE CONCAT('%', #{map.syl}, '%') and
+      </if>
+      <if test="map.las != null">
+        las LIKE CONCAT('%', #{map.las}, '%') and
+      </if>
+      <if test="map.s2_ != null">
+        s2_ LIKE CONCAT('%', #{map.s2_}, '%') and
+      </if>
+      <if test="map.chla != null">
+        chla LIKE CONCAT('%', #{map.chla}, '%') and
+      </if>
+      <if test="map.no3 != null">
+        no3 LIKE CONCAT('%', #{map.no3}, '%') and
+      </if>
+      <if test="map.no2 != null">
+        no2 LIKE CONCAT('%', #{map.no2}, '%') and
+      </if>
+      <if test="map.ll != null">
+        ll LIKE CONCAT('%', #{map.ll}, '%') and
+      </if>
+      <if test="map.sw != null">
+        sw LIKE CONCAT('%', #{map.sw}, '%') and
+      </if>
+      <if test="map.fdcjqbz != null">
+        fdcjqbz LIKE CONCAT('%', #{map.fdcjqbz}, '%') and
+      </if>
+      is_del = 0
+    </trim>
+    limit #{startPos},#{pageSize}
+  </select>
+
+  <select id="getSearchCount" resultType="java.lang.Integer" parameterType="java.util.Map">
+    select
+    count(*)
+    from qmp_test_data
+    WHERE
+    <trim>
+      <if test="map.id != null">
+        id = #{map.id} and
+      </if>
+      <if test="map.year != null">
+        year LIKE CONCAT('%', #{map.year}, '%') and
+      </if>
+      <if test="map.month != null">
+        month LIKE CONCAT('%', #{map.month}, '%') and
+      </if>
+      <if test="map.section_bm != null">
+        section_bm LIKE CONCAT('%', #{map.section_bm}, '%') and
+      </if>
+      <if test="map.section_name != null">
+        section_name LIKE CONCAT('%', #{map.section_name}, '%') and
+      </if>
+      <if test="map.loc_city != null">
+        loc_city LIKE CONCAT('%', #{map.loc_city}, '%') and
+      </if>
+      <if test="map.loc_river != null">
+        loc_river LIKE CONCAT('%', #{map.loc_river}, '%') and
+      </if>
+      <if test="map.ddl != null">
+        ddl LIKE CONCAT('%', #{map.ddl}, '%') and
+      </if>
+      <if test="map.water_temperature != null">
+        water_temperature LIKE CONCAT('%', #{map.water_temperature}, '%') and
+      </if>
+      <if test="map.ph != null">
+        ph LIKE CONCAT('%', #{map.ph}, '%') and
+      </if>
+      <if test="map.rjy != null">
+        rjy LIKE CONCAT('%', #{map.rjy}, '%') and
+      </if>
+      <if test="map.tmd != null">
+        tmd LIKE CONCAT('%', #{map.tmd}, '%') and
+      </if>
+      <if test="map.yd != null">
+        yd LIKE CONCAT('%', #{map.yd}, '%') and
+      </if>
+      <if test="map.cod_mn != null">
+        cod_mn LIKE CONCAT('%', #{map.cod_mn}, '%') and
+      </if>
+      <if test="map.cod_cr != null">
+        cod_cr LIKE CONCAT('%', #{map.cod_cr}, '%') and
+      </if>
+      <if test="map.nh_n != null">
+        nh_n LIKE CONCAT('%', #{map.nh_n}, '%') and
+      </if>
+      <if test="map.t_p != null">
+        t_p LIKE CONCAT('%', #{map.t_p}, '%') and
+      </if>
+      <if test="map.t_n != null">
+        t_n LIKE CONCAT('%', #{map.t_n}, '%') and
+      </if>
+      <if test="map.cu != null">
+        cu LIKE CONCAT('%', #{map.cu}, '%') and
+      </if>
+      <if test="map.zu != null">
+        zu LIKE CONCAT('%', #{map.zu}, '%') and
+      </if>
+      <if test="map.pb != null">
+        pb LIKE CONCAT('%', #{map.pb}, '%') and
+      </if>
+      <if test="map.cd != null">
+        cd LIKE CONCAT('%', #{map.cd}, '%') and
+      </if>
+      <if test="map.bod5 != null">
+        bod5 LIKE CONCAT('%', #{map.bod5}, '%') and
+      </if>
+      <if test="map.t_as != null">
+        t_as LIKE CONCAT('%', #{map.t_as}, '%') and
+      </if>
+      <if test="map.t_se != null">
+        t_se LIKE CONCAT('%', #{map.t_se}, '%') and
+      </if>
+      <if test="map.t_hg != null">
+        t_hg LIKE CONCAT('%', #{map.t_hg}, '%') and
+      </if>
+      <if test="map.cr_6 != null">
+        cr_6 LIKE CONCAT('%', #{map.cr_6}, '%') and
+      </if>
+      <if test="map.f_ != null">
+        f_ LIKE CONCAT('%', #{map.f_}, '%') and
+      </if>
+      <if test="map.cn_ != null">
+        cn_ LIKE CONCAT('%', #{map.cn_}, '%') and
+      </if>
+      <if test="map.hff != null">
+        hff LIKE CONCAT('%', #{map.hff}, '%') and
+      </if>
+      <if test="map.syl != null">
+        syl LIKE CONCAT('%', #{map.syl}, '%') and
+      </if>
+      <if test="map.las != null">
+        las LIKE CONCAT('%', #{map.las}, '%') and
+      </if>
+      <if test="map.s2_ != null">
+        s2_ LIKE CONCAT('%', #{map.s2_}, '%') and
+      </if>
+      <if test="map.chla != null">
+        chla LIKE CONCAT('%', #{map.chla}, '%') and
+      </if>
+      <if test="map.no3 != null">
+        no3 LIKE CONCAT('%', #{map.no3}, '%') and
+      </if>
+      <if test="map.no2 != null">
+        no2 LIKE CONCAT('%', #{map.no2}, '%') and
+      </if>
+      <if test="map.ll != null">
+        ll LIKE CONCAT('%', #{map.ll}, '%') and
+      </if>
+      <if test="map.sw != null">
+        sw LIKE CONCAT('%', #{map.sw}, '%') and
+      </if>
+      <if test="map.fdcjqbz != null">
+        fdcjqbz LIKE CONCAT('%', #{map.fdcjqbz}, '%') and
+      </if>
+      is_del = 0
+    </trim>
+  </select>
+  <update id="deleteById" parameterType="java.lang.Integer">
+    update qmp_test_data
+    set is_del = 1
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <!-- 取得记录的总数 -->
+  <select id="getCount" resultType="java.lang.Integer">
+    select
+    count(*)
+    from qmp_test_data
+    where
+
+    is_del = 0
+  </select>
+  <!-- 分页SQL语句 -->
+  <select id="selectByPage" resultMap="BaseResultMap">
+    select
+    *
+    from qmp_test_data
+    WHERE
+
+    is_del =
+    0
+    limit #{startPos},#{pageSize}
+  </select>
+  <select id="selectForMap" resultMap="BaseResultMap">
+    select
+    *
+    from qmp_test_data
+    WHERE
+    <trim>
+      <if test="map.id != null">
+        id = #{map.id} and
+      </if>
+      <if test="map.year != null">
+        year LIKE CONCAT('%', #{map.year}, '%') and
+      </if>
+      <if test="map.month != null">
+        month LIKE CONCAT('%', #{map.month}, '%') and
+      </if>
+      <if test="map.section_bm != null">
+        section_bm LIKE CONCAT('%', #{map.section_bm}, '%') and
+      </if>
+      <if test="map.section_name != null">
+        section_name LIKE CONCAT('%', #{map.section_name}, '%') and
+      </if>
+      <if test="map.loc_city != null">
+        loc_city LIKE CONCAT('%', #{map.loc_city}, '%') and
+      </if>
+      <if test="map.loc_river != null">
+        loc_river LIKE CONCAT('%', #{map.loc_river}, '%') and
+      </if>
+      <if test="map.ddl != null">
+        ddl LIKE CONCAT('%', #{map.ddl}, '%') and
+      </if>
+      <if test="map.water_temperature != null">
+        water_temperature LIKE CONCAT('%', #{map.water_temperature}, '%') and
+      </if>
+      <if test="map.ph != null">
+        ph LIKE CONCAT('%', #{map.ph}, '%') and
+      </if>
+      <if test="map.rjy != null">
+        rjy LIKE CONCAT('%', #{map.rjy}, '%') and
+      </if>
+      <if test="map.tmd != null">
+        tmd LIKE CONCAT('%', #{map.tmd}, '%') and
+      </if>
+      <if test="map.yd != null">
+        yd LIKE CONCAT('%', #{map.yd}, '%') and
+      </if>
+      <if test="map.cod_mn != null">
+        cod_mn LIKE CONCAT('%', #{map.cod_mn}, '%') and
+      </if>
+      <if test="map.cod_cr != null">
+        cod_cr LIKE CONCAT('%', #{map.cod_cr}, '%') and
+      </if>
+      <if test="map.nh_n != null">
+        nh_n LIKE CONCAT('%', #{map.nh_n}, '%') and
+      </if>
+      <if test="map.t_p != null">
+        t_p LIKE CONCAT('%', #{map.t_p}, '%') and
+      </if>
+      <if test="map.t_n != null">
+        t_n LIKE CONCAT('%', #{map.t_n}, '%') and
+      </if>
+      <if test="map.cu != null">
+        cu LIKE CONCAT('%', #{map.cu}, '%') and
+      </if>
+      <if test="map.zu != null">
+        zu LIKE CONCAT('%', #{map.zu}, '%') and
+      </if>
+      <if test="map.pb != null">
+        pb LIKE CONCAT('%', #{map.pb}, '%') and
+      </if>
+      <if test="map.cd != null">
+        cd LIKE CONCAT('%', #{map.cd}, '%') and
+      </if>
+      <if test="map.bod5 != null">
+        bod5 LIKE CONCAT('%', #{map.bod5}, '%') and
+      </if>
+      <if test="map.t_as != null">
+        t_as LIKE CONCAT('%', #{map.t_as}, '%') and
+      </if>
+      <if test="map.t_se != null">
+        t_se LIKE CONCAT('%', #{map.t_se}, '%') and
+      </if>
+      <if test="map.t_hg != null">
+        t_hg LIKE CONCAT('%', #{map.t_hg}, '%') and
+      </if>
+      <if test="map.cr_6 != null">
+        cr_6 LIKE CONCAT('%', #{map.cr_6}, '%') and
+      </if>
+      <if test="map.f_ != null">
+        f_ LIKE CONCAT('%', #{map.f_}, '%') and
+      </if>
+      <if test="map.cn_ != null">
+        cn_ LIKE CONCAT('%', #{map.cn_}, '%') and
+      </if>
+      <if test="map.hff != null">
+        hff LIKE CONCAT('%', #{map.hff}, '%') and
+      </if>
+      <if test="map.syl != null">
+        syl LIKE CONCAT('%', #{map.syl}, '%') and
+      </if>
+      <if test="map.las != null">
+        las LIKE CONCAT('%', #{map.las}, '%') and
+      </if>
+      <if test="map.s2_ != null">
+        s2_ LIKE CONCAT('%', #{map.s2_}, '%') and
+      </if>
+      <if test="map.chla != null">
+        chla LIKE CONCAT('%', #{map.chla}, '%') and
+      </if>
+      <if test="map.no3 != null">
+        no3 LIKE CONCAT('%', #{map.no3}, '%') and
+      </if>
+      <if test="map.no2 != null">
+        no2 LIKE CONCAT('%', #{map.no2}, '%') and
+      </if>
+      <if test="map.ll != null">
+        ll LIKE CONCAT('%', #{map.ll}, '%') and
+      </if>
+      <if test="map.sw != null">
+        sw LIKE CONCAT('%', #{map.sw}, '%') and
+      </if>
+      <if test="map.fdcjqbz != null">
+        fdcjqbz LIKE CONCAT('%', #{map.fdcjqbz}, '%') and
+      </if>
+      is_del = 0
+    </trim>
+  </select>
+  <select id="getCbyzInfos" resultType="java.util.Map" parameterType="java.util.Map">
+    SELECT ROUND(REPLACE(cod_mn,-1,0),2) AS cod_mn,ROUND(REPLACE(cod_cr,-1,0),2) AS cod_cr,ROUND(REPLACE(nh_n,-1,0),2) AS nh_n,ROUND(REPLACE(t_p,-1,0),2) AS t_p,ROUND(REPLACE(bod5,-1,0),2) AS bod5,ROUND(REPLACE(f_,-1,0),2) AS f_,ROUND(REPLACE(hff,-1,0),2) AS hff,ROUND(REPLACE(syl,-1,0),2) AS syl,ROUND(REPLACE(las,-1,0),2) AS las FROM qmp_test_data WHERE
+    <trim>
+      <if test="map.section_name != null">
+        section_name = #{map.section_name} AND
+      </if>
+      <if test="map.year != null">
+        year = #{map.year} AND
+      </if>
+      <if test="map.month != null">
+        month = #{map.month} AND
+      </if>
+      is_del=0
+    </trim>
+  </select>
+  <select id="getCbyzAddInfos" resultType="java.util.Map" parameterType="java.util.Map">
+    SELECT ROUND(SUM(REPLACE(cod_mn,-1,0)),2) AS cod_mn_add,ROUND(SUM(REPLACE(cod_cr,-1,0)),2) AS cod_cr_add,ROUND(SUM(REPLACE(nh_n,-1,0)),2) AS nh_n_add,ROUND(SUM(REPLACE(t_p,-1,0)),2) AS t_p_add,ROUND(SUM(REPLACE(bod5,-1,0)),2) AS bod5_add,ROUND(SUM(REPLACE(f_,-1,0)),2) AS f__add,ROUND(SUM(REPLACE(hff,-1,0)),2) AS hff_add,ROUND(SUM(REPLACE(syl,-1,0)),2) AS syl_add,ROUND(SUM(REPLACE(las,-1,0)),2) AS las_add FROM qmp_test_data WHERE
+    <trim>
+      <if test="map.section_name != null">
+        section_name = #{map.section_name} AND
+      </if>
+      <if test="map.year != null">
+        year = #{map.year} AND
+      </if>
+      <if test="map.month != null">
+        month &lt;= #{map.month} AND
+      </if>
+      is_del=0
+    </trim>
+  </select>
+
+</mapper>

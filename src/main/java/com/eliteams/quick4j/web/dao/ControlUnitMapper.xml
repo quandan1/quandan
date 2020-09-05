@@ -1,0 +1,875 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.eliteams.quick4j.web.dao.ControlUnitMapper" >
+  <resultMap id="BaseResultMap" type="com.eliteams.quick4j.web.model.ControlUnit" ><!-- id对应主键 -->
+      <result column="unit_bh" property="unitBh" jdbcType="VARCHAR" />
+      <result column="unit_name" property="unitName" jdbcType="VARCHAR" />
+      <result column="unit_type" property="unitType" jdbcType="VARCHAR" />
+      <result column="include_section" property="includeSection" jdbcType="VARCHAR" />
+      <result column="loc_province" property="locProvince" jdbcType="VARCHAR" />
+      <result column="involve_city" property="involveCity" jdbcType="VARCHAR" />
+      <result column="involve_county" property="involveCounty" jdbcType="VARCHAR" />
+      <result column="involve_village" property="involveVillage" jdbcType="VARCHAR" />
+      <result column="village_amount" property="villageAmount" jdbcType="INTEGER" />
+      <result column="watershed" property="watershed" jdbcType="VARCHAR" />
+      <result column="include_sx" property="includeSx" jdbcType="VARCHAR" />
+      <result column="include_gl" property="includeGl" jdbcType="VARCHAR" />
+      <result column="include_1jzl" property="include1jzl" jdbcType="VARCHAR" />
+      <result column="include_2jzl" property="include2jzl" jdbcType="VARCHAR" />
+      <result column="include_3jzl" property="include3jzl" jdbcType="VARCHAR" />
+      <result column="include_4jzl" property="include4jzl" jdbcType="VARCHAR" />
+      <result column="involve_river" property="involveRiver" jdbcType="VARCHAR" />
+      <result column="water_resource" property="waterResource" jdbcType="VARCHAR" />
+      <result column="hr_river" property="hrRiver" jdbcType="VARCHAR" />
+      <result column="kzdy_time" property="kzdyTime" jdbcType="VARCHAR" />
+      <result column="bbh" property="bbh" jdbcType="VARCHAR" />
+      <result column="is_del" property="isDel" jdbcType="INTEGER" />
+      <result column="unit_bl1" property="unitBl1" jdbcType="VARCHAR" />
+      <result column="unit_bl2" property="unitBl2" jdbcType="VARCHAR" />
+      <result column="unit_bl3" property="unitBl3" jdbcType="VARCHAR" />
+      <result column="unit_bl4" property="unitBl4" jdbcType="VARCHAR" />
+      <result column="unit_bl5" property="unitBl5" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+      id, unit_bh, unit_name, unit_type, include_section, loc_province, involve_city, involve_county,
+    involve_village, village_amount, watershed, include_sx, include_gl, include_1jzl,
+    include_2jzl, include_3jzl, include_4jzl, involve_river, water_resource, hr_river,
+    kzdy_time, bbh, is_del, unit_bl1, unit_bl2, unit_bl3, unit_bl4, unit_bl5
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.eliteams.quick4j.web.model.ControlUnitExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from control_unit
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from control_unit
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from control_unit
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.eliteams.quick4j.web.model.ControlUnitExample" >
+    delete from control_unit
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.eliteams.quick4j.web.model.ControlUnit" >
+      insert into control_unit (id, unit_bh, unit_name,
+                                unit_type, include_section, loc_province,
+                                involve_city, involve_county, involve_village,
+                                village_amount, watershed, include_sx,
+                                include_gl, include_1jzl, include_2jzl,
+                                include_3jzl, include_4jzl, involve_river,
+                                water_resource, hr_river, kzdy_time,
+                                bbh, is_del, unit_bl1,
+                                unit_bl2, unit_bl3, unit_bl4,
+                                unit_bl5)
+      values (#{id,jdbcType=INTEGER}, #{unitBh,jdbcType=VARCHAR}, #{unitName,jdbcType=VARCHAR},
+              #{unitType,jdbcType=VARCHAR}, #{includeSection,jdbcType=VARCHAR}, #{locProvince,jdbcType=VARCHAR},
+              #{involveCity,jdbcType=VARCHAR}, #{involveCounty,jdbcType=VARCHAR}, #{involveVillage,jdbcType=VARCHAR},
+              #{villageAmount,jdbcType=INTEGER}, #{watershed,jdbcType=VARCHAR}, #{includeSx,jdbcType=VARCHAR},
+              #{includeGl,jdbcType=VARCHAR}, #{include1jzl,jdbcType=VARCHAR}, #{include2jzl,jdbcType=VARCHAR},
+              #{include3jzl,jdbcType=VARCHAR}, #{include4jzl,jdbcType=VARCHAR}, #{involveRiver,jdbcType=VARCHAR},
+              #{waterResource,jdbcType=VARCHAR}, #{hrRiver,jdbcType=VARCHAR}, #{kzdyTime,jdbcType=VARCHAR},
+              #{bbh,jdbcType=VARCHAR}, #{isDel,jdbcType=INTEGER}, #{unitBl1,jdbcType=VARCHAR},
+              #{unitBl2,jdbcType=VARCHAR}, #{unitBl3,jdbcType=VARCHAR}, #{unitBl4,jdbcType=VARCHAR},
+              #{unitBl5,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.eliteams.quick4j.web.model.ControlUnit" >
+    insert into control_unit
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+        <if test="id != null" >
+            id,
+        </if>
+        <if test="unitBh != null" >
+            unit_bh,
+        </if>
+        <if test="unitName != null" >
+            unit_name,
+        </if>
+        <if test="unitType != null" >
+            unit_type,
+        </if>
+        <if test="includeSection != null" >
+            include_section,
+        </if>
+        <if test="locProvince != null" >
+            loc_province,
+        </if>
+        <if test="involveCity != null" >
+            involve_city,
+        </if>
+        <if test="involveCounty != null" >
+            involve_county,
+        </if>
+        <if test="involveVillage != null" >
+            involve_village,
+        </if>
+        <if test="villageAmount != null" >
+            village_amount,
+        </if>
+        <if test="watershed != null" >
+            watershed,
+        </if>
+        <if test="includeSx != null" >
+            include_sx,
+        </if>
+        <if test="includeGl != null" >
+            include_gl,
+        </if>
+        <if test="include1jzl != null" >
+            include_1jzl,
+        </if>
+        <if test="include2jzl != null" >
+            include_2jzl,
+        </if>
+        <if test="include3jzl != null" >
+            include_3jzl,
+        </if>
+        <if test="include4jzl != null" >
+            include_4jzl,
+        </if>
+        <if test="involveRiver != null" >
+            involve_river,
+        </if>
+        <if test="waterResource != null" >
+            water_resource,
+        </if>
+        <if test="hrRiver != null" >
+            hr_river,
+        </if>
+        <if test="kzdyTime != null" >
+            kzdy_time,
+        </if>
+        <if test="bbh != null" >
+            bbh,
+        </if>
+        <if test="isDel != null" >
+            is_del,
+        </if>
+        <if test="unitBl1 != null" >
+            unit_bl1,
+        </if>
+        <if test="unitBl2 != null" >
+            unit_bl2,
+        </if>
+        <if test="unitBl3 != null" >
+            unit_bl3,
+        </if>
+        <if test="unitBl4 != null" >
+            unit_bl4,
+        </if>
+        <if test="unitBl5 != null" >
+            unit_bl5,
+        </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+        <if test="id != null" >
+            #{id,jdbcType=INTEGER},
+        </if>
+        <if test="unitBh != null" >
+            #{unitBh,jdbcType=VARCHAR},
+        </if>
+        <if test="unitName != null" >
+            #{unitName,jdbcType=VARCHAR},
+        </if>
+        <if test="unitType != null" >
+            #{unitType,jdbcType=VARCHAR},
+        </if>
+        <if test="includeSection != null" >
+            #{includeSection,jdbcType=VARCHAR},
+        </if>
+        <if test="locProvince != null" >
+            #{locProvince,jdbcType=VARCHAR},
+        </if>
+        <if test="involveCity != null" >
+            #{involveCity,jdbcType=VARCHAR},
+        </if>
+        <if test="involveCounty != null" >
+            #{involveCounty,jdbcType=VARCHAR},
+        </if>
+        <if test="involveVillage != null" >
+            #{involveVillage,jdbcType=VARCHAR},
+        </if>
+        <if test="villageAmount != null" >
+            #{villageAmount,jdbcType=INTEGER},
+        </if>
+        <if test="watershed != null" >
+            #{watershed,jdbcType=VARCHAR},
+        </if>
+        <if test="includeSx != null" >
+            #{includeSx,jdbcType=VARCHAR},
+        </if>
+        <if test="includeGl != null" >
+            #{includeGl,jdbcType=VARCHAR},
+        </if>
+        <if test="include1jzl != null" >
+            #{include1jzl,jdbcType=VARCHAR},
+        </if>
+        <if test="include2jzl != null" >
+            #{include2jzl,jdbcType=VARCHAR},
+        </if>
+        <if test="include3jzl != null" >
+            #{include3jzl,jdbcType=VARCHAR},
+        </if>
+        <if test="include4jzl != null" >
+            #{include4jzl,jdbcType=VARCHAR},
+        </if>
+        <if test="involveRiver != null" >
+            #{involveRiver,jdbcType=VARCHAR},
+        </if>
+        <if test="waterResource != null" >
+            #{waterResource,jdbcType=VARCHAR},
+        </if>
+        <if test="hrRiver != null" >
+            #{hrRiver,jdbcType=VARCHAR},
+        </if>
+        <if test="kzdyTime != null" >
+            #{kzdyTime,jdbcType=VARCHAR},
+        </if>
+        <if test="bbh != null" >
+            #{bbh,jdbcType=VARCHAR},
+        </if>
+        <if test="isDel != null" >
+            #{isDel,jdbcType=INTEGER},
+        </if>
+        <if test="unitBl1 != null" >
+            #{unitBl1,jdbcType=VARCHAR},
+        </if>
+        <if test="unitBl2 != null" >
+            #{unitBl2,jdbcType=VARCHAR},
+        </if>
+        <if test="unitBl3 != null" >
+            #{unitBl3,jdbcType=VARCHAR},
+        </if>
+        <if test="unitBl4 != null" >
+            #{unitBl4,jdbcType=VARCHAR},
+        </if>
+        <if test="unitBl5 != null" >
+            #{unitBl5,jdbcType=VARCHAR},
+        </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.eliteams.quick4j.web.model.ControlUnitExample" resultType="java.lang.Integer" >
+    select count(*) from control_unit
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update control_unit
+      <set >
+          <if test="record.id != null" >
+              id = #{record.id,jdbcType=INTEGER},
+          </if>
+          <if test="record.unitBh != null" >
+              unit_bh = #{record.unitBh,jdbcType=VARCHAR},
+          </if>
+          <if test="record.unitName != null" >
+              unit_name = #{record.unitName,jdbcType=VARCHAR},
+          </if>
+          <if test="record.unitType != null" >
+              unit_type = #{record.unitType,jdbcType=VARCHAR},
+          </if>
+          <if test="record.includeSection != null" >
+              include_section = #{record.includeSection,jdbcType=VARCHAR},
+          </if>
+          <if test="record.locProvince != null" >
+              loc_province = #{record.locProvince,jdbcType=VARCHAR},
+          </if>
+          <if test="record.involveCity != null" >
+              involve_city = #{record.involveCity,jdbcType=VARCHAR},
+          </if>
+          <if test="record.involveCounty != null" >
+              involve_county = #{record.involveCounty,jdbcType=VARCHAR},
+          </if>
+          <if test="record.involveVillage != null" >
+              involve_village = #{record.involveVillage,jdbcType=VARCHAR},
+          </if>
+          <if test="record.villageAmount != null" >
+              village_amount = #{record.villageAmount,jdbcType=INTEGER},
+          </if>
+          <if test="record.watershed != null" >
+              watershed = #{record.watershed,jdbcType=VARCHAR},
+          </if>
+          <if test="record.includeSx != null" >
+              include_sx = #{record.includeSx,jdbcType=VARCHAR},
+          </if>
+          <if test="record.includeGl != null" >
+              include_gl = #{record.includeGl,jdbcType=VARCHAR},
+          </if>
+          <if test="record.include1jzl != null" >
+              include_1jzl = #{record.include1jzl,jdbcType=VARCHAR},
+          </if>
+          <if test="record.include2jzl != null" >
+              include_2jzl = #{record.include2jzl,jdbcType=VARCHAR},
+          </if>
+          <if test="record.include3jzl != null" >
+              include_3jzl = #{record.include3jzl,jdbcType=VARCHAR},
+          </if>
+          <if test="record.include4jzl != null" >
+              include_4jzl = #{record.include4jzl,jdbcType=VARCHAR},
+          </if>
+          <if test="record.involveRiver != null" >
+              involve_river = #{record.involveRiver,jdbcType=VARCHAR},
+          </if>
+          <if test="record.waterResource != null" >
+              water_resource = #{record.waterResource,jdbcType=VARCHAR},
+          </if>
+          <if test="record.hrRiver != null" >
+              hr_river = #{record.hrRiver,jdbcType=VARCHAR},
+          </if>
+          <if test="record.kzdyTime != null" >
+              kzdy_time = #{record.kzdyTime,jdbcType=VARCHAR},
+          </if>
+          <if test="record.bbh != null" >
+              bbh = #{record.bbh,jdbcType=VARCHAR},
+          </if>
+          <if test="record.isDel != null" >
+              is_del = #{record.isDel,jdbcType=INTEGER},
+          </if>
+          <if test="record.unitBl1 != null" >
+              unit_bl1 = #{record.unitBl1,jdbcType=VARCHAR},
+          </if>
+          <if test="record.unitBl2 != null" >
+              unit_bl2 = #{record.unitBl2,jdbcType=VARCHAR},
+          </if>
+          <if test="record.unitBl3 != null" >
+              unit_bl3 = #{record.unitBl3,jdbcType=VARCHAR},
+          </if>
+          <if test="record.unitBl4 != null" >
+              unit_bl4 = #{record.unitBl4,jdbcType=VARCHAR},
+          </if>
+          <if test="record.unitBl5 != null" >
+              unit_bl5 = #{record.unitBl5,jdbcType=VARCHAR},
+          </if>
+      </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update control_unit
+      set id = #{record.id,jdbcType=INTEGER},
+      unit_bh = #{record.unitBh,jdbcType=VARCHAR},
+      unit_name = #{record.unitName,jdbcType=VARCHAR},
+      unit_type = #{record.unitType,jdbcType=VARCHAR},
+      include_section = #{record.includeSection,jdbcType=VARCHAR},
+      loc_province = #{record.locProvince,jdbcType=VARCHAR},
+      involve_city = #{record.involveCity,jdbcType=VARCHAR},
+      involve_county = #{record.involveCounty,jdbcType=VARCHAR},
+      involve_village = #{record.involveVillage,jdbcType=VARCHAR},
+      village_amount = #{record.villageAmount,jdbcType=INTEGER},
+      watershed = #{record.watershed,jdbcType=VARCHAR},
+      include_sx = #{record.includeSx,jdbcType=VARCHAR},
+      include_gl = #{record.includeGl,jdbcType=VARCHAR},
+      include_1jzl = #{record.include1jzl,jdbcType=VARCHAR},
+      include_2jzl = #{record.include2jzl,jdbcType=VARCHAR},
+      include_3jzl = #{record.include3jzl,jdbcType=VARCHAR},
+      include_4jzl = #{record.include4jzl,jdbcType=VARCHAR},
+      involve_river = #{record.involveRiver,jdbcType=VARCHAR},
+      water_resource = #{record.waterResource,jdbcType=VARCHAR},
+      hr_river = #{record.hrRiver,jdbcType=VARCHAR},
+      kzdy_time = #{record.kzdyTime,jdbcType=VARCHAR},
+      bbh = #{record.bbh,jdbcType=VARCHAR},
+      is_del = #{record.isDel,jdbcType=INTEGER},
+      unit_bl1 = #{record.unitBl1,jdbcType=VARCHAR},
+      unit_bl2 = #{record.unitBl2,jdbcType=VARCHAR},
+      unit_bl3 = #{record.unitBl3,jdbcType=VARCHAR},
+      unit_bl4 = #{record.unitBl4,jdbcType=VARCHAR},
+      unit_bl5 = #{record.unitBl5,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.eliteams.quick4j.web.model.ControlUnit" >
+    update control_unit
+      <set >
+          <if test="unitBh != null" >
+              unit_bh = #{unitBh,jdbcType=VARCHAR},
+          </if>
+          <if test="unitName != null" >
+              unit_name = #{unitName,jdbcType=VARCHAR},
+          </if>
+          <if test="unitType != null" >
+              unit_type = #{unitType,jdbcType=VARCHAR},
+          </if>
+          <if test="includeSection != null" >
+              include_section = #{includeSection,jdbcType=VARCHAR},
+          </if>
+          <if test="locProvince != null" >
+              loc_province = #{locProvince,jdbcType=VARCHAR},
+          </if>
+          <if test="involveCity != null" >
+              involve_city = #{involveCity,jdbcType=VARCHAR},
+          </if>
+          <if test="involveCounty != null" >
+              involve_county = #{involveCounty,jdbcType=VARCHAR},
+          </if>
+          <if test="involveVillage != null" >
+              involve_village = #{involveVillage,jdbcType=VARCHAR},
+          </if>
+          <if test="villageAmount != null" >
+              village_amount = #{villageAmount,jdbcType=INTEGER},
+          </if>
+          <if test="watershed != null" >
+              watershed = #{watershed,jdbcType=VARCHAR},
+          </if>
+          <if test="includeSx != null" >
+              include_sx = #{includeSx,jdbcType=VARCHAR},
+          </if>
+          <if test="includeGl != null" >
+              include_gl = #{includeGl,jdbcType=VARCHAR},
+          </if>
+          <if test="include1jzl != null" >
+              include_1jzl = #{include1jzl,jdbcType=VARCHAR},
+          </if>
+          <if test="include2jzl != null" >
+              include_2jzl = #{include2jzl,jdbcType=VARCHAR},
+          </if>
+          <if test="include3jzl != null" >
+              include_3jzl = #{include3jzl,jdbcType=VARCHAR},
+          </if>
+          <if test="include4jzl != null" >
+              include_4jzl = #{include4jzl,jdbcType=VARCHAR},
+          </if>
+          <if test="involveRiver != null" >
+              involve_river = #{involveRiver,jdbcType=VARCHAR},
+          </if>
+          <if test="waterResource != null" >
+              water_resource = #{waterResource,jdbcType=VARCHAR},
+          </if>
+          <if test="hrRiver != null" >
+              hr_river = #{hrRiver,jdbcType=VARCHAR},
+          </if>
+          <if test="kzdyTime != null" >
+              kzdy_time = #{kzdyTime,jdbcType=VARCHAR},
+          </if>
+          <if test="bbh != null" >
+              bbh = #{bbh,jdbcType=VARCHAR},
+          </if>
+          <if test="isDel != null" >
+              is_del = #{isDel,jdbcType=INTEGER},
+          </if>
+          <if test="unitBl1 != null" >
+              unit_bl1 = #{unitBl1,jdbcType=VARCHAR},
+          </if>
+          <if test="unitBl2 != null" >
+              unit_bl2 = #{unitBl2,jdbcType=VARCHAR},
+          </if>
+          <if test="unitBl3 != null" >
+              unit_bl3 = #{unitBl3,jdbcType=VARCHAR},
+          </if>
+          <if test="unitBl4 != null" >
+              unit_bl4 = #{unitBl4,jdbcType=VARCHAR},
+          </if>
+          <if test="unitBl5 != null" >
+              unit_bl5 = #{unitBl5,jdbcType=VARCHAR},
+          </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.eliteams.quick4j.web.model.ControlUnit" >
+    update control_unit
+    set unit_bh = #{unitBh,jdbcType=VARCHAR},
+        unit_name = #{unitName,jdbcType=VARCHAR},
+        unit_type = #{unitType,jdbcType=VARCHAR},
+        include_section = #{includeSection,jdbcType=VARCHAR},
+        loc_province = #{locProvince,jdbcType=VARCHAR},
+        involve_city = #{involveCity,jdbcType=VARCHAR},
+        involve_county = #{involveCounty,jdbcType=VARCHAR},
+        involve_village = #{involveVillage,jdbcType=VARCHAR},
+        village_amount = #{villageAmount,jdbcType=INTEGER},
+        watershed = #{watershed,jdbcType=VARCHAR},
+        include_sx = #{includeSx,jdbcType=VARCHAR},
+        include_gl = #{includeGl,jdbcType=VARCHAR},
+        include_1jzl = #{include1jzl,jdbcType=VARCHAR},
+        include_2jzl = #{include2jzl,jdbcType=VARCHAR},
+        include_3jzl = #{include3jzl,jdbcType=VARCHAR},
+        include_4jzl = #{include4jzl,jdbcType=VARCHAR},
+        involve_river = #{involveRiver,jdbcType=VARCHAR},
+        water_resource = #{waterResource,jdbcType=VARCHAR},
+        hr_river = #{hrRiver,jdbcType=VARCHAR},
+        kzdy_time = #{kzdyTime,jdbcType=VARCHAR},
+        bbh = #{bbh,jdbcType=VARCHAR},
+        is_del = #{isDel,jdbcType=INTEGER},
+        unit_bl1 = #{unitBl1,jdbcType=VARCHAR},
+        unit_bl2 = #{unitBl2,jdbcType=VARCHAR},
+        unit_bl3 = #{unitBl3,jdbcType=VARCHAR},
+        unit_bl4 = #{unitBl4,jdbcType=VARCHAR},
+        unit_bl5 = #{unitBl5,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  
+  
+  <select id="listAll" resultMap="BaseResultMap">    
+        select 
+        <include refid="Base_Column_List" />
+        from control_unit
+        where is_del = 0    
+  </select>
+  <select id="selectByName" resultMap="BaseResultMap" >
+		select
+		<include refid="Base_Column_List" />
+		from control_unit
+		where unit_name = #{unitName,jdbcType=VARCHAR}
+  </select>  
+  <update id="deleteById" parameterType="java.lang.Integer">
+		update control_unit
+		set is_del = 1
+		where id = #{id,jdbcType=INTEGER}
+  </update>
+  <!-- 分页SQL语句 -->  
+  <select id="selectCUByPage" resultMap="BaseResultMap">  
+        select   
+        *  
+        from control_unit 
+        WHERE 
+        <trim>
+			<if test="map.involve_city != null">
+				involve_city LIKE CONCAT('%', #{map.involve_city}, '%') and
+			</if>
+			<if test="map.involve_county != null">
+				involve_county LIKE CONCAT('%', #{map.involve_county}, '%') and
+			</if>
+			is_del = 0
+		</trim>   
+        limit #{startPos},#{pageSize}   
+  </select>  
+  <!-- 取得记录的总数 -->  
+  <select id="getCUCount" resultType="long">  
+        select 
+        count(*) 
+        from control_unit 
+        where 
+        <trim>
+			<if test="map.involve_city != null">
+				involve_city LIKE CONCAT('%', #{map.involve_city}, '%') and
+			</if>
+			<if test="map.involve_county != null">
+				involve_county LIKE CONCAT('%', #{map.involve_county}, '%') and
+			</if>
+			is_del = 0
+		</trim>   
+  </select>  
+  <select id="getSearchCount" resultType="java.lang.Integer" parameterType="java.util.Map">
+		select
+		count(*)
+		from control_unit
+		WHERE
+		<trim>
+			<if test="map.id != null">
+				id = #{map.id} and
+			</if>
+			<if test="map.unit_name != null">
+				unit_name LIKE CONCAT('%', #{map.unit_name}, '%') and
+			</if>
+			<if test="map.include_section != null">
+				include_section LIKE CONCAT('%', #{map.include_section}, '%') and
+			</if>
+			<if test="map.watershed != null">
+				watershed LIKE CONCAT('%', #{map.watershed}, '%') and
+			</if>
+			<if test="map.loc_province != null">
+				loc_province LIKE CONCAT('%', #{map.loc_province}, '%') and
+			</if>
+			<if test="map.involve_city != null">
+				involve_city LIKE CONCAT('%', #{map.involve_city}, '%') and
+			</if>
+			<if test="map.involve_county != null">
+				involve_county LIKE CONCAT('%', #{map.involve_county}, '%') and
+			</if>
+			<if test="map.involve_village != null">
+            involve_village LIKE CONCAT('%', #{map.involve_village}, '%') and
+        </if>
+            <if test="map.village_amount != null">
+                village_amount LIKE CONCAT('%', #{map.village_amount}, '%') and
+            </if>
+            <if test="map.involve_river != null">
+                involve_river LIKE CONCAT('%', #{map.involve_river}, '%') and
+            </if>
+            <if test="map.unit_type != null">
+                unit_type LIKE CONCAT('%', #{map.unit_type}, '%') and
+            </if>
+            <if test="map.water_resource != null">
+                water_resource LIKE CONCAT('%', #{map.water_resource}, '%') and
+            </if>
+            <if test="map.hr_river != null">
+                hr_river LIKE CONCAT('%', #{map.hr_river}, '%') and
+            </if>
+
+            <if test="map.include_sx!= null">
+                include_sx LIKE CONCAT('%', #{map.include_sx}, '%') and
+            </if>
+            <if test="map.include_gl != null">
+                include_gl LIKE CONCAT('%', #{map.include_gl}, '%') and
+            </if>
+            <if test="map.include_1jzl != null">
+                include_1jzl LIKE CONCAT('%', #{map.include_1jzl}, '%') and
+            </if>
+            <if test="map.include_2jzl!= null">
+                include_2jzl LIKE CONCAT('%', #{map.include_2jzl}, '%') and
+            </if>
+            <if test="map.include_3jzl != null">
+                include_3jzl LIKE CONCAT('%', #{map.include_3jzl}, '%') and
+            </if>
+            <if test="map.include_4jzl != null">
+                include_4jzl LIKE CONCAT('%', #{map.include_4jzl}, '%') and
+            </if>
+            <if test="map.kzdy_time != null">
+                kzdy_time LIKE CONCAT('%', #{map.kzdy_time}, '%') and
+            </if>
+
+			is_del = 0
+		</trim>
+	</select>
+
+	<select id="searchByPage" resultMap="BaseResultMap">
+		select
+		*
+		from control_unit
+		WHERE
+		<trim>
+			<if test="map.id != null">
+				id = #{map.id} and
+			</if>
+			<if test="map.unit_name != null">
+				unit_name LIKE CONCAT('%', #{map.unit_name}, '%') and
+			</if>
+			<if test="map.include_section != null">
+				include_section LIKE CONCAT('%', #{map.include_section}, '%') and
+			</if>
+			<if test="map.watershed != null">
+				watershed LIKE CONCAT('%', #{map.watershed}, '%') and
+			</if>
+			<if test="map.loc_province != null">
+				loc_province LIKE CONCAT('%', #{map.loc_province}, '%') and
+			</if>
+			<if test="map.involve_city != null">
+				involve_city LIKE CONCAT('%', #{map.involve_city}, '%') and
+			</if>
+			<if test="map.involve_county != null">
+				involve_county LIKE CONCAT('%', #{map.involve_county}, '%') and
+			</if>
+			<if test="map.involve_village != null">
+				involve_village LIKE CONCAT('%', #{map.involve_village}, '%') and
+			</if>
+			<if test="map.village_amount != null">
+				village_amount LIKE CONCAT('%', #{map.village_amount}, '%') and
+			</if>
+			<if test="map.involve_river != null">
+				involve_river LIKE CONCAT('%', #{map.involve_river}, '%') and
+			</if>
+			<if test="map.unit_type != null">
+				unit_type LIKE CONCAT('%', #{map.unit_type}, '%') and
+			</if>
+			<if test="map.water_resource != null">
+				water_resource LIKE CONCAT('%', #{map.water_resource}, '%') and
+			</if>
+			<if test="map.hr_river != null">
+				hr_river LIKE CONCAT('%', #{map.hr_river}, '%') and
+			</if>
+
+            <if test="map.include_sx!= null">
+                include_sx LIKE CONCAT('%', #{map.include_sx}, '%') and
+            </if>
+            <if test="map.include_gl != null">
+                include_gl LIKE CONCAT('%', #{map.include_gl}, '%') and
+            </if>
+            <if test="map.include_1jzl != null">
+                include_1jzl LIKE CONCAT('%', #{map.include_1jzl}, '%') and
+            </if>
+            <if test="map.include_2jzl!= null">
+                include_2jzl LIKE CONCAT('%', #{map.include_2jzl}, '%') and
+            </if>
+            <if test="map.include_3jzl != null">
+                include_3jzl LIKE CONCAT('%', #{map.include_3jzl}, '%') and
+            </if>
+            <if test="map.include_4jzl != null">
+                include_4jzl LIKE CONCAT('%', #{map.include_4jzl}, '%') and
+            </if>
+            <if test="map.kzdy_time != null">
+                kzdy_time LIKE CONCAT('%', #{map.kzdy_time}, '%') and
+            </if>
+
+			is_del = 0
+		</trim>
+		limit #{startPos},#{pageSize}
+	</select>
+	
+	<select id="selectForMap" resultMap="BaseResultMap">
+		select
+		*
+		from control_unit
+		WHERE
+		<trim>
+			<if test="map.id != null">
+				id = #{map.id} and
+			</if>
+			<if test="map.unit_name != null">
+				unit_name LIKE CONCAT('%', #{map.unit_name}, '%') and
+			</if>
+			<if test="map.include_section != null">
+				include_section LIKE CONCAT('%', #{map.include_section}, '%') and
+			</if>
+			<if test="map.watershed != null">
+				watershed LIKE CONCAT('%', #{map.watershed}, '%') and
+			</if>
+			<if test="map.loc_province != null">
+				loc_province LIKE CONCAT('%', #{map.loc_province}, '%') and
+			</if>
+			<if test="map.involve_city != null">
+				involve_city LIKE CONCAT('%', #{map.involve_city}, '%') and
+			</if>
+			<if test="map.involve_county != null">
+				involve_county LIKE CONCAT('%', #{map.involve_county}, '%') and
+			</if>
+			<if test="map.involve_village != null">
+				involve_village LIKE CONCAT('%', #{map.involve_village}, '%') and
+			</if>
+			<if test="map.village_amount != null">
+				village_amount LIKE CONCAT('%', #{map.village_amount}, '%') and
+			</if>
+			<if test="map.involve_river != null">
+				involve_river LIKE CONCAT('%', #{map.involve_river}, '%') and
+			</if>
+			<if test="map.unit_type != null">
+				unit_type LIKE CONCAT('%', #{map.unit_type}, '%') and
+			</if>
+			<if test="map.water_resource != null">
+				water_resource LIKE CONCAT('%', #{map.water_resource}, '%') and
+			</if>
+			<if test="map.hr_river != null">
+				hr_river LIKE CONCAT('%', #{map.hr_river}, '%') and
+			</if>
+
+
+            <if test="map.include_sx!= null">
+                include_sx LIKE CONCAT('%', #{map.include_sx}, '%') and
+            </if>
+            <if test="map.include_gl != null">
+                include_gl LIKE CONCAT('%', #{map.include_gl}, '%') and
+            </if>
+            <if test="map.include_1jzl != null">
+                include_1jzl LIKE CONCAT('%', #{map.include_1jzl}, '%') and
+            </if>
+            <if test="map.include_2jzl!= null">
+                include_2jzl LIKE CONCAT('%', #{map.include_2jzl}, '%') and
+            </if>
+            <if test="map.include_3jzl != null">
+                include_3jzl LIKE CONCAT('%', #{map.include_3jzl}, '%') and
+            </if>
+            <if test="map.include_4jzl != null">
+                include_4jzl LIKE CONCAT('%', #{map.include_4jzl}, '%') and
+            </if>
+            <if test="map.kzdy_time != null">
+                kzdy_time LIKE CONCAT('%', #{map.kzdy_time}, '%') and
+            </if>
+
+			is_del = 0
+		</trim>
+	</select>
+	
+	<select id="selectForInfo" resultMap="BaseResultMap">
+	     select * from control_unit 
+	     WHERE
+	     <trim>
+	        <if test="name != null">
+				unit_name = #{name} and
+			</if>
+			is_del = 0
+	     </trim> 
+	</select>
+	
+	<select id="selectAllForLeft" resultMap="BaseResultMap">
+	     select * from control_unit 
+	     WHERE
+	     <trim>
+			<if test="map.involve_city != null">
+				involve_city LIKE CONCAT('%', #{map.involve_city}, '%') and
+			</if>
+			<if test="map.involve_county != null">
+				involve_county LIKE CONCAT('%', #{map.involve_county}, '%') and
+			</if>
+			is_del = 0
+		</trim>
+	</select>
+	<select id="selectCuAndQmp" resultMap="BaseResultMap">
+	     select * from control_unit 
+	     WHERE
+		 is_del = 0
+	</select>
+</mapper>

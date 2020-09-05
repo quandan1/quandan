@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.eliteams.quick4j.web.dao.ZcfgMapper" >
+  <resultMap id="BaseResultMap" type="com.eliteams.quick4j.web.model.Zcfg" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="generate_date" property="generateDate" jdbcType="DATE" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="publish_date" property="publishDate" jdbcType="DATE" />
+    <result column="down_number" property="downNumber" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="is_del" property="isDel" jdbcType="INTEGER" />
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, name, generate_date, type, publish_date, down_number, title, is_del,content
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.eliteams.quick4j.web.model.ZcfgExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from zcfg
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from new_env.zcfg
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from zcfg
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.eliteams.quick4j.web.model.ZcfgExample" >
+    delete from zcfg
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.eliteams.quick4j.web.model.Zcfg" >
+    insert into zcfg (id, name, generate_date, 
+      type, publish_date, down_number, 
+      title, is_del)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{generateDate,jdbcType=DATE}, 
+      #{type,jdbcType=VARCHAR}, #{publishDate,jdbcType=DATE}, #{downNumber,jdbcType=INTEGER}, 
+      #{title,jdbcType=VARCHAR}, #{isDel,jdbcType=INTEGER}),#{content,jdbcType=LONGVARCHAR}
+  </insert>
+  <insert id="insertSelective" parameterType="com.eliteams.quick4j.web.model.Zcfg" >
+    insert into zcfg
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="generateDate != null" >
+        generate_date,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="publishDate != null" >
+        publish_date,
+      </if>
+      <if test="downNumber != null" >
+        down_number,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="isDel != null" >
+        is_del,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="generateDate != null" >
+        #{generateDate,jdbcType=DATE},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="publishDate != null" >
+        #{publishDate,jdbcType=DATE},
+      </if>
+      <if test="downNumber != null" >
+        #{downNumber,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.eliteams.quick4j.web.model.ZcfgExample" resultType="java.lang.Integer" >
+    select count(*) from zcfg
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update zcfg
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.generateDate != null" >
+        generate_date = #{record.generateDate,jdbcType=DATE},
+      </if>
+      <if test="record.type != null" >
+        type = #{record.type,jdbcType=VARCHAR},
+      </if>
+      <if test="record.publishDate != null" >
+        publish_date = #{record.publishDate,jdbcType=DATE},
+      </if>
+      <if test="record.downNumber != null" >
+        down_number = #{record.downNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.title != null" >
+        title = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isDel != null" >
+        is_del = #{record.isDel,jdbcType=INTEGER},
+      </if>
+       <if test="record.content != null" >
+        content = #{record.content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update zcfg
+    set id = #{record.id,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
+      generate_date = #{record.generateDate,jdbcType=DATE},
+      type = #{record.type,jdbcType=VARCHAR},
+      publish_date = #{record.publishDate,jdbcType=DATE},
+      down_number = #{record.downNumber,jdbcType=INTEGER},
+      title = #{record.title,jdbcType=VARCHAR},
+      is_del = #{record.isDel,jdbcType=INTEGER},
+      content = #{record.content,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.eliteams.quick4j.web.model.Zcfg" >
+    update zcfg
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="generateDate != null" >
+        generate_date = #{generateDate,jdbcType=DATE},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="publishDate != null" >
+        publish_date = #{publishDate,jdbcType=DATE},
+      </if>
+      <if test="downNumber != null" >
+        down_number = #{downNumber,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        is_del = #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.eliteams.quick4j.web.model.Zcfg" >
+    update zcfg
+    set name = #{name,jdbcType=VARCHAR},
+      generate_date = #{generateDate,jdbcType=DATE},
+      type = #{type,jdbcType=VARCHAR},
+      publish_date = #{publishDate,jdbcType=DATE},
+      down_number = #{downNumber,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      is_del = #{isDel,jdbcType=INTEGER},
+      content = #{content,jdbcType=LONGVARCHAR},
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="listAll" resultMap="BaseResultMap">    
+        select 
+        <include refid="Base_Column_List" />
+        from zcfg
+        where is_del = 0    
+  </select>
+  <select id="selectByName" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from zcfg
+		where name = #{name,jdbcType=VARCHAR}
+  </select>  
+  <update id="deleteById" parameterType="java.lang.Integer">
+		update zcfg
+		set is_del = 1
+		where id = #{id,jdbcType=INTEGER}
+  </update>
+  <!-- 分页SQL语句 -->  
+  <select id="selectCUByPage" resultMap="BaseResultMap">  
+        select   
+        *  
+        from zcfg 
+        WHERE 
+        is_del = 0 
+        and type = 'WZGLGJJ'
+        ORDER BY id DESC
+        limit #{startPos},#{pageSize}   
+  </select>  
+  <!-- 取得记录的总数 -->  
+  <select id="getCUCount" resultType="java.lang.Integer">  
+        select 
+        count(*) 
+        from zcfg  
+        where 
+        is_del = 0   
+        and type = 'WZGLGJJ'
+  </select>
+  <!-- 分页SQL语句 -->  
+  <select id="selectSJByPage" resultMap="BaseResultMap">  
+        select   
+        *  
+        from zcfg 
+        WHERE 
+        is_del = 0 
+        and type = 'WZGLSJ'
+        ORDER BY id DESC
+        limit #{startPos},#{pageSize}   
+  </select>  
+  <!-- 取得记录的总数 -->  
+  <select id="getSJCount" resultType="java.lang.Integer">  
+        select 
+        count(*) 
+        from zcfg  
+        where 
+        is_del = 0   
+        and type = 'WZGLSJ'
+  </select>
+  <select id="selectByType" resultMap="BaseResultMap">
+  SELECT
+  <include refid="Base_Column_List"/>
+  from zcfg
+  WHERE (type = #{type,jdbcType=VARCHAR} or type LIKE CONCAT('%',#{type}, '-FILE%'))
+  and is_del = 0
+  ORDER BY id DESC
+  limit #{startPos},#{pageSize}   
+</select>
+<select id="getCountByType" resultType="java.lang.Integer">  
+        select 
+        count(*) 
+        from zcfg  
+        WHERE (type = #{type,jdbcType=VARCHAR} or type LIKE CONCAT('%',#{type}, '-FILE%'))
+        and
+        is_del = 0   
+ </select>
+ <select id="selectByTypeForSH" resultMap="BaseResultMap">
+  SELECT
+  <include refid="Base_Column_List"/>
+  from zcfg
+  WHERE (type = #{type,jdbcType=VARCHAR} or type LIKE CONCAT('%',#{final_type}, '-FILE%'))
+  and is_del = 0
+  ORDER BY id DESC
+  limit #{startPos},#{pageSize}   
+</select>
+<select id="getCountByTypeForSH" resultType="java.lang.Integer">  
+        select 
+        count(*) 
+        from zcfg  
+        WHERE (type = #{type,jdbcType=VARCHAR} or type LIKE CONCAT('%',#{final_type}, '-%'))
+        and is_del = 0   
+ </select>
+  <select id="selectByTypeWithoutGJAndS" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    from zcfg
+    WHERE (type != "GJJ" AND type !="SJ" AND type !="WZGL")
+    and type NOT LIKE CONCAT('%', "GJJ", '%')
+    and type NOT LIKE CONCAT('%', "SJ", '%')
+    and type NOT LIKE CONCAT('%', "市\_", '%')
+    and is_del = 0
+    ORDER BY id DESC
+    limit #{startPos},#{pageSize}   
+  </select>
+  <select id="selectWithoutGJAndSCount" resultType="java.lang.Integer">  
+        select 
+        count(*) 
+        from zcfg  
+        WHERE (type != "GJJ" AND type !="SJ" AND type !="WZGL")
+        and type NOT LIKE CONCAT('%', "GJJ", '%')
+        and type NOT LIKE CONCAT('%', "SJ", '%')
+        and type NOT LIKE CONCAT('%', "市\_", '%')
+        and
+        is_del = 0   
+  </select>
+   <select id="selectByTypeForFolder" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    from zcfg
+    WHERE 
+    <trim>
+       <if test="type != null">
+           (type LIKE CONCAT('%',#{type}, '%')
+           or type LIKE CONCAT('%',#{type},'-FILE%'))
+           and type NOT LIKE CONCAT('%',#{type},'\_%')
+       </if>
+    </trim>
+    and is_del = 0
+    ORDER BY id DESC
+    limit #{startPos},#{pageSize}   
+  </select>
+  <select id="selectByTypeForFolderCount" resultType="java.lang.Integer">  
+        select 
+        count(*) 
+        from zcfg  
+        WHERE
+        <trim>
+          <if test="type != null">
+              (type LIKE CONCAT('%',#{type}, '%')
+              or type LIKE CONCAT('%',#{type},'-FILE%'))
+              and type NOT LIKE CONCAT('%',#{type},'\_%')
+          </if>
+        </trim>
+        and
+        is_del = 0   
+  </select>
+</mapper>

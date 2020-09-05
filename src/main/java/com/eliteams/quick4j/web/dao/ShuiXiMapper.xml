@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.eliteams.quick4j.web.dao.ShuiXiMapper" >
+  <resultMap id="BaseResultMap" type="com.eliteams.quick4j.web.model.ShuiXi" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="sx_hlmc" property="sxHlmc" jdbcType="VARCHAR" />
+    <result column="sx_hlbh" property="sxHlbh" jdbcType="VARCHAR" />
+    <result column="sx_hljb" property="sxHljb" jdbcType="INTEGER" />
+    <result column="sx_szly" property="sxSzly" jdbcType="VARCHAR" />
+    <result column="sx_sjhl" property="sxSjhl" jdbcType="VARCHAR" />
+    <result column="sx_xjhlxl" property="sxXjhlxl" jdbcType="VARCHAR" />
+    <result column="sx_hsqmj" property="sxHsqmj" jdbcType="DOUBLE" />
+    <result column="sx_ldmj" property="sxLdmj" jdbcType="DOUBLE" />
+    <result column="sx_cdmj" property="sxCdmj" jdbcType="DOUBLE" />
+    <result column="sx_stmj" property="sxStmj" jdbcType="DOUBLE" />
+    <result column="sx_hdmj" property="sxHdmj" jdbcType="DOUBLE" />
+    <result column="sx_czmj" property="sxCzmj" jdbcType="DOUBLE" />
+    <result column="sx_ncmj" property="sxNcmj" jdbcType="DOUBLE" />
+    <result column="sx_gjmj" property="sxGjmj" jdbcType="DOUBLE" />
+    <result column="sx_wlymj" property="sxWlymj" jdbcType="DOUBLE" />
+    <result column="sx_date" property="sxDate" jdbcType="INTEGER" />
+    <result column="sx_bl1" property="sxBl1" jdbcType="VARCHAR" />
+    <result column="sx_bl2" property="sxBl2" jdbcType="VARCHAR" />
+    <result column="sx_bl3" property="sxBl3" jdbcType="VARCHAR" />
+    <result column="sx_bl4" property="sxBl4" jdbcType="VARCHAR" />
+    <result column="sx_bl5" property="sxBl5" jdbcType="VARCHAR" />
+    <result column="sx_bl6" property="sxBl6" jdbcType="VARCHAR" />
+    <result column="sx_bl7" property="sxBl7" jdbcType="VARCHAR" />
+    <result column="sx_bl8" property="sxBl8" jdbcType="VARCHAR" />
+    <result column="sx_bl9" property="sxBl9" jdbcType="VARCHAR" />
+    <result column="sx_bl10" property="sxBl10" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, sx_hlmc, sx_hlbh, sx_hljb, sx_szly, sx_sjhl, sx_xjhlxl, sx_hsqmj, sx_ldmj, sx_cdmj, 
+    sx_stmj, sx_hdmj, sx_czmj, sx_ncmj, sx_gjmj, sx_wlymj, sx_date, sx_bl1, sx_bl2, sx_bl3, 
+    sx_bl4, sx_bl5, sx_bl6, sx_bl7, sx_bl8, sx_bl9, sx_bl10
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.eliteams.quick4j.web.model.ShuiXiExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tbl_sx
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_sx
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tbl_sx
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.eliteams.quick4j.web.model.ShuiXiExample" >
+    delete from tbl_sx
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.eliteams.quick4j.web.model.ShuiXi" >
+    insert into tbl_sx (id, sx_hlmc, sx_hlbh, 
+      sx_hljb, sx_szly, sx_sjhl, 
+      sx_xjhlxl, sx_hsqmj, sx_ldmj, 
+      sx_cdmj, sx_stmj, sx_hdmj, 
+      sx_czmj, sx_ncmj, sx_gjmj, 
+      sx_wlymj, sx_date, sx_bl1, 
+      sx_bl2, sx_bl3, sx_bl4, 
+      sx_bl5, sx_bl6, sx_bl7, 
+      sx_bl8, sx_bl9, sx_bl10
+      )
+    values (#{id,jdbcType=INTEGER}, #{sxHlmc,jdbcType=VARCHAR}, #{sxHlbh,jdbcType=VARCHAR}, 
+      #{sxHljb,jdbcType=INTEGER}, #{sxSzly,jdbcType=VARCHAR}, #{sxSjhl,jdbcType=VARCHAR}, 
+      #{sxXjhlxl,jdbcType=VARCHAR}, #{sxHsqmj,jdbcType=DOUBLE}, #{sxLdmj,jdbcType=DOUBLE}, 
+      #{sxCdmj,jdbcType=DOUBLE}, #{sxStmj,jdbcType=DOUBLE}, #{sxHdmj,jdbcType=DOUBLE}, 
+      #{sxCzmj,jdbcType=DOUBLE}, #{sxNcmj,jdbcType=DOUBLE}, #{sxGjmj,jdbcType=DOUBLE}, 
+      #{sxWlymj,jdbcType=DOUBLE}, #{sxDate,jdbcType=INTEGER}, #{sxBl1,jdbcType=VARCHAR}, 
+      #{sxBl2,jdbcType=VARCHAR}, #{sxBl3,jdbcType=VARCHAR}, #{sxBl4,jdbcType=VARCHAR}, 
+      #{sxBl5,jdbcType=VARCHAR}, #{sxBl6,jdbcType=VARCHAR}, #{sxBl7,jdbcType=VARCHAR}, 
+      #{sxBl8,jdbcType=VARCHAR}, #{sxBl9,jdbcType=VARCHAR}, #{sxBl10,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.eliteams.quick4j.web.model.ShuiXi" >
+    insert into tbl_sx
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="sxHlmc != null" >
+        sx_hlmc,
+      </if>
+      <if test="sxHlbh != null" >
+        sx_hlbh,
+      </if>
+      <if test="sxHljb != null" >
+        sx_hljb,
+      </if>
+      <if test="sxSzly != null" >
+        sx_szly,
+      </if>
+      <if test="sxSjhl != null" >
+        sx_sjhl,
+      </if>
+      <if test="sxXjhlxl != null" >
+        sx_xjhlxl,
+      </if>
+      <if test="sxHsqmj != null" >
+        sx_hsqmj,
+      </if>
+      <if test="sxLdmj != null" >
+        sx_ldmj,
+      </if>
+      <if test="sxCdmj != null" >
+        sx_cdmj,
+      </if>
+      <if test="sxStmj != null" >
+        sx_stmj,
+      </if>
+      <if test="sxHdmj != null" >
+        sx_hdmj,
+      </if>
+      <if test="sxCzmj != null" >
+        sx_czmj,
+      </if>
+      <if test="sxNcmj != null" >
+        sx_ncmj,
+      </if>
+      <if test="sxGjmj != null" >
+        sx_gjmj,
+      </if>
+      <if test="sxWlymj != null" >
+        sx_wlymj,
+      </if>
+      <if test="sxDate != null" >
+        sx_date,
+      </if>
+      <if test="sxBl1 != null" >
+        sx_bl1,
+      </if>
+      <if test="sxBl2 != null" >
+        sx_bl2,
+      </if>
+      <if test="sxBl3 != null" >
+        sx_bl3,
+      </if>
+      <if test="sxBl4 != null" >
+        sx_bl4,
+      </if>
+      <if test="sxBl5 != null" >
+        sx_bl5,
+      </if>
+      <if test="sxBl6 != null" >
+        sx_bl6,
+      </if>
+      <if test="sxBl7 != null" >
+        sx_bl7,
+      </if>
+      <if test="sxBl8 != null" >
+        sx_bl8,
+      </if>
+      <if test="sxBl9 != null" >
+        sx_bl9,
+      </if>
+      <if test="sxBl10 != null" >
+        sx_bl10,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sxHlmc != null" >
+        #{sxHlmc,jdbcType=VARCHAR},
+      </if>
+      <if test="sxHlbh != null" >
+        #{sxHlbh,jdbcType=VARCHAR},
+      </if>
+      <if test="sxHljb != null" >
+        #{sxHljb,jdbcType=INTEGER},
+      </if>
+      <if test="sxSzly != null" >
+        #{sxSzly,jdbcType=VARCHAR},
+      </if>
+      <if test="sxSjhl != null" >
+        #{sxSjhl,jdbcType=VARCHAR},
+      </if>
+      <if test="sxXjhlxl != null" >
+        #{sxXjhlxl,jdbcType=VARCHAR},
+      </if>
+      <if test="sxHsqmj != null" >
+        #{sxHsqmj,jdbcType=DOUBLE},
+      </if>
+      <if test="sxLdmj != null" >
+        #{sxLdmj,jdbcType=DOUBLE},
+      </if>
+      <if test="sxCdmj != null" >
+        #{sxCdmj,jdbcType=DOUBLE},
+      </if>
+      <if test="sxStmj != null" >
+        #{sxStmj,jdbcType=DOUBLE},
+      </if>
+      <if test="sxHdmj != null" >
+        #{sxHdmj,jdbcType=DOUBLE},
+      </if>
+      <if test="sxCzmj != null" >
+        #{sxCzmj,jdbcType=DOUBLE},
+      </if>
+      <if test="sxNcmj != null" >
+        #{sxNcmj,jdbcType=DOUBLE},
+      </if>
+      <if test="sxGjmj != null" >
+        #{sxGjmj,jdbcType=DOUBLE},
+      </if>
+      <if test="sxWlymj != null" >
+        #{sxWlymj,jdbcType=DOUBLE},
+      </if>
+      <if test="sxDate != null" >
+        #{sxDate,jdbcType=INTEGER},
+      </if>
+      <if test="sxBl1 != null" >
+        #{sxBl1,jdbcType=VARCHAR},
+      </if>
+      <if test="sxBl2 != null" >
+        #{sxBl2,jdbcType=VARCHAR},
+      </if>
+      <if test="sxBl3 != null" >
+        #{sxBl3,jdbcType=VARCHAR},
+      </if>
+      <if test="sxBl4 != null" >
+        #{sxBl4,jdbcType=VARCHAR},
+      </if>
+      <if test="sxBl5 != null" >
+        #{sxBl5,jdbcType=VARCHAR},
+      </if>
+      <if test="sxBl6 != null" >
+        #{sxBl6,jdbcType=VARCHAR},
+      </if>
+      <if test="sxBl7 != null" >
+        #{sxBl7,jdbcType=VARCHAR},
+      </if>
+      <if test="sxBl8 != null" >
+        #{sxBl8,jdbcType=VARCHAR},
+      </if>
+      <if test="sxBl9 != null" >
+        #{sxBl9,jdbcType=VARCHAR},
+      </if>
+      <if test="sxBl10 != null" >
+        #{sxBl10,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.eliteams.quick4j.web.model.ShuiXiExample" resultType="java.lang.Integer" >
+    select count(*) from tbl_sx
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tbl_sx
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.sxHlmc != null" >
+        sx_hlmc = #{record.sxHlmc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sxHlbh != null" >
+        sx_hlbh = #{record.sxHlbh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sxHljb != null" >
+        sx_hljb = #{record.sxHljb,jdbcType=INTEGER},
+      </if>
+      <if test="record.sxSzly != null" >
+        sx_szly = #{record.sxSzly,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sxSjhl != null" >
+        sx_sjhl = #{record.sxSjhl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sxXjhlxl != null" >
+        sx_xjhlxl = #{record.sxXjhlxl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sxHsqmj != null" >
+        sx_hsqmj = #{record.sxHsqmj,jdbcType=DOUBLE},
+      </if>
+      <if test="record.sxLdmj != null" >
+        sx_ldmj = #{record.sxLdmj,jdbcType=DOUBLE},
+      </if>
+      <if test="record.sxCdmj != null" >
+        sx_cdmj = #{record.sxCdmj,jdbcType=DOUBLE},
+      </if>
+      <if test="record.sxStmj != null" >
+        sx_stmj = #{record.sxStmj,jdbcType=DOUBLE},
+      </if>
+      <if test="record.sxHdmj != null" >
+        sx_hdmj = #{record.sxHdmj,jdbcType=DOUBLE},
+      </if>
+      <if test="record.sxCzmj != null" >
+        sx_czmj = #{record.sxCzmj,jdbcType=DOUBLE},
+      </if>
+      <if test="record.sxNcmj != null" >
+        sx_ncmj = #{record.sxNcmj,jdbcType=DOUBLE},
+      </if>
+      <if test="record.sxGjmj != null" >
+        sx_gjmj = #{record.sxGjmj,jdbcType=DOUBLE},
+      </if>
+      <if test="record.sxWlymj != null" >
+        sx_wlymj = #{record.sxWlymj,jdbcType=DOUBLE},
+      </if>
+      <if test="record.sxDate != null" >
+        sx_date = #{record.sxDate,jdbcType=INTEGER},
+      </if>
+      <if test="record.sxBl1 != null" >
+        sx_bl1 = #{record.sxBl1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sxBl2 != null" >
+        sx_bl2 = #{record.sxBl2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sxBl3 != null" >
+        sx_bl3 = #{record.sxBl3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sxBl4 != null" >
+        sx_bl4 = #{record.sxBl4,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sxBl5 != null" >
+        sx_bl5 = #{record.sxBl5,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sxBl6 != null" >
+        sx_bl6 = #{record.sxBl6,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sxBl7 != null" >
+        sx_bl7 = #{record.sxBl7,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sxBl8 != null" >
+        sx_bl8 = #{record.sxBl8,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sxBl9 != null" >
+        sx_bl9 = #{record.sxBl9,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sxBl10 != null" >
+        sx_bl10 = #{record.sxBl10,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tbl_sx
+    set id = #{record.id,jdbcType=INTEGER},
+      sx_hlmc = #{record.sxHlmc,jdbcType=VARCHAR},
+      sx_hlbh = #{record.sxHlbh,jdbcType=VARCHAR},
+      sx_hljb = #{record.sxHljb,jdbcType=INTEGER},
+      sx_szly = #{record.sxSzly,jdbcType=VARCHAR},
+      sx_sjhl = #{record.sxSjhl,jdbcType=VARCHAR},
+      sx_xjhlxl = #{record.sxXjhlxl,jdbcType=VARCHAR},
+      sx_hsqmj = #{record.sxHsqmj,jdbcType=DOUBLE},
+      sx_ldmj = #{record.sxLdmj,jdbcType=DOUBLE},
+      sx_cdmj = #{record.sxCdmj,jdbcType=DOUBLE},
+      sx_stmj = #{record.sxStmj,jdbcType=DOUBLE},
+      sx_hdmj = #{record.sxHdmj,jdbcType=DOUBLE},
+      sx_czmj = #{record.sxCzmj,jdbcType=DOUBLE},
+      sx_ncmj = #{record.sxNcmj,jdbcType=DOUBLE},
+      sx_gjmj = #{record.sxGjmj,jdbcType=DOUBLE},
+      sx_wlymj = #{record.sxWlymj,jdbcType=DOUBLE},
+      sx_date = #{record.sxDate,jdbcType=INTEGER},
+      sx_bl1 = #{record.sxBl1,jdbcType=VARCHAR},
+      sx_bl2 = #{record.sxBl2,jdbcType=VARCHAR},
+      sx_bl3 = #{record.sxBl3,jdbcType=VARCHAR},
+      sx_bl4 = #{record.sxBl4,jdbcType=VARCHAR},
+      sx_bl5 = #{record.sxBl5,jdbcType=VARCHAR},
+      sx_bl6 = #{record.sxBl6,jdbcType=VARCHAR},
+      sx_bl7 = #{record.sxBl7,jdbcType=VARCHAR},
+      sx_bl8 = #{record.sxBl8,jdbcType=VARCHAR},
+      sx_bl9 = #{record.sxBl9,jdbcType=VARCHAR},
+      sx_bl10 = #{record.sxBl10,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.eliteams.quick4j.web.model.ShuiXi" >
+    update tbl_sx
+    <set >
+      <if test="sxHlmc != null" >
+        sx_hlmc = #{sxHlmc,jdbcType=VARCHAR},
+      </if>
+      <if test="sxHlbh != null" >
+        sx_hlbh = #{sxHlbh,jdbcType=VARCHAR},
+      </if>
+      <if test="sxHljb != null" >
+        sx_hljb = #{sxHljb,jdbcType=INTEGER},
+      </if>
+      <if test="sxSzly != null" >
+        sx_szly = #{sxSzly,jdbcType=VARCHAR},
+      </if>
+      <if test="sxSjhl != null" >
+        sx_sjhl = #{sxSjhl,jdbcType=VARCHAR},
+      </if>
+      <if test="sxXjhlxl != null" >
+        sx_xjhlxl = #{sxXjhlxl,jdbcType=VARCHAR},
+      </if>
+      <if test="sxHsqmj != null" >
+        sx_hsqmj = #{sxHsqmj,jdbcType=DOUBLE},
+      </if>
+      <if test="sxLdmj != null" >
+        sx_ldmj = #{sxLdmj,jdbcType=DOUBLE},
+      </if>
+      <if test="sxCdmj != null" >
+        sx_cdmj = #{sxCdmj,jdbcType=DOUBLE},
+      </if>
+      <if test="sxStmj != null" >
+        sx_stmj = #{sxStmj,jdbcType=DOUBLE},
+      </if>
+      <if test="sxHdmj != null" >
+        sx_hdmj = #{sxHdmj,jdbcType=DOUBLE},
+      </if>
+      <if test="sxCzmj != null" >
+        sx_czmj = #{sxCzmj,jdbcType=DOUBLE},
+      </if>
+      <if test="sxNcmj != null" >
+        sx_ncmj = #{sxNcmj,jdbcType=DOUBLE},
+      </if>
+      <if test="sxGjmj != null" >
+        sx_gjmj = #{sxGjmj,jdbcType=DOUBLE},
+      </if>
+      <if test="sxWlymj != null" >
+        sx_wlymj = #{sxWlymj,jdbcType=DOUBLE},
+      </if>
+      <if test="sxDate != null" >
+        sx_date = #{sxDate,jdbcType=INTEGER},
+      </if>
+      <if test="sxBl1 != null" >
+        sx_bl1 = #{sxBl1,jdbcType=VARCHAR},
+      </if>
+      <if test="sxBl2 != null" >
+        sx_bl2 = #{sxBl2,jdbcType=VARCHAR},
+      </if>
+      <if test="sxBl3 != null" >
+        sx_bl3 = #{sxBl3,jdbcType=VARCHAR},
+      </if>
+      <if test="sxBl4 != null" >
+        sx_bl4 = #{sxBl4,jdbcType=VARCHAR},
+      </if>
+      <if test="sxBl5 != null" >
+        sx_bl5 = #{sxBl5,jdbcType=VARCHAR},
+      </if>
+      <if test="sxBl6 != null" >
+        sx_bl6 = #{sxBl6,jdbcType=VARCHAR},
+      </if>
+      <if test="sxBl7 != null" >
+        sx_bl7 = #{sxBl7,jdbcType=VARCHAR},
+      </if>
+      <if test="sxBl8 != null" >
+        sx_bl8 = #{sxBl8,jdbcType=VARCHAR},
+      </if>
+      <if test="sxBl9 != null" >
+        sx_bl9 = #{sxBl9,jdbcType=VARCHAR},
+      </if>
+      <if test="sxBl10 != null" >
+        sx_bl10 = #{sxBl10,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.eliteams.quick4j.web.model.ShuiXi" >
+    update tbl_sx
+    set sx_hlmc = #{sxHlmc,jdbcType=VARCHAR},
+      sx_hlbh = #{sxHlbh,jdbcType=VARCHAR},
+      sx_hljb = #{sxHljb,jdbcType=INTEGER},
+      sx_szly = #{sxSzly,jdbcType=VARCHAR},
+      sx_sjhl = #{sxSjhl,jdbcType=VARCHAR},
+      sx_xjhlxl = #{sxXjhlxl,jdbcType=VARCHAR},
+      sx_hsqmj = #{sxHsqmj,jdbcType=DOUBLE},
+      sx_ldmj = #{sxLdmj,jdbcType=DOUBLE},
+      sx_cdmj = #{sxCdmj,jdbcType=DOUBLE},
+      sx_stmj = #{sxStmj,jdbcType=DOUBLE},
+      sx_hdmj = #{sxHdmj,jdbcType=DOUBLE},
+      sx_czmj = #{sxCzmj,jdbcType=DOUBLE},
+      sx_ncmj = #{sxNcmj,jdbcType=DOUBLE},
+      sx_gjmj = #{sxGjmj,jdbcType=DOUBLE},
+      sx_wlymj = #{sxWlymj,jdbcType=DOUBLE},
+      sx_date = #{sxDate,jdbcType=INTEGER},
+      sx_bl1 = #{sxBl1,jdbcType=VARCHAR},
+      sx_bl2 = #{sxBl2,jdbcType=VARCHAR},
+      sx_bl3 = #{sxBl3,jdbcType=VARCHAR},
+      sx_bl4 = #{sxBl4,jdbcType=VARCHAR},
+      sx_bl5 = #{sxBl5,jdbcType=VARCHAR},
+      sx_bl6 = #{sxBl6,jdbcType=VARCHAR},
+      sx_bl7 = #{sxBl7,jdbcType=VARCHAR},
+      sx_bl8 = #{sxBl8,jdbcType=VARCHAR},
+      sx_bl9 = #{sxBl9,jdbcType=VARCHAR},
+      sx_bl10 = #{sxBl10,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="getRiverName"  parameterType="java.util.Map" resultType="Map" >
+    select
+    sx_hlmc
+    from tbl_sx
+    <where>
+    <if test="map.sx_hlmc != null">
+      sx_hlmc LIKE CONCAT('%', #{map.sx_hlmc}, '%')
+    </if>
+    </where>
+  </select>
+
+
+  <select id="getRiverMessage"  parameterType="java.util.Map" resultType="com.eliteams.quick4j.web.model.ShuiXi" >
+    select
+    *
+    from tbl_sx
+    <where>
+      <if test="map.sx_hlmc != null">
+        sx_hlmc  LIKE CONCAT('%', #{map.sx_hlmc}, '%')
+      </if>
+      <if test="map.sx_szly != null">
+        and sx_szly  LIKE CONCAT('%', #{map.sx_szly}, '%')
+      </if>
+    </where>
+  </select>
+</mapper>

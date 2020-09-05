@@ -1,0 +1,1533 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eliteams.quick4j.web.dao.QmpWrxxMapper">
+
+    <resultMap id="BaseResultMap" type="com.eliteams.quick4j.web.model.QmpWrxx">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="section_name" property="sectionName" jdbcType="VARCHAR" />
+        <result column="section_bh" property="sectionBh" jdbcType="VARCHAR" />
+        <result column="section_level" property="sectionLevel" jdbcType="VARCHAR" />
+        <result column="test_by" property="testBy" jdbcType="VARCHAR" />
+        <result column="river_name" property="riverName" jdbcType="VARCHAR" />
+        <result column="river_bh" property="riverBh" jdbcType="VARCHAR" />
+        <result column="dmsz_dmjd" property="dmszDmjd" jdbcType="DOUBLE" />
+        <result column="dmsz_dmwd" property="dmszDmwd" jdbcType="DOUBLE" />
+        <result column="jcpc" property="jcpc" jdbcType="VARCHAR" />
+        <result column="loc_province" property="locProvince" jdbcType="VARCHAR" />
+        <result column=" basin" property="basin" jdbcType="VARCHAR" />
+        <result column="quality_type" property="qualityType" jdbcType="VARCHAR" />
+        <result column="quality_target" property="qualityTarget" jdbcType="VARCHAR" />
+        <result column="year" property="year" jdbcType="INTEGER" />
+        <result column="month" property="month" jdbcType="INTEGER" />
+        <result column="water_temperature" property="waterTemperature" jdbcType="DOUBLE" />
+        <result column="flow_rate" property="flowRate" jdbcType="DOUBLE" />
+        <result column="ph" property="ph" jdbcType="DOUBLE" />
+        <result column="ddl" property="ddl" jdbcType="DOUBLE" />
+        <result column="rjy" property="rjy" jdbcType="DOUBLE" />
+        <result column="gmsyzs" property="gmsyzs" jdbcType="DOUBLE" />
+        <result column="shxyl" property="shxyl" jdbcType="DOUBLE" />
+        <result column="ad" property="ad" jdbcType="DOUBLE" />
+        <result column="syl" property="syl" jdbcType="DOUBLE" />
+        <result column="hff" property="hff" jdbcType="DOUBLE" />
+        <result column="gong" property="gong" jdbcType="DOUBLE" />
+        <result column="qian" property="qian" jdbcType="DOUBLE" />
+        <result column="hxxyl" property="hxxyl" jdbcType="DOUBLE" />
+        <result column="zd" property="zd" jdbcType="DOUBLE" />
+        <result column="zl" property="zl" jdbcType="DOUBLE" />
+        <result column="tong" property="tong" jdbcType="DOUBLE" />
+        <result column="xin" property="xin" jdbcType="DOUBLE" />
+        <result column="qing" property="qing" jdbcType="DOUBLE" />
+        <result column="xi" property="xi" jdbcType="DOUBLE" />
+        <result column="shen" property="shen" jdbcType="DOUBLE" />
+        <result column="ge" property="ge" jdbcType="DOUBLE" />
+        <result column="ljg" property="ljg" jdbcType="DOUBLE" />
+        <result column="qhw" property="qhw" jdbcType="DOUBLE" />
+        <result column="ylzxdj" property="ylzxdj" jdbcType="DOUBLE" />
+        <result column="lhw" property="lhw" jdbcType="DOUBLE" />
+        <result column="fdcjq" property="fdcjq" jdbcType="INTEGER" />
+        <result column="rjy_std" property="rjyStd" jdbcType="VARCHAR" />
+        <result column="gmsyzs_std" property="gmsyzsStd" jdbcType="VARCHAR" />
+        <result column="shxyl_std" property="shxylStd" jdbcType="VARCHAR" />
+        <result column="ad_std" property="adStd" jdbcType="VARCHAR" />
+        <result column="syl_std" property="sylStd" jdbcType="VARCHAR" />
+        <result column="hff_std" property="hffStd" jdbcType="VARCHAR" />
+        <result column="gong_std" property="gongStd" jdbcType="VARCHAR" />
+        <result column="qian_std" property="qianStd" jdbcType="VARCHAR" />
+        <result column="hxxyl_std" property="hxxylStd" jdbcType="VARCHAR" />
+        <result column="zd_std" property="zdStd" jdbcType="VARCHAR" />
+        <result column="zl_std" property="zlStd" jdbcType="VARCHAR" />
+        <result column="tong_std" property="tongStd" jdbcType="VARCHAR" />
+        <result column="xin_std" property="xinStd" jdbcType="VARCHAR" />
+        <result column="qing_std" property="qingStd" jdbcType="VARCHAR" />
+        <result column="xi_std" property="xiStd" jdbcType="VARCHAR" />
+        <result column="shen_std" property="shenStd" jdbcType="VARCHAR" />
+        <result column="ge_std" property="geStd" jdbcType="VARCHAR" />
+        <result column="ljg_std" property="ljgStd" jdbcType="VARCHAR" />
+        <result column="qhw_std" property="qhwStd" jdbcType="VARCHAR" />
+        <result column="ylzxdj_std" property="ylzxdjStd" jdbcType="VARCHAR" />
+        <result column="lhw_std" property="lhwStd" jdbcType="VARCHAR" />
+        <result column="fdcjq_std" property="fdcjqStd" jdbcType="VARCHAR" />
+        <result column="cbyzjbs" property="cbyzjbs" jdbcType="DOUBLE" />
+        <result column="comment" property="comment" jdbcType="VARCHAR" />
+        <result column="dmsz_bl1" property="dmszBl1" jdbcType="VARCHAR" />
+        <result column="dmsz_bl2" property="dmszBl2" jdbcType="VARCHAR" />
+        <result column="dmsz_bl3" property="dmszBl3" jdbcType="VARCHAR" />
+        <result column="dmsz_bl4" property="dmszBl4" jdbcType="VARCHAR" />
+        <result column="dmsz_bl5" property="dmszBl5" jdbcType="VARCHAR" />
+        <result column="dmsz_bl6" property="dmszBl6" jdbcType="VARCHAR" />
+        <result column="dmsz_bl7" property="dmszBl7" jdbcType="VARCHAR" />
+        <result column="dmsz_bl8" property="dmszBl8" jdbcType="VARCHAR" />
+        <result column="dmsz_bl9" property="dmszBl9" jdbcType="VARCHAR" />
+        <result column="dmsz_bl10" property="dmszBl10" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and
+                                    #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem"
+                                             open="(" separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria"
+                     separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" prefixOverrides="and" suffix=")">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and
+                                    #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach close=")" collection="criterion.value" item="listItem"
+                                             open="(" separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+    id, section_name, section_bh, section_level, test_by, river_name, river_bh, dmsz_dmjd,
+    dmsz_dmwd, jcpc, loc_province, " basin", quality_type, quality_target, year, month,
+    water_temperature, flow_rate, ph, ddl, rjy, gmsyzs, shxyl, ad, syl, hff, gong, qian,
+    hxxyl, zd, zl, tong, xin, qing, xi, shen, ge, ljg, qhw, ylzxdj, lhw, fdcjq, rjy_std,
+    gmsyzs_std, shxyl_std, ad_std, syl_std, hff_std, gong_std, qian_std, hxxyl_std, zd_std,
+    zl_std, tong_std, xin_std, qing_std, xi_std, shen_std, ge_std, ljg_std, qhw_std,
+    ylzxdj_std, lhw_std, fdcjq_std, cbyzjbs, comment, dmsz_bl1, dmsz_bl2, dmsz_bl3, dmsz_bl4,
+    dmsz_bl5, dmsz_bl6, dmsz_bl7, dmsz_bl8, dmsz_bl9, dmsz_bl10
+	</sql>
+    <sql id="mianyuan">
+        id,test_by,section_name,year,month,flow_rate,ad,hxxyl,zl
+    </sql>
+    <select id="selectByExample" parameterType="com.eliteams.quick4j.web.model.QmpWrxxExample"
+            resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        'true' as QUERYID,
+        <include refid="Base_Column_List"/>
+        from qmp_wrxx
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+
+    </select>
+
+    <select id="selectAllIWant" resultMap="BaseResultMap">
+        SELECT
+        <include refid="mianyuan"/>
+        FROM qmp_wrxx
+        WHERE
+        <if test="map.loc_city != null">
+            test_by LIKE CONCAT('%', #{map.loc_city}, '%') or
+        </if>
+        <if test="map.loc_city != null">
+            test_by LIKE CONCAT('%', #{map.loc_county}, '%') AND
+        </if>
+        loc_province LIKE CONCAT('%', '辽宁', '%')
+    </select>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer"
+            resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from qmp_wrxx
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from qmp_wrxx
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+    <delete id="deleteByExample" parameterType="com.eliteams.quick4j.web.model.QmpWrxxExample">
+        delete from qmp_wrxx
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="com.eliteams.quick4j.web.model.QmpWrxx">
+        insert into qmp_wrxx (id, section_name, section_bh,
+                              section_level, test_by, river_name,
+                              river_bh, dmsz_dmjd, dmsz_dmwd,
+                              jcpc, loc_province, " basin",
+                              quality_type, quality_target, year,
+                              month, water_temperature, flow_rate,
+                              ph, ddl, rjy, gmsyzs,
+                              shxyl, ad, syl, hff,
+                              gong, qian, hxxyl, zd,
+                              zl, tong, xin, qing,
+                              xi, shen, ge, ljg,
+                              qhw, ylzxdj, lhw, fdcjq,
+                              rjy_std, gmsyzs_std, shxyl_std,
+                              ad_std, syl_std, hff_std,
+                              gong_std, qian_std, hxxyl_std,
+                              zd_std, zl_std, tong_std,
+                              xin_std, qing_std, xi_std,
+                              shen_std, ge_std, ljg_std,
+                              qhw_std, ylzxdj_std, lhw_std,
+                              fdcjq_std, cbyzjbs, comment,
+                              dmsz_bl1, dmsz_bl2, dmsz_bl3,
+                              dmsz_bl4, dmsz_bl5, dmsz_bl6,
+                              dmsz_bl7, dmsz_bl8, dmsz_bl9,
+                              dmsz_bl10)
+        values (#{id,jdbcType=INTEGER}, #{sectionName,jdbcType=VARCHAR}, #{sectionBh,jdbcType=VARCHAR},
+                #{sectionLevel,jdbcType=VARCHAR}, #{testBy,jdbcType=VARCHAR}, #{riverName,jdbcType=VARCHAR},
+                #{riverBh,jdbcType=VARCHAR}, #{dmszDmjd,jdbcType=DOUBLE}, #{dmszDmwd,jdbcType=DOUBLE},
+                #{jcpc,jdbcType=VARCHAR}, #{locProvince,jdbcType=VARCHAR}, #{basin,jdbcType=VARCHAR},
+                #{qualityType,jdbcType=VARCHAR}, #{qualityTarget,jdbcType=VARCHAR}, #{year,jdbcType=INTEGER},
+                #{month,jdbcType=INTEGER}, #{waterTemperature,jdbcType=DOUBLE}, #{flowRate,jdbcType=DOUBLE},
+                #{ph,jdbcType=DOUBLE}, #{ddl,jdbcType=DOUBLE}, #{rjy,jdbcType=DOUBLE}, #{gmsyzs,jdbcType=DOUBLE},
+                #{shxyl,jdbcType=DOUBLE}, #{ad,jdbcType=DOUBLE}, #{syl,jdbcType=DOUBLE}, #{hff,jdbcType=DOUBLE},
+                #{gong,jdbcType=DOUBLE}, #{qian,jdbcType=DOUBLE}, #{hxxyl,jdbcType=DOUBLE}, #{zd,jdbcType=DOUBLE},
+                #{zl,jdbcType=DOUBLE}, #{tong,jdbcType=DOUBLE}, #{xin,jdbcType=DOUBLE}, #{qing,jdbcType=DOUBLE},
+                #{xi,jdbcType=DOUBLE}, #{shen,jdbcType=DOUBLE}, #{ge,jdbcType=DOUBLE}, #{ljg,jdbcType=DOUBLE},
+                #{qhw,jdbcType=DOUBLE}, #{ylzxdj,jdbcType=DOUBLE}, #{lhw,jdbcType=DOUBLE}, #{fdcjq,jdbcType=INTEGER},
+                #{rjyStd,jdbcType=VARCHAR}, #{gmsyzsStd,jdbcType=VARCHAR}, #{shxylStd,jdbcType=VARCHAR},
+                #{adStd,jdbcType=VARCHAR}, #{sylStd,jdbcType=VARCHAR}, #{hffStd,jdbcType=VARCHAR},
+                #{gongStd,jdbcType=VARCHAR}, #{qianStd,jdbcType=VARCHAR}, #{hxxylStd,jdbcType=VARCHAR},
+                #{zdStd,jdbcType=VARCHAR}, #{zlStd,jdbcType=VARCHAR}, #{tongStd,jdbcType=VARCHAR},
+                #{xinStd,jdbcType=VARCHAR}, #{qingStd,jdbcType=VARCHAR}, #{xiStd,jdbcType=VARCHAR},
+                #{shenStd,jdbcType=VARCHAR}, #{geStd,jdbcType=VARCHAR}, #{ljgStd,jdbcType=VARCHAR},
+                #{qhwStd,jdbcType=VARCHAR}, #{ylzxdjStd,jdbcType=VARCHAR}, #{lhwStd,jdbcType=VARCHAR},
+                #{fdcjqStd,jdbcType=VARCHAR}, #{cbyzjbs,jdbcType=DOUBLE}, #{comment,jdbcType=VARCHAR},
+                #{dmszBl1,jdbcType=VARCHAR}, #{dmszBl2,jdbcType=VARCHAR}, #{dmszBl3,jdbcType=VARCHAR},
+                #{dmszBl4,jdbcType=VARCHAR}, #{dmszBl5,jdbcType=VARCHAR}, #{dmszBl6,jdbcType=VARCHAR},
+                #{dmszBl7,jdbcType=VARCHAR}, #{dmszBl8,jdbcType=VARCHAR}, #{dmszBl9,jdbcType=VARCHAR},
+                #{dmszBl10,jdbcType=VARCHAR})
+	</insert>
+    <insert id="insertSelective" parameterType="com.eliteams.quick4j.web.model.QmpWrxx">
+        insert into qmp_wrxx
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="sectionName != null" >
+                section_name,
+            </if>
+            <if test="sectionBh != null" >
+                section_bh,
+            </if>
+            <if test="sectionLevel != null" >
+                section_level,
+            </if>
+            <if test="testBy != null" >
+                test_by,
+            </if>
+            <if test="riverName != null" >
+                river_name,
+            </if>
+            <if test="riverBh != null" >
+                river_bh,
+            </if>
+            <if test="dmszDmjd != null" >
+                dmsz_dmjd,
+            </if>
+            <if test="dmszDmwd != null" >
+                dmsz_dmwd,
+            </if>
+            <if test="jcpc != null" >
+                jcpc,
+            </if>
+            <if test="locProvince != null" >
+                loc_province,
+            </if>
+            <if test="basin != null" >
+                " basin",
+            </if>
+            <if test="qualityType != null" >
+                quality_type,
+            </if>
+            <if test="qualityTarget != null" >
+                quality_target,
+            </if>
+            <if test="year != null" >
+                year,
+            </if>
+            <if test="month != null" >
+                month,
+            </if>
+            <if test="waterTemperature != null" >
+                water_temperature,
+            </if>
+            <if test="flowRate != null" >
+                flow_rate,
+            </if>
+            <if test="ph != null" >
+                ph,
+            </if>
+            <if test="ddl != null" >
+                ddl,
+            </if>
+            <if test="rjy != null" >
+                rjy,
+            </if>
+            <if test="gmsyzs != null" >
+                gmsyzs,
+            </if>
+            <if test="shxyl != null" >
+                shxyl,
+            </if>
+            <if test="ad != null" >
+                ad,
+            </if>
+            <if test="syl != null" >
+                syl,
+            </if>
+            <if test="hff != null" >
+                hff,
+            </if>
+            <if test="gong != null" >
+                gong,
+            </if>
+            <if test="qian != null" >
+                qian,
+            </if>
+            <if test="hxxyl != null" >
+                hxxyl,
+            </if>
+            <if test="zd != null" >
+                zd,
+            </if>
+            <if test="zl != null" >
+                zl,
+            </if>
+            <if test="tong != null" >
+                tong,
+            </if>
+            <if test="xin != null" >
+                xin,
+            </if>
+            <if test="qing != null" >
+                qing,
+            </if>
+            <if test="xi != null" >
+                xi,
+            </if>
+            <if test="shen != null" >
+                shen,
+            </if>
+            <if test="ge != null" >
+                ge,
+            </if>
+            <if test="ljg != null" >
+                ljg,
+            </if>
+            <if test="qhw != null" >
+                qhw,
+            </if>
+            <if test="ylzxdj != null" >
+                ylzxdj,
+            </if>
+            <if test="lhw != null" >
+                lhw,
+            </if>
+            <if test="fdcjq != null" >
+                fdcjq,
+            </if>
+            <if test="rjyStd != null" >
+                rjy_std,
+            </if>
+            <if test="gmsyzsStd != null" >
+                gmsyzs_std,
+            </if>
+            <if test="shxylStd != null" >
+                shxyl_std,
+            </if>
+            <if test="adStd != null" >
+                ad_std,
+            </if>
+            <if test="sylStd != null" >
+                syl_std,
+            </if>
+            <if test="hffStd != null" >
+                hff_std,
+            </if>
+            <if test="gongStd != null" >
+                gong_std,
+            </if>
+            <if test="qianStd != null" >
+                qian_std,
+            </if>
+            <if test="hxxylStd != null" >
+                hxxyl_std,
+            </if>
+            <if test="zdStd != null" >
+                zd_std,
+            </if>
+            <if test="zlStd != null" >
+                zl_std,
+            </if>
+            <if test="tongStd != null" >
+                tong_std,
+            </if>
+            <if test="xinStd != null" >
+                xin_std,
+            </if>
+            <if test="qingStd != null" >
+                qing_std,
+            </if>
+            <if test="xiStd != null" >
+                xi_std,
+            </if>
+            <if test="shenStd != null" >
+                shen_std,
+            </if>
+            <if test="geStd != null" >
+                ge_std,
+            </if>
+            <if test="ljgStd != null" >
+                ljg_std,
+            </if>
+            <if test="qhwStd != null" >
+                qhw_std,
+            </if>
+            <if test="ylzxdjStd != null" >
+                ylzxdj_std,
+            </if>
+            <if test="lhwStd != null" >
+                lhw_std,
+            </if>
+            <if test="fdcjqStd != null" >
+                fdcjq_std,
+            </if>
+            <if test="cbyzjbs != null" >
+                cbyzjbs,
+            </if>
+            <if test="comment != null" >
+                comment,
+            </if>
+            <if test="dmszBl1 != null" >
+                dmsz_bl1,
+            </if>
+            <if test="dmszBl2 != null" >
+                dmsz_bl2,
+            </if>
+            <if test="dmszBl3 != null" >
+                dmsz_bl3,
+            </if>
+            <if test="dmszBl4 != null" >
+                dmsz_bl4,
+            </if>
+            <if test="dmszBl5 != null" >
+                dmsz_bl5,
+            </if>
+            <if test="dmszBl6 != null" >
+                dmsz_bl6,
+            </if>
+            <if test="dmszBl7 != null" >
+                dmsz_bl7,
+            </if>
+            <if test="dmszBl8 != null" >
+                dmsz_bl8,
+            </if>
+            <if test="dmszBl9 != null" >
+                dmsz_bl9,
+            </if>
+            <if test="dmszBl10 != null" >
+                dmsz_bl10,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null" >
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="sectionName != null" >
+                #{sectionName,jdbcType=VARCHAR},
+            </if>
+            <if test="sectionBh != null" >
+                #{sectionBh,jdbcType=VARCHAR},
+            </if>
+            <if test="sectionLevel != null" >
+                #{sectionLevel,jdbcType=VARCHAR},
+            </if>
+            <if test="testBy != null" >
+                #{testBy,jdbcType=VARCHAR},
+            </if>
+            <if test="riverName != null" >
+                #{riverName,jdbcType=VARCHAR},
+            </if>
+            <if test="riverBh != null" >
+                #{riverBh,jdbcType=VARCHAR},
+            </if>
+            <if test="dmszDmjd != null" >
+                #{dmszDmjd,jdbcType=DOUBLE},
+            </if>
+            <if test="dmszDmwd != null" >
+                #{dmszDmwd,jdbcType=DOUBLE},
+            </if>
+            <if test="jcpc != null" >
+                #{jcpc,jdbcType=VARCHAR},
+            </if>
+            <if test="locProvince != null" >
+                #{locProvince,jdbcType=VARCHAR},
+            </if>
+            <if test="basin != null" >
+                #{basin,jdbcType=VARCHAR},
+            </if>
+            <if test="qualityType != null" >
+                #{qualityType,jdbcType=VARCHAR},
+            </if>
+            <if test="qualityTarget != null" >
+                #{qualityTarget,jdbcType=VARCHAR},
+            </if>
+            <if test="year != null" >
+                #{year,jdbcType=INTEGER},
+            </if>
+            <if test="month != null" >
+                #{month,jdbcType=INTEGER},
+            </if>
+            <if test="waterTemperature != null" >
+                #{waterTemperature,jdbcType=DOUBLE},
+            </if>
+            <if test="flowRate != null" >
+                #{flowRate,jdbcType=DOUBLE},
+            </if>
+            <if test="ph != null" >
+                #{ph,jdbcType=DOUBLE},
+            </if>
+            <if test="ddl != null" >
+                #{ddl,jdbcType=DOUBLE},
+            </if>
+            <if test="rjy != null" >
+                #{rjy,jdbcType=DOUBLE},
+            </if>
+            <if test="gmsyzs != null" >
+                #{gmsyzs,jdbcType=DOUBLE},
+            </if>
+            <if test="shxyl != null" >
+                #{shxyl,jdbcType=DOUBLE},
+            </if>
+            <if test="ad != null" >
+                #{ad,jdbcType=DOUBLE},
+            </if>
+            <if test="syl != null" >
+                #{syl,jdbcType=DOUBLE},
+            </if>
+            <if test="hff != null" >
+                #{hff,jdbcType=DOUBLE},
+            </if>
+            <if test="gong != null" >
+                #{gong,jdbcType=DOUBLE},
+            </if>
+            <if test="qian != null" >
+                #{qian,jdbcType=DOUBLE},
+            </if>
+            <if test="hxxyl != null" >
+                #{hxxyl,jdbcType=DOUBLE},
+            </if>
+            <if test="zd != null" >
+                #{zd,jdbcType=DOUBLE},
+            </if>
+            <if test="zl != null" >
+                #{zl,jdbcType=DOUBLE},
+            </if>
+            <if test="tong != null" >
+                #{tong,jdbcType=DOUBLE},
+            </if>
+            <if test="xin != null" >
+                #{xin,jdbcType=DOUBLE},
+            </if>
+            <if test="qing != null" >
+                #{qing,jdbcType=DOUBLE},
+            </if>
+            <if test="xi != null" >
+                #{xi,jdbcType=DOUBLE},
+            </if>
+            <if test="shen != null" >
+                #{shen,jdbcType=DOUBLE},
+            </if>
+            <if test="ge != null" >
+                #{ge,jdbcType=DOUBLE},
+            </if>
+            <if test="ljg != null" >
+                #{ljg,jdbcType=DOUBLE},
+            </if>
+            <if test="qhw != null" >
+                #{qhw,jdbcType=DOUBLE},
+            </if>
+            <if test="ylzxdj != null" >
+                #{ylzxdj,jdbcType=DOUBLE},
+            </if>
+            <if test="lhw != null" >
+                #{lhw,jdbcType=DOUBLE},
+            </if>
+            <if test="fdcjq != null" >
+                #{fdcjq,jdbcType=INTEGER},
+            </if>
+            <if test="rjyStd != null" >
+                #{rjyStd,jdbcType=VARCHAR},
+            </if>
+            <if test="gmsyzsStd != null" >
+                #{gmsyzsStd,jdbcType=VARCHAR},
+            </if>
+            <if test="shxylStd != null" >
+                #{shxylStd,jdbcType=VARCHAR},
+            </if>
+            <if test="adStd != null" >
+                #{adStd,jdbcType=VARCHAR},
+            </if>
+            <if test="sylStd != null" >
+                #{sylStd,jdbcType=VARCHAR},
+            </if>
+            <if test="hffStd != null" >
+                #{hffStd,jdbcType=VARCHAR},
+            </if>
+            <if test="gongStd != null" >
+                #{gongStd,jdbcType=VARCHAR},
+            </if>
+            <if test="qianStd != null" >
+                #{qianStd,jdbcType=VARCHAR},
+            </if>
+            <if test="hxxylStd != null" >
+                #{hxxylStd,jdbcType=VARCHAR},
+            </if>
+            <if test="zdStd != null" >
+                #{zdStd,jdbcType=VARCHAR},
+            </if>
+            <if test="zlStd != null" >
+                #{zlStd,jdbcType=VARCHAR},
+            </if>
+            <if test="tongStd != null" >
+                #{tongStd,jdbcType=VARCHAR},
+            </if>
+            <if test="xinStd != null" >
+                #{xinStd,jdbcType=VARCHAR},
+            </if>
+            <if test="qingStd != null" >
+                #{qingStd,jdbcType=VARCHAR},
+            </if>
+            <if test="xiStd != null" >
+                #{xiStd,jdbcType=VARCHAR},
+            </if>
+            <if test="shenStd != null" >
+                #{shenStd,jdbcType=VARCHAR},
+            </if>
+            <if test="geStd != null" >
+                #{geStd,jdbcType=VARCHAR},
+            </if>
+            <if test="ljgStd != null" >
+                #{ljgStd,jdbcType=VARCHAR},
+            </if>
+            <if test="qhwStd != null" >
+                #{qhwStd,jdbcType=VARCHAR},
+            </if>
+            <if test="ylzxdjStd != null" >
+                #{ylzxdjStd,jdbcType=VARCHAR},
+            </if>
+            <if test="lhwStd != null" >
+                #{lhwStd,jdbcType=VARCHAR},
+            </if>
+            <if test="fdcjqStd != null" >
+                #{fdcjqStd,jdbcType=VARCHAR},
+            </if>
+            <if test="cbyzjbs != null" >
+                #{cbyzjbs,jdbcType=DOUBLE},
+            </if>
+            <if test="comment != null" >
+                #{comment,jdbcType=VARCHAR},
+            </if>
+            <if test="dmszBl1 != null" >
+                #{dmszBl1,jdbcType=VARCHAR},
+            </if>
+            <if test="dmszBl2 != null" >
+                #{dmszBl2,jdbcType=VARCHAR},
+            </if>
+            <if test="dmszBl3 != null" >
+                #{dmszBl3,jdbcType=VARCHAR},
+            </if>
+            <if test="dmszBl4 != null" >
+                #{dmszBl4,jdbcType=VARCHAR},
+            </if>
+            <if test="dmszBl5 != null" >
+                #{dmszBl5,jdbcType=VARCHAR},
+            </if>
+            <if test="dmszBl6 != null" >
+                #{dmszBl6,jdbcType=VARCHAR},
+            </if>
+            <if test="dmszBl7 != null" >
+                #{dmszBl7,jdbcType=VARCHAR},
+            </if>
+            <if test="dmszBl8 != null" >
+                #{dmszBl8,jdbcType=VARCHAR},
+            </if>
+            <if test="dmszBl9 != null" >
+                #{dmszBl9,jdbcType=VARCHAR},
+            </if>
+            <if test="dmszBl10 != null" >
+                #{dmszBl10,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.eliteams.quick4j.web.model.QmpWrxxExample"
+            resultType="java.lang.Long">
+        select count(*) from qmp_wrxx
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update qmp_wrxx
+        <set >
+            <if test="record.id != null" >
+                id = #{record.id,jdbcType=INTEGER},
+            </if>
+            <if test="record.sectionName != null" >
+                section_name = #{record.sectionName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.sectionBh != null" >
+                section_bh = #{record.sectionBh,jdbcType=VARCHAR},
+            </if>
+            <if test="record.sectionLevel != null" >
+                section_level = #{record.sectionLevel,jdbcType=VARCHAR},
+            </if>
+            <if test="record.testBy != null" >
+                test_by = #{record.testBy,jdbcType=VARCHAR},
+            </if>
+            <if test="record.riverName != null" >
+                river_name = #{record.riverName,jdbcType=VARCHAR},
+            </if>
+            <if test="record.riverBh != null" >
+                river_bh = #{record.riverBh,jdbcType=VARCHAR},
+            </if>
+            <if test="record.dmszDmjd != null" >
+                dmsz_dmjd = #{record.dmszDmjd,jdbcType=DOUBLE},
+            </if>
+            <if test="record.dmszDmwd != null" >
+                dmsz_dmwd = #{record.dmszDmwd,jdbcType=DOUBLE},
+            </if>
+            <if test="record.jcpc != null" >
+                jcpc = #{record.jcpc,jdbcType=VARCHAR},
+            </if>
+            <if test="record.locProvince != null" >
+                loc_province = #{record.locProvince,jdbcType=VARCHAR},
+            </if>
+            <if test="record.basin != null" >
+                " basin" = #{record.basin,jdbcType=VARCHAR},
+            </if>
+            <if test="record.qualityType != null" >
+                quality_type = #{record.qualityType,jdbcType=VARCHAR},
+            </if>
+            <if test="record.qualityTarget != null" >
+                quality_target = #{record.qualityTarget,jdbcType=VARCHAR},
+            </if>
+            <if test="record.year != null" >
+                year = #{record.year,jdbcType=INTEGER},
+            </if>
+            <if test="record.month != null" >
+                month = #{record.month,jdbcType=INTEGER},
+            </if>
+            <if test="record.waterTemperature != null" >
+                water_temperature = #{record.waterTemperature,jdbcType=DOUBLE},
+            </if>
+            <if test="record.flowRate != null" >
+                flow_rate = #{record.flowRate,jdbcType=DOUBLE},
+            </if>
+            <if test="record.ph != null" >
+                ph = #{record.ph,jdbcType=DOUBLE},
+            </if>
+            <if test="record.ddl != null" >
+                ddl = #{record.ddl,jdbcType=DOUBLE},
+            </if>
+            <if test="record.rjy != null" >
+                rjy = #{record.rjy,jdbcType=DOUBLE},
+            </if>
+            <if test="record.gmsyzs != null" >
+                gmsyzs = #{record.gmsyzs,jdbcType=DOUBLE},
+            </if>
+            <if test="record.shxyl != null" >
+                shxyl = #{record.shxyl,jdbcType=DOUBLE},
+            </if>
+            <if test="record.ad != null" >
+                ad = #{record.ad,jdbcType=DOUBLE},
+            </if>
+            <if test="record.syl != null" >
+                syl = #{record.syl,jdbcType=DOUBLE},
+            </if>
+            <if test="record.hff != null" >
+                hff = #{record.hff,jdbcType=DOUBLE},
+            </if>
+            <if test="record.gong != null" >
+                gong = #{record.gong,jdbcType=DOUBLE},
+            </if>
+            <if test="record.qian != null" >
+                qian = #{record.qian,jdbcType=DOUBLE},
+            </if>
+            <if test="record.hxxyl != null" >
+                hxxyl = #{record.hxxyl,jdbcType=DOUBLE},
+            </if>
+            <if test="record.zd != null" >
+                zd = #{record.zd,jdbcType=DOUBLE},
+            </if>
+            <if test="record.zl != null" >
+                zl = #{record.zl,jdbcType=DOUBLE},
+            </if>
+            <if test="record.tong != null" >
+                tong = #{record.tong,jdbcType=DOUBLE},
+            </if>
+            <if test="record.xin != null" >
+                xin = #{record.xin,jdbcType=DOUBLE},
+            </if>
+            <if test="record.qing != null" >
+                qing = #{record.qing,jdbcType=DOUBLE},
+            </if>
+            <if test="record.xi != null" >
+                xi = #{record.xi,jdbcType=DOUBLE},
+            </if>
+            <if test="record.shen != null" >
+                shen = #{record.shen,jdbcType=DOUBLE},
+            </if>
+            <if test="record.ge != null" >
+                ge = #{record.ge,jdbcType=DOUBLE},
+            </if>
+            <if test="record.ljg != null" >
+                ljg = #{record.ljg,jdbcType=DOUBLE},
+            </if>
+            <if test="record.qhw != null" >
+                qhw = #{record.qhw,jdbcType=DOUBLE},
+            </if>
+            <if test="record.ylzxdj != null" >
+                ylzxdj = #{record.ylzxdj,jdbcType=DOUBLE},
+            </if>
+            <if test="record.lhw != null" >
+                lhw = #{record.lhw,jdbcType=DOUBLE},
+            </if>
+            <if test="record.fdcjq != null" >
+                fdcjq = #{record.fdcjq,jdbcType=INTEGER},
+            </if>
+            <if test="record.rjyStd != null" >
+                rjy_std = #{record.rjyStd,jdbcType=VARCHAR},
+            </if>
+            <if test="record.gmsyzsStd != null" >
+                gmsyzs_std = #{record.gmsyzsStd,jdbcType=VARCHAR},
+            </if>
+            <if test="record.shxylStd != null" >
+                shxyl_std = #{record.shxylStd,jdbcType=VARCHAR},
+            </if>
+            <if test="record.adStd != null" >
+                ad_std = #{record.adStd,jdbcType=VARCHAR},
+            </if>
+            <if test="record.sylStd != null" >
+                syl_std = #{record.sylStd,jdbcType=VARCHAR},
+            </if>
+            <if test="record.hffStd != null" >
+                hff_std = #{record.hffStd,jdbcType=VARCHAR},
+            </if>
+            <if test="record.gongStd != null" >
+                gong_std = #{record.gongStd,jdbcType=VARCHAR},
+            </if>
+            <if test="record.qianStd != null" >
+                qian_std = #{record.qianStd,jdbcType=VARCHAR},
+            </if>
+            <if test="record.hxxylStd != null" >
+                hxxyl_std = #{record.hxxylStd,jdbcType=VARCHAR},
+            </if>
+            <if test="record.zdStd != null" >
+                zd_std = #{record.zdStd,jdbcType=VARCHAR},
+            </if>
+            <if test="record.zlStd != null" >
+                zl_std = #{record.zlStd,jdbcType=VARCHAR},
+            </if>
+            <if test="record.tongStd != null" >
+                tong_std = #{record.tongStd,jdbcType=VARCHAR},
+            </if>
+            <if test="record.xinStd != null" >
+                xin_std = #{record.xinStd,jdbcType=VARCHAR},
+            </if>
+            <if test="record.qingStd != null" >
+                qing_std = #{record.qingStd,jdbcType=VARCHAR},
+            </if>
+            <if test="record.xiStd != null" >
+                xi_std = #{record.xiStd,jdbcType=VARCHAR},
+            </if>
+            <if test="record.shenStd != null" >
+                shen_std = #{record.shenStd,jdbcType=VARCHAR},
+            </if>
+            <if test="record.geStd != null" >
+                ge_std = #{record.geStd,jdbcType=VARCHAR},
+            </if>
+            <if test="record.ljgStd != null" >
+                ljg_std = #{record.ljgStd,jdbcType=VARCHAR},
+            </if>
+            <if test="record.qhwStd != null" >
+                qhw_std = #{record.qhwStd,jdbcType=VARCHAR},
+            </if>
+            <if test="record.ylzxdjStd != null" >
+                ylzxdj_std = #{record.ylzxdjStd,jdbcType=VARCHAR},
+            </if>
+            <if test="record.lhwStd != null" >
+                lhw_std = #{record.lhwStd,jdbcType=VARCHAR},
+            </if>
+            <if test="record.fdcjqStd != null" >
+                fdcjq_std = #{record.fdcjqStd,jdbcType=VARCHAR},
+            </if>
+            <if test="record.cbyzjbs != null" >
+                cbyzjbs = #{record.cbyzjbs,jdbcType=DOUBLE},
+            </if>
+            <if test="record.comment != null" >
+                comment = #{record.comment,jdbcType=VARCHAR},
+            </if>
+            <if test="record.dmszBl1 != null" >
+                dmsz_bl1 = #{record.dmszBl1,jdbcType=VARCHAR},
+            </if>
+            <if test="record.dmszBl2 != null" >
+                dmsz_bl2 = #{record.dmszBl2,jdbcType=VARCHAR},
+            </if>
+            <if test="record.dmszBl3 != null" >
+                dmsz_bl3 = #{record.dmszBl3,jdbcType=VARCHAR},
+            </if>
+            <if test="record.dmszBl4 != null" >
+                dmsz_bl4 = #{record.dmszBl4,jdbcType=VARCHAR},
+            </if>
+            <if test="record.dmszBl5 != null" >
+                dmsz_bl5 = #{record.dmszBl5,jdbcType=VARCHAR},
+            </if>
+            <if test="record.dmszBl6 != null" >
+                dmsz_bl6 = #{record.dmszBl6,jdbcType=VARCHAR},
+            </if>
+            <if test="record.dmszBl7 != null" >
+                dmsz_bl7 = #{record.dmszBl7,jdbcType=VARCHAR},
+            </if>
+            <if test="record.dmszBl8 != null" >
+                dmsz_bl8 = #{record.dmszBl8,jdbcType=VARCHAR},
+            </if>
+            <if test="record.dmszBl9 != null" >
+                dmsz_bl9 = #{record.dmszBl9,jdbcType=VARCHAR},
+            </if>
+            <if test="record.dmszBl10 != null" >
+                dmsz_bl10 = #{record.dmszBl10,jdbcType=VARCHAR},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update qmp_wrxx
+        set id = #{record.id,jdbcType=INTEGER},
+        section_name = #{record.sectionName,jdbcType=VARCHAR},
+        section_bh = #{record.sectionBh,jdbcType=VARCHAR},
+        section_level = #{record.sectionLevel,jdbcType=VARCHAR},
+        test_by = #{record.testBy,jdbcType=VARCHAR},
+        river_name = #{record.riverName,jdbcType=VARCHAR},
+        river_bh = #{record.riverBh,jdbcType=VARCHAR},
+        dmsz_dmjd = #{record.dmszDmjd,jdbcType=DOUBLE},
+        dmsz_dmwd = #{record.dmszDmwd,jdbcType=DOUBLE},
+        jcpc = #{record.jcpc,jdbcType=VARCHAR},
+        loc_province = #{record.locProvince,jdbcType=VARCHAR},
+        " basin" = #{record.basin,jdbcType=VARCHAR},
+        quality_type = #{record.qualityType,jdbcType=VARCHAR},
+        quality_target = #{record.qualityTarget,jdbcType=VARCHAR},
+        year = #{record.year,jdbcType=INTEGER},
+        month = #{record.month,jdbcType=INTEGER},
+        water_temperature = #{record.waterTemperature,jdbcType=DOUBLE},
+        flow_rate = #{record.flowRate,jdbcType=DOUBLE},
+        ph = #{record.ph,jdbcType=DOUBLE},
+        ddl = #{record.ddl,jdbcType=DOUBLE},
+        rjy = #{record.rjy,jdbcType=DOUBLE},
+        gmsyzs = #{record.gmsyzs,jdbcType=DOUBLE},
+        shxyl = #{record.shxyl,jdbcType=DOUBLE},
+        ad = #{record.ad,jdbcType=DOUBLE},
+        syl = #{record.syl,jdbcType=DOUBLE},
+        hff = #{record.hff,jdbcType=DOUBLE},
+        gong = #{record.gong,jdbcType=DOUBLE},
+        qian = #{record.qian,jdbcType=DOUBLE},
+        hxxyl = #{record.hxxyl,jdbcType=DOUBLE},
+        zd = #{record.zd,jdbcType=DOUBLE},
+        zl = #{record.zl,jdbcType=DOUBLE},
+        tong = #{record.tong,jdbcType=DOUBLE},
+        xin = #{record.xin,jdbcType=DOUBLE},
+        qing = #{record.qing,jdbcType=DOUBLE},
+        xi = #{record.xi,jdbcType=DOUBLE},
+        shen = #{record.shen,jdbcType=DOUBLE},
+        ge = #{record.ge,jdbcType=DOUBLE},
+        ljg = #{record.ljg,jdbcType=DOUBLE},
+        qhw = #{record.qhw,jdbcType=DOUBLE},
+        ylzxdj = #{record.ylzxdj,jdbcType=DOUBLE},
+        lhw = #{record.lhw,jdbcType=DOUBLE},
+        fdcjq = #{record.fdcjq,jdbcType=INTEGER},
+        rjy_std = #{record.rjyStd,jdbcType=VARCHAR},
+        gmsyzs_std = #{record.gmsyzsStd,jdbcType=VARCHAR},
+        shxyl_std = #{record.shxylStd,jdbcType=VARCHAR},
+        ad_std = #{record.adStd,jdbcType=VARCHAR},
+        syl_std = #{record.sylStd,jdbcType=VARCHAR},
+        hff_std = #{record.hffStd,jdbcType=VARCHAR},
+        gong_std = #{record.gongStd,jdbcType=VARCHAR},
+        qian_std = #{record.qianStd,jdbcType=VARCHAR},
+        hxxyl_std = #{record.hxxylStd,jdbcType=VARCHAR},
+        zd_std = #{record.zdStd,jdbcType=VARCHAR},
+        zl_std = #{record.zlStd,jdbcType=VARCHAR},
+        tong_std = #{record.tongStd,jdbcType=VARCHAR},
+        xin_std = #{record.xinStd,jdbcType=VARCHAR},
+        qing_std = #{record.qingStd,jdbcType=VARCHAR},
+        xi_std = #{record.xiStd,jdbcType=VARCHAR},
+        shen_std = #{record.shenStd,jdbcType=VARCHAR},
+        ge_std = #{record.geStd,jdbcType=VARCHAR},
+        ljg_std = #{record.ljgStd,jdbcType=VARCHAR},
+        qhw_std = #{record.qhwStd,jdbcType=VARCHAR},
+        ylzxdj_std = #{record.ylzxdjStd,jdbcType=VARCHAR},
+        lhw_std = #{record.lhwStd,jdbcType=VARCHAR},
+        fdcjq_std = #{record.fdcjqStd,jdbcType=VARCHAR},
+        cbyzjbs = #{record.cbyzjbs,jdbcType=DOUBLE},
+        comment = #{record.comment,jdbcType=VARCHAR},
+        dmsz_bl1 = #{record.dmszBl1,jdbcType=VARCHAR},
+        dmsz_bl2 = #{record.dmszBl2,jdbcType=VARCHAR},
+        dmsz_bl3 = #{record.dmszBl3,jdbcType=VARCHAR},
+        dmsz_bl4 = #{record.dmszBl4,jdbcType=VARCHAR},
+        dmsz_bl5 = #{record.dmszBl5,jdbcType=VARCHAR},
+        dmsz_bl6 = #{record.dmszBl6,jdbcType=VARCHAR},
+        dmsz_bl7 = #{record.dmszBl7,jdbcType=VARCHAR},
+        dmsz_bl8 = #{record.dmszBl8,jdbcType=VARCHAR},
+        dmsz_bl9 = #{record.dmszBl9,jdbcType=VARCHAR},
+        dmsz_bl10 = #{record.dmszBl10,jdbcType=VARCHAR}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.eliteams.quick4j.web.model.QmpWrxx">
+        update qmp_wrxx
+        <set >
+            <if test="sectionName != null" >
+                section_name = #{sectionName,jdbcType=VARCHAR},
+            </if>
+            <if test="sectionBh != null" >
+                section_bh = #{sectionBh,jdbcType=VARCHAR},
+            </if>
+            <if test="sectionLevel != null" >
+                section_level = #{sectionLevel,jdbcType=VARCHAR},
+            </if>
+            <if test="testBy != null" >
+                test_by = #{testBy,jdbcType=VARCHAR},
+            </if>
+            <if test="riverName != null" >
+                river_name = #{riverName,jdbcType=VARCHAR},
+            </if>
+            <if test="riverBh != null" >
+                river_bh = #{riverBh,jdbcType=VARCHAR},
+            </if>
+            <if test="dmszDmjd != null" >
+                dmsz_dmjd = #{dmszDmjd,jdbcType=DOUBLE},
+            </if>
+            <if test="dmszDmwd != null" >
+                dmsz_dmwd = #{dmszDmwd,jdbcType=DOUBLE},
+            </if>
+            <if test="jcpc != null" >
+                jcpc = #{jcpc,jdbcType=VARCHAR},
+            </if>
+            <if test="locProvince != null" >
+                loc_province = #{locProvince,jdbcType=VARCHAR},
+            </if>
+            <if test="basin != null" >
+                " basin" = #{basin,jdbcType=VARCHAR},
+            </if>
+            <if test="qualityType != null" >
+                quality_type = #{qualityType,jdbcType=VARCHAR},
+            </if>
+            <if test="qualityTarget != null" >
+                quality_target = #{qualityTarget,jdbcType=VARCHAR},
+            </if>
+            <if test="year != null" >
+                year = #{year,jdbcType=INTEGER},
+            </if>
+            <if test="month != null" >
+                month = #{month,jdbcType=INTEGER},
+            </if>
+            <if test="waterTemperature != null" >
+                water_temperature = #{waterTemperature,jdbcType=DOUBLE},
+            </if>
+            <if test="flowRate != null" >
+                flow_rate = #{flowRate,jdbcType=DOUBLE},
+            </if>
+            <if test="ph != null" >
+                ph = #{ph,jdbcType=DOUBLE},
+            </if>
+            <if test="ddl != null" >
+                ddl = #{ddl,jdbcType=DOUBLE},
+            </if>
+            <if test="rjy != null" >
+                rjy = #{rjy,jdbcType=DOUBLE},
+            </if>
+            <if test="gmsyzs != null" >
+                gmsyzs = #{gmsyzs,jdbcType=DOUBLE},
+            </if>
+            <if test="shxyl != null" >
+                shxyl = #{shxyl,jdbcType=DOUBLE},
+            </if>
+            <if test="ad != null" >
+                ad = #{ad,jdbcType=DOUBLE},
+            </if>
+            <if test="syl != null" >
+                syl = #{syl,jdbcType=DOUBLE},
+            </if>
+            <if test="hff != null" >
+                hff = #{hff,jdbcType=DOUBLE},
+            </if>
+            <if test="gong != null" >
+                gong = #{gong,jdbcType=DOUBLE},
+            </if>
+            <if test="qian != null" >
+                qian = #{qian,jdbcType=DOUBLE},
+            </if>
+            <if test="hxxyl != null" >
+                hxxyl = #{hxxyl,jdbcType=DOUBLE},
+            </if>
+            <if test="zd != null" >
+                zd = #{zd,jdbcType=DOUBLE},
+            </if>
+            <if test="zl != null" >
+                zl = #{zl,jdbcType=DOUBLE},
+            </if>
+            <if test="tong != null" >
+                tong = #{tong,jdbcType=DOUBLE},
+            </if>
+            <if test="xin != null" >
+                xin = #{xin,jdbcType=DOUBLE},
+            </if>
+            <if test="qing != null" >
+                qing = #{qing,jdbcType=DOUBLE},
+            </if>
+            <if test="xi != null" >
+                xi = #{xi,jdbcType=DOUBLE},
+            </if>
+            <if test="shen != null" >
+                shen = #{shen,jdbcType=DOUBLE},
+            </if>
+            <if test="ge != null" >
+                ge = #{ge,jdbcType=DOUBLE},
+            </if>
+            <if test="ljg != null" >
+                ljg = #{ljg,jdbcType=DOUBLE},
+            </if>
+            <if test="qhw != null" >
+                qhw = #{qhw,jdbcType=DOUBLE},
+            </if>
+            <if test="ylzxdj != null" >
+                ylzxdj = #{ylzxdj,jdbcType=DOUBLE},
+            </if>
+            <if test="lhw != null" >
+                lhw = #{lhw,jdbcType=DOUBLE},
+            </if>
+            <if test="fdcjq != null" >
+                fdcjq = #{fdcjq,jdbcType=INTEGER},
+            </if>
+            <if test="rjyStd != null" >
+                rjy_std = #{rjyStd,jdbcType=VARCHAR},
+            </if>
+            <if test="gmsyzsStd != null" >
+                gmsyzs_std = #{gmsyzsStd,jdbcType=VARCHAR},
+            </if>
+            <if test="shxylStd != null" >
+                shxyl_std = #{shxylStd,jdbcType=VARCHAR},
+            </if>
+            <if test="adStd != null" >
+                ad_std = #{adStd,jdbcType=VARCHAR},
+            </if>
+            <if test="sylStd != null" >
+                syl_std = #{sylStd,jdbcType=VARCHAR},
+            </if>
+            <if test="hffStd != null" >
+                hff_std = #{hffStd,jdbcType=VARCHAR},
+            </if>
+            <if test="gongStd != null" >
+                gong_std = #{gongStd,jdbcType=VARCHAR},
+            </if>
+            <if test="qianStd != null" >
+                qian_std = #{qianStd,jdbcType=VARCHAR},
+            </if>
+            <if test="hxxylStd != null" >
+                hxxyl_std = #{hxxylStd,jdbcType=VARCHAR},
+            </if>
+            <if test="zdStd != null" >
+                zd_std = #{zdStd,jdbcType=VARCHAR},
+            </if>
+            <if test="zlStd != null" >
+                zl_std = #{zlStd,jdbcType=VARCHAR},
+            </if>
+            <if test="tongStd != null" >
+                tong_std = #{tongStd,jdbcType=VARCHAR},
+            </if>
+            <if test="xinStd != null" >
+                xin_std = #{xinStd,jdbcType=VARCHAR},
+            </if>
+            <if test="qingStd != null" >
+                qing_std = #{qingStd,jdbcType=VARCHAR},
+            </if>
+            <if test="xiStd != null" >
+                xi_std = #{xiStd,jdbcType=VARCHAR},
+            </if>
+            <if test="shenStd != null" >
+                shen_std = #{shenStd,jdbcType=VARCHAR},
+            </if>
+            <if test="geStd != null" >
+                ge_std = #{geStd,jdbcType=VARCHAR},
+            </if>
+            <if test="ljgStd != null" >
+                ljg_std = #{ljgStd,jdbcType=VARCHAR},
+            </if>
+            <if test="qhwStd != null" >
+                qhw_std = #{qhwStd,jdbcType=VARCHAR},
+            </if>
+            <if test="ylzxdjStd != null" >
+                ylzxdj_std = #{ylzxdjStd,jdbcType=VARCHAR},
+            </if>
+            <if test="lhwStd != null" >
+                lhw_std = #{lhwStd,jdbcType=VARCHAR},
+            </if>
+            <if test="fdcjqStd != null" >
+                fdcjq_std = #{fdcjqStd,jdbcType=VARCHAR},
+            </if>
+            <if test="cbyzjbs != null" >
+                cbyzjbs = #{cbyzjbs,jdbcType=DOUBLE},
+            </if>
+            <if test="comment != null" >
+                comment = #{comment,jdbcType=VARCHAR},
+            </if>
+            <if test="dmszBl1 != null" >
+                dmsz_bl1 = #{dmszBl1,jdbcType=VARCHAR},
+            </if>
+            <if test="dmszBl2 != null" >
+                dmsz_bl2 = #{dmszBl2,jdbcType=VARCHAR},
+            </if>
+            <if test="dmszBl3 != null" >
+                dmsz_bl3 = #{dmszBl3,jdbcType=VARCHAR},
+            </if>
+            <if test="dmszBl4 != null" >
+                dmsz_bl4 = #{dmszBl4,jdbcType=VARCHAR},
+            </if>
+            <if test="dmszBl5 != null" >
+                dmsz_bl5 = #{dmszBl5,jdbcType=VARCHAR},
+            </if>
+            <if test="dmszBl6 != null" >
+                dmsz_bl6 = #{dmszBl6,jdbcType=VARCHAR},
+            </if>
+            <if test="dmszBl7 != null" >
+                dmsz_bl7 = #{dmszBl7,jdbcType=VARCHAR},
+            </if>
+            <if test="dmszBl8 != null" >
+                dmsz_bl8 = #{dmszBl8,jdbcType=VARCHAR},
+            </if>
+            <if test="dmszBl9 != null" >
+                dmsz_bl9 = #{dmszBl9,jdbcType=VARCHAR},
+            </if>
+            <if test="dmszBl10 != null" >
+                dmsz_bl10 = #{dmszBl10,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.eliteams.quick4j.web.model.QmpWrxx">
+		update qmp_wrxx
+        set section_name = #{sectionName,jdbcType=VARCHAR},
+            section_bh = #{sectionBh,jdbcType=VARCHAR},
+            section_level = #{sectionLevel,jdbcType=VARCHAR},
+            test_by = #{testBy,jdbcType=VARCHAR},
+            river_name = #{riverName,jdbcType=VARCHAR},
+            river_bh = #{riverBh,jdbcType=VARCHAR},
+            dmsz_dmjd = #{dmszDmjd,jdbcType=DOUBLE},
+            dmsz_dmwd = #{dmszDmwd,jdbcType=DOUBLE},
+            jcpc = #{jcpc,jdbcType=VARCHAR},
+            loc_province = #{locProvince,jdbcType=VARCHAR},
+            " basin" = #{basin,jdbcType=VARCHAR},
+            quality_type = #{qualityType,jdbcType=VARCHAR},
+            quality_target = #{qualityTarget,jdbcType=VARCHAR},
+            year = #{year,jdbcType=INTEGER},
+            month = #{month,jdbcType=INTEGER},
+            water_temperature = #{waterTemperature,jdbcType=DOUBLE},
+            flow_rate = #{flowRate,jdbcType=DOUBLE},
+            ph = #{ph,jdbcType=DOUBLE},
+            ddl = #{ddl,jdbcType=DOUBLE},
+            rjy = #{rjy,jdbcType=DOUBLE},
+            gmsyzs = #{gmsyzs,jdbcType=DOUBLE},
+            shxyl = #{shxyl,jdbcType=DOUBLE},
+            ad = #{ad,jdbcType=DOUBLE},
+            syl = #{syl,jdbcType=DOUBLE},
+            hff = #{hff,jdbcType=DOUBLE},
+            gong = #{gong,jdbcType=DOUBLE},
+            qian = #{qian,jdbcType=DOUBLE},
+            hxxyl = #{hxxyl,jdbcType=DOUBLE},
+            zd = #{zd,jdbcType=DOUBLE},
+            zl = #{zl,jdbcType=DOUBLE},
+            tong = #{tong,jdbcType=DOUBLE},
+            xin = #{xin,jdbcType=DOUBLE},
+            qing = #{qing,jdbcType=DOUBLE},
+            xi = #{xi,jdbcType=DOUBLE},
+            shen = #{shen,jdbcType=DOUBLE},
+            ge = #{ge,jdbcType=DOUBLE},
+            ljg = #{ljg,jdbcType=DOUBLE},
+            qhw = #{qhw,jdbcType=DOUBLE},
+            ylzxdj = #{ylzxdj,jdbcType=DOUBLE},
+            lhw = #{lhw,jdbcType=DOUBLE},
+            fdcjq = #{fdcjq,jdbcType=INTEGER},
+            rjy_std = #{rjyStd,jdbcType=VARCHAR},
+            gmsyzs_std = #{gmsyzsStd,jdbcType=VARCHAR},
+            shxyl_std = #{shxylStd,jdbcType=VARCHAR},
+            ad_std = #{adStd,jdbcType=VARCHAR},
+            syl_std = #{sylStd,jdbcType=VARCHAR},
+            hff_std = #{hffStd,jdbcType=VARCHAR},
+            gong_std = #{gongStd,jdbcType=VARCHAR},
+            qian_std = #{qianStd,jdbcType=VARCHAR},
+            hxxyl_std = #{hxxylStd,jdbcType=VARCHAR},
+            zd_std = #{zdStd,jdbcType=VARCHAR},
+            zl_std = #{zlStd,jdbcType=VARCHAR},
+            tong_std = #{tongStd,jdbcType=VARCHAR},
+            xin_std = #{xinStd,jdbcType=VARCHAR},
+            qing_std = #{qingStd,jdbcType=VARCHAR},
+            xi_std = #{xiStd,jdbcType=VARCHAR},
+            shen_std = #{shenStd,jdbcType=VARCHAR},
+            ge_std = #{geStd,jdbcType=VARCHAR},
+            ljg_std = #{ljgStd,jdbcType=VARCHAR},
+            qhw_std = #{qhwStd,jdbcType=VARCHAR},
+            ylzxdj_std = #{ylzxdjStd,jdbcType=VARCHAR},
+            lhw_std = #{lhwStd,jdbcType=VARCHAR},
+            fdcjq_std = #{fdcjqStd,jdbcType=VARCHAR},
+            cbyzjbs = #{cbyzjbs,jdbcType=DOUBLE},
+            comment = #{comment,jdbcType=VARCHAR},
+            dmsz_bl1 = #{dmszBl1,jdbcType=VARCHAR},
+            dmsz_bl2 = #{dmszBl2,jdbcType=VARCHAR},
+            dmsz_bl3 = #{dmszBl3,jdbcType=VARCHAR},
+            dmsz_bl4 = #{dmszBl4,jdbcType=VARCHAR},
+            dmsz_bl5 = #{dmszBl5,jdbcType=VARCHAR},
+            dmsz_bl6 = #{dmszBl6,jdbcType=VARCHAR},
+            dmsz_bl7 = #{dmszBl7,jdbcType=VARCHAR},
+            dmsz_bl8 = #{dmszBl8,jdbcType=VARCHAR},
+            dmsz_bl9 = #{dmszBl9,jdbcType=VARCHAR},
+            dmsz_bl10 = #{dmszBl10,jdbcType=VARCHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+
+    <select id="searchQmpWrxx" resultMap="BaseResultMap">
+        select
+        *
+        from qmp_wrxx
+        WHERE
+        month = #{map.szsb_month} and
+        <if test="map.test_by != null">
+            test_by LIKE CONCAT('%', #{map.test_by}, '%') and
+        </if>
+        1=1
+    </select>
+
+
+    <sql id="qmpWrxxColumns">
+		a.id,
+		a.section_name,
+		a.year,
+		a.month,
+		a.ad,
+		a.zd,
+		a.zl,
+		a.hxxyl
+	</sql>
+
+    <resultMap id="newResult" type="com.eliteams.quick4j.web.model.QmpWrxx">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="section_name" jdbcType="VARCHAR" property="sectionName"/>
+        <result column="year" jdbcType="VARCHAR" property="year"/>
+        <result column="month" jdbcType="VARCHAR" property="month"/>
+        <result column="ad" jdbcType="VARCHAR" property="ad"/>
+        <result column="hxxyl" jdbcType="VARCHAR" property="hxxyl"/>
+        <result column="zd" jdbcType="VARCHAR" property="zd"/>
+        <result column="zl" jdbcType="VARCHAR" property="zl"/>
+    </resultMap>
+
+    <!--<select id="selectByExample" parameterType="com.eliteams.quick4j.web.model.QmpWrxxExample"-->
+    <!--resultMap="BaseResultMap">-->
+    <!--select-->
+    <!--<if test="distinct">-->
+    <!--distinct-->
+    <!--</if>-->
+    <!--'true' as QUERYID,-->
+    <!--<include refid="Base_Column_List" />-->
+    <!--from qmp_wrxx-->
+    <!--<if test="_parameter != null">-->
+    <!--<include refid="Example_Where_Clause" />-->
+    <!--</if>-->
+    <!--<if test="orderByClause != null">-->
+    <!--order by ${orderByClause}-->
+    <!--</if>-->
+    <!--</select>-->
+
+    <select id="getByTime" resultMap="newResult">
+        SELECT
+        <include refid="qmpWrxxColumns"/>
+        FROM qmp_wrxx a
+        WHERE
+        a.year = #{year} AND
+        a.section_name = #{sectionName}
+        ORDER BY a.year DESC, a.month DESC
+    </select>
+
+    <select id="findList" resultMap="newResult">
+        SELECT
+        <include refid="qmpWrxxColumns"/>
+        FROM qmp_wrxx a
+        WHERE
+        a.section_name = #{sectionName}
+        ORDER BY a.year DESC, a.month DESC
+    </select>
+
+    <select id="findAllList" resultMap="newResult">
+        SELECT
+        <include refid="qmpWrxxColumns"/>
+        FROM qmp_wrxx a
+        WHERE
+        a.section_name = #{sectionName}
+        ORDER BY a.year DESC, a.month DESC
+    </select>
+
+    <select id="getSearchCount" resultMap="BaseResultMap" parameterType="java.util.Map">
+        select
+        *
+        from qmp_wrxx
+        <where>
+            <choose>
+                <when test="map.sections.size()!=0 and map.sections != null">
+                    section_name IN
+                    <foreach collection="map.sections" item="section_name" open="(" close=")" separator=",">
+                        #{section_name}
+                    </foreach>
+                </when>
+                <otherwise>
+                    1=0
+                </otherwise>
+            </choose>
+        </where>
+        <trim>
+            <if test="map.szsb_month!=null">
+                AND month=#{map.szsb_month}
+            </if>
+        </trim>
+    </select>
+
+    <select id="searchByPage" resultMap="BaseResultMap">
+        select
+        *
+        from qmp_wrxx
+        <where>
+            <choose>
+                <when test="map.sections.size()!=0 and map.sections != null">
+                    section_name IN
+                    <foreach collection="map.sections" item="section_name" open="(" close=")" separator=",">
+                        #{section_name}
+                    </foreach>
+                </when>
+                <otherwise>
+                    1=0
+                </otherwise>
+            </choose>
+        </where>
+        <trim>
+            <if test="month!=null">
+                AND month=#{map.szsb_month}
+            </if>
+        </trim>
+        limit #{startPos},#{pageSize}
+    </select>
+
+    <select id="computeKzdmTotal_std" resultType="java.lang.String">
+        select ${map.prop}
+        from qmp_wrxx
+        where
+        <trim>
+            <if test="map.kzdm != null">
+                section_name = #{map.kzdm} and
+            </if>
+            section_name != ''
+        </trim>
+        limit 1
+
+    </select>
+
+    <select id="selectCuMianyuan" resultMap="BaseResultMap">
+        SELECT id,test_by,section_name,year,month,(cast(flow_rate as DECIMAL(10,3))*cast(ad as DECIMAL(10,3))*2.592) as
+        ad,
+        (cast(flow_rate as DECIMAL(10,3))*cast(hxxyl as DECIMAL(10,3))*2.592) as hxxyl,
+        (cast(flow_rate as DECIMAL(10,3))*cast(zl as DECIMAL(10,3))*2.592) as zl
+        FROM qmp_wrxx
+        WHERE
+        <if test="map.loc_city != null">
+            test_by LIKE CONCAT('%', #{map.loc_city}, '%') or
+        </if>
+        <if test="map.loc_city != null">
+            test_by LIKE CONCAT('%', #{map.loc_county}, '%') AND
+        </if>
+        loc_province LIKE CONCAT('%', '辽宁', '%')
+    </select>
+
+    <select id="selectCuDianyuan" resultMap="BaseResultMap">
+        SELECT section_name,sum(cast(flow_rate as DECIMAL(10,3))*cast(ad as DECIMAL(10,3)))*2.592/4 as
+        ad,sum(cast(flow_rate as DECIMAL(10,3))*cast(hxxyl as DECIMAL(10,3)))*2.592/4 as hxxyl,sum(cast(flow_rate as
+        DECIMAL(10,3))*cast(zl as DECIMAL(10,3)))*2.592/4 as zl
+        FROM qmp_wrxx
+        WHERE
+        <if test="map.loc_city != null">
+            test_by LIKE CONCAT('%', #{map.loc_city}, '%') or
+        </if>
+        <if test="map.loc_city != null">
+            test_by LIKE CONCAT('%', #{map.loc_county}, '%') AND
+        </if>
+        loc_province LIKE CONCAT('%', '辽宁', '%')
+        and (month = 12 or month = 1 or month = 2 or month = 3)
+        group by section_name
+    </select>
+</mapper>

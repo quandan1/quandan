@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.eliteams.quick4j.web.dao.CalcViewMapper" >
+  <resultMap id="BaseResultMap" type="com.eliteams.quick4j.web.model.CalcView" >
+    <result column="section_name" property="sectionName" jdbcType="VARCHAR" />
+    <result column="river_level" property="riverLevel" jdbcType="VARCHAR" />
+    <result column="section_sx" property="sectionSx" jdbcType="VARCHAR" />
+    <result column="river_name" property="riverName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    section_name, river_level, section_sx, river_name
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.eliteams.quick4j.web.model.CalcViewExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from calcview
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.eliteams.quick4j.web.model.CalcViewExample" >
+    delete from calcview
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.eliteams.quick4j.web.model.CalcView" >
+    insert into calcview (section_name, river_level, section_sx, 
+      river_name)
+    values (#{sectionName,jdbcType=VARCHAR}, #{riverLevel,jdbcType=VARCHAR}, #{sectionSx,jdbcType=VARCHAR}, 
+      #{riverName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.eliteams.quick4j.web.model.CalcView" >
+    insert into calcview
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sectionName != null" >
+        section_name,
+      </if>
+      <if test="riverLevel != null" >
+        river_level,
+      </if>
+      <if test="sectionSx != null" >
+        section_sx,
+      </if>
+      <if test="riverName != null" >
+        river_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sectionName != null" >
+        #{sectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="riverLevel != null" >
+        #{riverLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="sectionSx != null" >
+        #{sectionSx,jdbcType=VARCHAR},
+      </if>
+      <if test="riverName != null" >
+        #{riverName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.eliteams.quick4j.web.model.CalcViewExample" resultType="java.lang.Integer" >
+    select count(*) from calcview
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update calcview
+    <set >
+      <if test="record.sectionName != null" >
+        section_name = #{record.sectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.riverLevel != null" >
+        river_level = #{record.riverLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sectionSx != null" >
+        section_sx = #{record.sectionSx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.riverName != null" >
+        river_name = #{record.riverName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update calcview
+    set section_name = #{record.sectionName,jdbcType=VARCHAR},
+      river_level = #{record.riverLevel,jdbcType=VARCHAR},
+      section_sx = #{record.sectionSx,jdbcType=VARCHAR},
+      river_name = #{record.riverName,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

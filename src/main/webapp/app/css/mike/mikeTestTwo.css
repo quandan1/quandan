@@ -1,0 +1,39 @@
+
+#divbutton {
+    width:10%;
+    height: 600px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000;
+    margin: 0 auto;
+    float: left;
+}
+#div1 {
+    width: 50%;
+    height: 600px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000;
+    margin: 0 auto;
+    float: left;
+}
+#map {
+    width: 40%;
+    height: 600px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000;
+    margin: 0 auto;
+    float: left;
+}
+#tab2 th{
+    width:50px;
+    height: 20px;}
+#tab2 td{
+    width:50px;
+    height: 20px;
+}
+.fnt_cell{
+    width:50px;
+    height: 20px;
+}

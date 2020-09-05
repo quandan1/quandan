@@ -1,0 +1,58 @@
+{
+  "id": "2021853",
+  "name": "pwd",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "4397928",
+      "name": "退出",
+      "font_class": "tuichu",
+      "unicode": "e638",
+      "unicode_decimal": 58936
+    },
+    {
+      "icon_id": "5196149",
+      "name": "iconfont_笔",
+      "font_class": "iconfont_bi",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "7235211",
+      "name": "用户",
+      "font_class": "yonghu",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "8989208",
+      "name": "功能定义",
+      "font_class": "gongnengdingyi",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "13646831",
+      "name": "表格",
+      "font_class": "biaoge",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "14499646",
+      "name": "监测",
+      "font_class": "jiance",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "15686520",
+      "name": "分配",
+      "font_class": "fenpei",
+      "unicode": "e6c0",
+      "unicode_decimal": 59072
+    }
+  ]
+}

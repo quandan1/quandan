@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.eliteams.quick4j.web.dao.JkzjGyzjMapper" >
+  <resultMap id="BaseResultMap" type="com.eliteams.quick4j.web.model.JkzjGyzj" >
+    <result column="cs_name" property="csName" jdbcType="VARCHAR" />
+    <result column="jbpx" property="jbpx" jdbcType="INTEGER" />
+    <result column="zjzj" property="zjzj" jdbcType="DOUBLE" />
+    <result column="month" property="month" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    cs_name, jbpx, zjzj, month
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.eliteams.quick4j.web.model.JkzjGyzjExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from jkzj_gyzj
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.eliteams.quick4j.web.model.JkzjGyzjExample" >
+    delete from jkzj_gyzj
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.eliteams.quick4j.web.model.JkzjGyzj" >
+    insert into jkzj_gyzj (cs_name, jbpx, zjzj, 
+      month)
+    values (#{csName,jdbcType=VARCHAR}, #{jbpx,jdbcType=INTEGER}, #{zjzj,jdbcType=DOUBLE}, 
+      #{month,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.eliteams.quick4j.web.model.JkzjGyzj" >
+    insert into jkzj_gyzj
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="csName != null" >
+        cs_name,
+      </if>
+      <if test="jbpx != null" >
+        jbpx,
+      </if>
+      <if test="zjzj != null" >
+        zjzj,
+      </if>
+      <if test="month != null" >
+        month,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="csName != null" >
+        #{csName,jdbcType=VARCHAR},
+      </if>
+      <if test="jbpx != null" >
+        #{jbpx,jdbcType=INTEGER},
+      </if>
+      <if test="zjzj != null" >
+        #{zjzj,jdbcType=DOUBLE},
+      </if>
+      <if test="month != null" >
+        #{month,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="countByExample" parameterType="com.eliteams.quick4j.web.model.JkzjGyzjExample" resultType="java.lang.Integer" >
+    select count(*) from jkzj_gyzj
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+
+
+  <select id="selectCity" resultType="java.lang.String" >
+    select cs_name
+    from csjb
+    order by jbpx
+  </select>
+
+
+  <select id="selectJkzjZj" resultType="map" >
+    select cs_name,sum(hj_jkzj) as zjzj,jbpx
+    FROM jkzj_data
+    GROUP BY cs_name
+    ORDER BY jbpx;
+  </select>
+
+  <select id="selectJkzjGyZj" resultType="map" >
+    SELECT sum(zjzj) as zjzj,`month`
+    FROM `jkzj_gyzj`
+    GROUP BY `month`
+    ORDER BY `month`
+  </select>
+
+  <select id="selectJkzjAllZj" resultType="java.lang.Integer" >
+    select sum(hj_jkzj) as zjzj
+    FROM jkzj_data
+  </select>
+
+
+
+  <update id="updateByExampleSelective" parameterType="map" >
+    update jkzj_gyzj
+    <set >
+      <if test="record.csName != null" >
+        cs_name = #{record.csName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jbpx != null" >
+        jbpx = #{record.jbpx,jdbcType=INTEGER},
+      </if>
+      <if test="record.zjzj != null" >
+        zjzj = #{record.zjzj,jdbcType=DOUBLE},
+      </if>
+      <if test="record.month != null" >
+        month = #{record.month,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update jkzj_gyzj
+    set cs_name = #{record.csName,jdbcType=VARCHAR},
+      jbpx = #{record.jbpx,jdbcType=INTEGER},
+      zjzj = #{record.zjzj,jdbcType=DOUBLE},
+      month = #{record.month,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

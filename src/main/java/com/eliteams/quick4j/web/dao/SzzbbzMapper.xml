@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eliteams.quick4j.web.dao.SzzbbzMapper">
+  <resultMap id="BaseResultMap" type="com.eliteams.quick4j.web.model.Szzbbz">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="quality_target" jdbcType="VARCHAR" property="qualityTarget" />
+    <result column="water_type" jdbcType="VARCHAR" property="waterType" />
+    <result column="ddl" jdbcType="VARCHAR" property="ddl" />
+    <result column="water_temperature" jdbcType="VARCHAR" property="waterTemperature" />
+    <result column="ph" jdbcType="VARCHAR" property="ph" />
+    <result column="rjy_std" jdbcType="VARCHAR" property="rjyStd" />
+    <result column="tmd" jdbcType="VARCHAR" property="tmd" />
+    <result column="yd" jdbcType="VARCHAR" property="yd" />
+    <result column="cod_mn_std" jdbcType="VARCHAR" property="codMnStd" />
+    <result column="cod_cr_std" jdbcType="VARCHAR" property="codCrStd" />
+    <result column="nh_n_std" jdbcType="VARCHAR" property="nhNStd" />
+    <result column="t_p_std" jdbcType="VARCHAR" property="tPStd" />
+    <result column="t_n_std" jdbcType="VARCHAR" property="tNStd" />
+    <result column="cu_std" jdbcType="VARCHAR" property="cuStd" />
+    <result column="zn_std" jdbcType="VARCHAR" property="znStd" />
+    <result column="pb_std" jdbcType="VARCHAR" property="pbStd" />
+    <result column="cd_std" jdbcType="VARCHAR" property="cdStd" />
+    <result column="bod5_std" jdbcType="VARCHAR" property="bod5Std" />
+    <result column="t_as_std" jdbcType="VARCHAR" property="tAsStd" />
+    <result column="t_se_std" jdbcType="VARCHAR" property="tSeStd" />
+    <result column="t_hg_std" jdbcType="VARCHAR" property="tHgStd" />
+    <result column="cr_6_std" jdbcType="VARCHAR" property="cr6Std" />
+    <result column="f_std" jdbcType="VARCHAR" property="fStd" />
+    <result column="cn_std" jdbcType="VARCHAR" property="cnStd" />
+    <result column="hff_std" jdbcType="VARCHAR" property="hffStd" />
+    <result column="syl_std" jdbcType="VARCHAR" property="sylStd" />
+    <result column="las_std" jdbcType="VARCHAR" property="lasStd" />
+    <result column="s2_std" jdbcType="VARCHAR" property="s2Std" />
+    <result column="chla_std" jdbcType="VARCHAR" property="chlaStd" />
+    <result column="no3_std" jdbcType="VARCHAR" property="no3Std" />
+    <result column="no2_std" jdbcType="VARCHAR" property="no2Std" />
+    <result column="ll_std" jdbcType="VARCHAR" property="llStd" />
+    <result column="sw_std" jdbcType="VARCHAR" property="swStd" />
+    <result column="fdcjqbz" jdbcType="VARCHAR" property="fdcjqbz" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, quality_target, water_type, ddl, water_temperature, ph, rjy_std, tmd, yd, cod_mn_std, 
+    cod_cr_std, nh_n_std, t_p_std, t_n_std, cu_std, zn_std, pb_std, cd_std, bod5_std, 
+    t_as_std, t_se_std, t_hg_std, cr_6_std, f_std, cn_std, hff_std, syl_std, las_std, 
+    s2_std, chla_std, no3_std, no2_std, ll_std, sw_std, fdcjqbz
+  </sql>
+  <select id="selectByExample" parameterType="com.eliteams.quick4j.web.model.SzzbbzExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from szzbbz
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from szzbbz
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from szzbbz
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.eliteams.quick4j.web.model.SzzbbzExample">
+    delete from szzbbz
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.eliteams.quick4j.web.model.Szzbbz">
+    insert into szzbbz (id, quality_target, water_type, 
+      ddl, water_temperature, ph, 
+      rjy_std, tmd, yd, cod_mn_std, 
+      cod_cr_std, nh_n_std, t_p_std, 
+      t_n_std, cu_std, zn_std, 
+      pb_std, cd_std, bod5_std, 
+      t_as_std, t_se_std, t_hg_std, 
+      cr_6_std, f_std, cn_std, 
+      hff_std, syl_std, las_std, 
+      s2_std, chla_std, no3_std, 
+      no2_std, ll_std, sw_std, 
+      fdcjqbz)
+    values (#{id,jdbcType=INTEGER}, #{qualityTarget,jdbcType=VARCHAR}, #{waterType,jdbcType=VARCHAR}, 
+      #{ddl,jdbcType=VARCHAR}, #{waterTemperature,jdbcType=VARCHAR}, #{ph,jdbcType=VARCHAR}, 
+      #{rjyStd,jdbcType=VARCHAR}, #{tmd,jdbcType=VARCHAR}, #{yd,jdbcType=VARCHAR}, #{codMnStd,jdbcType=VARCHAR}, 
+      #{codCrStd,jdbcType=VARCHAR}, #{nhNStd,jdbcType=VARCHAR}, #{tPStd,jdbcType=VARCHAR}, 
+      #{tNStd,jdbcType=VARCHAR}, #{cuStd,jdbcType=VARCHAR}, #{znStd,jdbcType=VARCHAR}, 
+      #{pbStd,jdbcType=VARCHAR}, #{cdStd,jdbcType=VARCHAR}, #{bod5Std,jdbcType=VARCHAR}, 
+      #{tAsStd,jdbcType=VARCHAR}, #{tSeStd,jdbcType=VARCHAR}, #{tHgStd,jdbcType=VARCHAR}, 
+      #{cr6Std,jdbcType=VARCHAR}, #{fStd,jdbcType=VARCHAR}, #{cnStd,jdbcType=VARCHAR}, 
+      #{hffStd,jdbcType=VARCHAR}, #{sylStd,jdbcType=VARCHAR}, #{lasStd,jdbcType=VARCHAR}, 
+      #{s2Std,jdbcType=VARCHAR}, #{chlaStd,jdbcType=VARCHAR}, #{no3Std,jdbcType=VARCHAR}, 
+      #{no2Std,jdbcType=VARCHAR}, #{llStd,jdbcType=VARCHAR}, #{swStd,jdbcType=VARCHAR}, 
+      #{fdcjqbz,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.eliteams.quick4j.web.model.Szzbbz">
+    insert into szzbbz
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="qualityTarget != null">
+        quality_target,
+      </if>
+      <if test="waterType != null">
+        water_type,
+      </if>
+      <if test="ddl != null">
+        ddl,
+      </if>
+      <if test="waterTemperature != null">
+        water_temperature,
+      </if>
+      <if test="ph != null">
+        ph,
+      </if>
+      <if test="rjyStd != null">
+        rjy_std,
+      </if>
+      <if test="tmd != null">
+        tmd,
+      </if>
+      <if test="yd != null">
+        yd,
+      </if>
+      <if test="codMnStd != null">
+        cod_mn_std,
+      </if>
+      <if test="codCrStd != null">
+        cod_cr_std,
+      </if>
+      <if test="nhNStd != null">
+        nh_n_std,
+      </if>
+      <if test="tPStd != null">
+        t_p_std,
+      </if>
+      <if test="tNStd != null">
+        t_n_std,
+      </if>
+      <if test="cuStd != null">
+        cu_std,
+      </if>
+      <if test="znStd != null">
+        zn_std,
+      </if>
+      <if test="pbStd != null">
+        pb_std,
+      </if>
+      <if test="cdStd != null">
+        cd_std,
+      </if>
+      <if test="bod5Std != null">
+        bod5_std,
+      </if>
+      <if test="tAsStd != null">
+        t_as_std,
+      </if>
+      <if test="tSeStd != null">
+        t_se_std,
+      </if>
+      <if test="tHgStd != null">
+        t_hg_std,
+      </if>
+      <if test="cr6Std != null">
+        cr_6_std,
+      </if>
+      <if test="fStd != null">
+        f_std,
+      </if>
+      <if test="cnStd != null">
+        cn_std,
+      </if>
+      <if test="hffStd != null">
+        hff_std,
+      </if>
+      <if test="sylStd != null">
+        syl_std,
+      </if>
+      <if test="lasStd != null">
+        las_std,
+      </if>
+      <if test="s2Std != null">
+        s2_std,
+      </if>
+      <if test="chlaStd != null">
+        chla_std,
+      </if>
+      <if test="no3Std != null">
+        no3_std,
+      </if>
+      <if test="no2Std != null">
+        no2_std,
+      </if>
+      <if test="llStd != null">
+        ll_std,
+      </if>
+      <if test="swStd != null">
+        sw_std,
+      </if>
+      <if test="fdcjqbz != null">
+        fdcjqbz,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="qualityTarget != null">
+        #{qualityTarget,jdbcType=VARCHAR},
+      </if>
+      <if test="waterType != null">
+        #{waterType,jdbcType=VARCHAR},
+      </if>
+      <if test="ddl != null">
+        #{ddl,jdbcType=VARCHAR},
+      </if>
+      <if test="waterTemperature != null">
+        #{waterTemperature,jdbcType=VARCHAR},
+      </if>
+      <if test="ph != null">
+        #{ph,jdbcType=VARCHAR},
+      </if>
+      <if test="rjyStd != null">
+        #{rjyStd,jdbcType=VARCHAR},
+      </if>
+      <if test="tmd != null">
+        #{tmd,jdbcType=VARCHAR},
+      </if>
+      <if test="yd != null">
+        #{yd,jdbcType=VARCHAR},
+      </if>
+      <if test="codMnStd != null">
+        #{codMnStd,jdbcType=VARCHAR},
+      </if>
+      <if test="codCrStd != null">
+        #{codCrStd,jdbcType=VARCHAR},
+      </if>
+      <if test="nhNStd != null">
+        #{nhNStd,jdbcType=VARCHAR},
+      </if>
+      <if test="tPStd != null">
+        #{tPStd,jdbcType=VARCHAR},
+      </if>
+      <if test="tNStd != null">
+        #{tNStd,jdbcType=VARCHAR},
+      </if>
+      <if test="cuStd != null">
+        #{cuStd,jdbcType=VARCHAR},
+      </if>
+      <if test="znStd != null">
+        #{znStd,jdbcType=VARCHAR},
+      </if>
+      <if test="pbStd != null">
+        #{pbStd,jdbcType=VARCHAR},
+      </if>
+      <if test="cdStd != null">
+        #{cdStd,jdbcType=VARCHAR},
+      </if>
+      <if test="bod5Std != null">
+        #{bod5Std,jdbcType=VARCHAR},
+      </if>
+      <if test="tAsStd != null">
+        #{tAsStd,jdbcType=VARCHAR},
+      </if>
+      <if test="tSeStd != null">
+        #{tSeStd,jdbcType=VARCHAR},
+      </if>
+      <if test="tHgStd != null">
+        #{tHgStd,jdbcType=VARCHAR},
+      </if>
+      <if test="cr6Std != null">
+        #{cr6Std,jdbcType=VARCHAR},
+      </if>
+      <if test="fStd != null">
+        #{fStd,jdbcType=VARCHAR},
+      </if>
+      <if test="cnStd != null">
+        #{cnStd,jdbcType=VARCHAR},
+      </if>
+      <if test="hffStd != null">
+        #{hffStd,jdbcType=VARCHAR},
+      </if>
+      <if test="sylStd != null">
+        #{sylStd,jdbcType=VARCHAR},
+      </if>
+      <if test="lasStd != null">
+        #{lasStd,jdbcType=VARCHAR},
+      </if>
+      <if test="s2Std != null">
+        #{s2Std,jdbcType=VARCHAR},
+      </if>
+      <if test="chlaStd != null">
+        #{chlaStd,jdbcType=VARCHAR},
+      </if>
+      <if test="no3Std != null">
+        #{no3Std,jdbcType=VARCHAR},
+      </if>
+      <if test="no2Std != null">
+        #{no2Std,jdbcType=VARCHAR},
+      </if>
+      <if test="llStd != null">
+        #{llStd,jdbcType=VARCHAR},
+      </if>
+      <if test="swStd != null">
+        #{swStd,jdbcType=VARCHAR},
+      </if>
+      <if test="fdcjqbz != null">
+        #{fdcjqbz,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.eliteams.quick4j.web.model.SzzbbzExample" resultType="java.lang.Integer">
+    select count(*) from szzbbz
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update szzbbz
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.qualityTarget != null">
+        quality_target = #{record.qualityTarget,jdbcType=VARCHAR},
+      </if>
+      <if test="record.waterType != null">
+        water_type = #{record.waterType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ddl != null">
+        ddl = #{record.ddl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.waterTemperature != null">
+        water_temperature = #{record.waterTemperature,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ph != null">
+        ph = #{record.ph,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rjyStd != null">
+        rjy_std = #{record.rjyStd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tmd != null">
+        tmd = #{record.tmd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yd != null">
+        yd = #{record.yd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.codMnStd != null">
+        cod_mn_std = #{record.codMnStd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.codCrStd != null">
+        cod_cr_std = #{record.codCrStd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nhNStd != null">
+        nh_n_std = #{record.nhNStd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tPStd != null">
+        t_p_std = #{record.tPStd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tNStd != null">
+        t_n_std = #{record.tNStd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cuStd != null">
+        cu_std = #{record.cuStd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.znStd != null">
+        zn_std = #{record.znStd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pbStd != null">
+        pb_std = #{record.pbStd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cdStd != null">
+        cd_std = #{record.cdStd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bod5Std != null">
+        bod5_std = #{record.bod5Std,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tAsStd != null">
+        t_as_std = #{record.tAsStd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tSeStd != null">
+        t_se_std = #{record.tSeStd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tHgStd != null">
+        t_hg_std = #{record.tHgStd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cr6Std != null">
+        cr_6_std = #{record.cr6Std,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fStd != null">
+        f_std = #{record.fStd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cnStd != null">
+        cn_std = #{record.cnStd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hffStd != null">
+        hff_std = #{record.hffStd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sylStd != null">
+        syl_std = #{record.sylStd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lasStd != null">
+        las_std = #{record.lasStd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.s2Std != null">
+        s2_std = #{record.s2Std,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chlaStd != null">
+        chla_std = #{record.chlaStd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.no3Std != null">
+        no3_std = #{record.no3Std,jdbcType=VARCHAR},
+      </if>
+      <if test="record.no2Std != null">
+        no2_std = #{record.no2Std,jdbcType=VARCHAR},
+      </if>
+      <if test="record.llStd != null">
+        ll_std = #{record.llStd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.swStd != null">
+        sw_std = #{record.swStd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fdcjqbz != null">
+        fdcjqbz = #{record.fdcjqbz,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update szzbbz
+    set id = #{record.id,jdbcType=INTEGER},
+      quality_target = #{record.qualityTarget,jdbcType=VARCHAR},
+      water_type = #{record.waterType,jdbcType=VARCHAR},
+      ddl = #{record.ddl,jdbcType=VARCHAR},
+      water_temperature = #{record.waterTemperature,jdbcType=VARCHAR},
+      ph = #{record.ph,jdbcType=VARCHAR},
+      rjy_std = #{record.rjyStd,jdbcType=VARCHAR},
+      tmd = #{record.tmd,jdbcType=VARCHAR},
+      yd = #{record.yd,jdbcType=VARCHAR},
+      cod_mn_std = #{record.codMnStd,jdbcType=VARCHAR},
+      cod_cr_std = #{record.codCrStd,jdbcType=VARCHAR},
+      nh_n_std = #{record.nhNStd,jdbcType=VARCHAR},
+      t_p_std = #{record.tPStd,jdbcType=VARCHAR},
+      t_n_std = #{record.tNStd,jdbcType=VARCHAR},
+      cu_std = #{record.cuStd,jdbcType=VARCHAR},
+      zn_std = #{record.znStd,jdbcType=VARCHAR},
+      pb_std = #{record.pbStd,jdbcType=VARCHAR},
+      cd_std = #{record.cdStd,jdbcType=VARCHAR},
+      bod5_std = #{record.bod5Std,jdbcType=VARCHAR},
+      t_as_std = #{record.tAsStd,jdbcType=VARCHAR},
+      t_se_std = #{record.tSeStd,jdbcType=VARCHAR},
+      t_hg_std = #{record.tHgStd,jdbcType=VARCHAR},
+      cr_6_std = #{record.cr6Std,jdbcType=VARCHAR},
+      f_std = #{record.fStd,jdbcType=VARCHAR},
+      cn_std = #{record.cnStd,jdbcType=VARCHAR},
+      hff_std = #{record.hffStd,jdbcType=VARCHAR},
+      syl_std = #{record.sylStd,jdbcType=VARCHAR},
+      las_std = #{record.lasStd,jdbcType=VARCHAR},
+      s2_std = #{record.s2Std,jdbcType=VARCHAR},
+      chla_std = #{record.chlaStd,jdbcType=VARCHAR},
+      no3_std = #{record.no3Std,jdbcType=VARCHAR},
+      no2_std = #{record.no2Std,jdbcType=VARCHAR},
+      ll_std = #{record.llStd,jdbcType=VARCHAR},
+      sw_std = #{record.swStd,jdbcType=VARCHAR},
+      fdcjqbz = #{record.fdcjqbz,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.eliteams.quick4j.web.model.Szzbbz">
+    update szzbbz
+    <set>
+      <if test="qualityTarget != null">
+        quality_target = #{qualityTarget,jdbcType=VARCHAR},
+      </if>
+      <if test="waterType != null">
+        water_type = #{waterType,jdbcType=VARCHAR},
+      </if>
+      <if test="ddl != null">
+        ddl = #{ddl,jdbcType=VARCHAR},
+      </if>
+      <if test="waterTemperature != null">
+        water_temperature = #{waterTemperature,jdbcType=VARCHAR},
+      </if>
+      <if test="ph != null">
+        ph = #{ph,jdbcType=VARCHAR},
+      </if>
+      <if test="rjyStd != null">
+        rjy_std = #{rjyStd,jdbcType=VARCHAR},
+      </if>
+      <if test="tmd != null">
+        tmd = #{tmd,jdbcType=VARCHAR},
+      </if>
+      <if test="yd != null">
+        yd = #{yd,jdbcType=VARCHAR},
+      </if>
+      <if test="codMnStd != null">
+        cod_mn_std = #{codMnStd,jdbcType=VARCHAR},
+      </if>
+      <if test="codCrStd != null">
+        cod_cr_std = #{codCrStd,jdbcType=VARCHAR},
+      </if>
+      <if test="nhNStd != null">
+        nh_n_std = #{nhNStd,jdbcType=VARCHAR},
+      </if>
+      <if test="tPStd != null">
+        t_p_std = #{tPStd,jdbcType=VARCHAR},
+      </if>
+      <if test="tNStd != null">
+        t_n_std = #{tNStd,jdbcType=VARCHAR},
+      </if>
+      <if test="cuStd != null">
+        cu_std = #{cuStd,jdbcType=VARCHAR},
+      </if>
+      <if test="znStd != null">
+        zn_std = #{znStd,jdbcType=VARCHAR},
+      </if>
+      <if test="pbStd != null">
+        pb_std = #{pbStd,jdbcType=VARCHAR},
+      </if>
+      <if test="cdStd != null">
+        cd_std = #{cdStd,jdbcType=VARCHAR},
+      </if>
+      <if test="bod5Std != null">
+        bod5_std = #{bod5Std,jdbcType=VARCHAR},
+      </if>
+      <if test="tAsStd != null">
+        t_as_std = #{tAsStd,jdbcType=VARCHAR},
+      </if>
+      <if test="tSeStd != null">
+        t_se_std = #{tSeStd,jdbcType=VARCHAR},
+      </if>
+      <if test="tHgStd != null">
+        t_hg_std = #{tHgStd,jdbcType=VARCHAR},
+      </if>
+      <if test="cr6Std != null">
+        cr_6_std = #{cr6Std,jdbcType=VARCHAR},
+      </if>
+      <if test="fStd != null">
+        f_std = #{fStd,jdbcType=VARCHAR},
+      </if>
+      <if test="cnStd != null">
+        cn_std = #{cnStd,jdbcType=VARCHAR},
+      </if>
+      <if test="hffStd != null">
+        hff_std = #{hffStd,jdbcType=VARCHAR},
+      </if>
+      <if test="sylStd != null">
+        syl_std = #{sylStd,jdbcType=VARCHAR},
+      </if>
+      <if test="lasStd != null">
+        las_std = #{lasStd,jdbcType=VARCHAR},
+      </if>
+      <if test="s2Std != null">
+        s2_std = #{s2Std,jdbcType=VARCHAR},
+      </if>
+      <if test="chlaStd != null">
+        chla_std = #{chlaStd,jdbcType=VARCHAR},
+      </if>
+      <if test="no3Std != null">
+        no3_std = #{no3Std,jdbcType=VARCHAR},
+      </if>
+      <if test="no2Std != null">
+        no2_std = #{no2Std,jdbcType=VARCHAR},
+      </if>
+      <if test="llStd != null">
+        ll_std = #{llStd,jdbcType=VARCHAR},
+      </if>
+      <if test="swStd != null">
+        sw_std = #{swStd,jdbcType=VARCHAR},
+      </if>
+      <if test="fdcjqbz != null">
+        fdcjqbz = #{fdcjqbz,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.eliteams.quick4j.web.model.Szzbbz">
+    update szzbbz
+    set quality_target = #{qualityTarget,jdbcType=VARCHAR},
+      water_type = #{waterType,jdbcType=VARCHAR},
+      ddl = #{ddl,jdbcType=VARCHAR},
+      water_temperature = #{waterTemperature,jdbcType=VARCHAR},
+      ph = #{ph,jdbcType=VARCHAR},
+      rjy_std = #{rjyStd,jdbcType=VARCHAR},
+      tmd = #{tmd,jdbcType=VARCHAR},
+      yd = #{yd,jdbcType=VARCHAR},
+      cod_mn_std = #{codMnStd,jdbcType=VARCHAR},
+      cod_cr_std = #{codCrStd,jdbcType=VARCHAR},
+      nh_n_std = #{nhNStd,jdbcType=VARCHAR},
+      t_p_std = #{tPStd,jdbcType=VARCHAR},
+      t_n_std = #{tNStd,jdbcType=VARCHAR},
+      cu_std = #{cuStd,jdbcType=VARCHAR},
+      zn_std = #{znStd,jdbcType=VARCHAR},
+      pb_std = #{pbStd,jdbcType=VARCHAR},
+      cd_std = #{cdStd,jdbcType=VARCHAR},
+      bod5_std = #{bod5Std,jdbcType=VARCHAR},
+      t_as_std = #{tAsStd,jdbcType=VARCHAR},
+      t_se_std = #{tSeStd,jdbcType=VARCHAR},
+      t_hg_std = #{tHgStd,jdbcType=VARCHAR},
+      cr_6_std = #{cr6Std,jdbcType=VARCHAR},
+      f_std = #{fStd,jdbcType=VARCHAR},
+      cn_std = #{cnStd,jdbcType=VARCHAR},
+      hff_std = #{hffStd,jdbcType=VARCHAR},
+      syl_std = #{sylStd,jdbcType=VARCHAR},
+      las_std = #{lasStd,jdbcType=VARCHAR},
+      s2_std = #{s2Std,jdbcType=VARCHAR},
+      chla_std = #{chlaStd,jdbcType=VARCHAR},
+      no3_std = #{no3Std,jdbcType=VARCHAR},
+      no2_std = #{no2Std,jdbcType=VARCHAR},
+      ll_std = #{llStd,jdbcType=VARCHAR},
+      sw_std = #{swStd,jdbcType=VARCHAR},
+      fdcjqbz = #{fdcjqbz,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+
+</mapper>

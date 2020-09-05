@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.eliteams.quick4j.web.dao.QmpWrxxYearMapper" >
+  <resultMap id="BaseResultMap" type="com.eliteams.quick4j.web.model.QmpWrxxYear" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="zrs" property="zrs" jdbcType="VARCHAR" />
+    <result column="ykh" property="ykh" jdbcType="VARCHAR" />
+    <result column="hlsz" property="hlsz" jdbcType="VARCHAR" />
+    <result column="cs" property="cs" jdbcType="VARCHAR" />
+    <result column="dmmc" property="dmmc" jdbcType="VARCHAR" />
+    <result column="sshl" property="sshl" jdbcType="VARCHAR" />
+    <result column="dmsx" property="dmsx" jdbcType="VARCHAR" />
+    <result column="goal2020" property="goal2020" jdbcType="VARCHAR" />
+    <result column="goal2016" property="goal2016" jdbcType="VARCHAR" />
+    <result column="goal2017" property="goal2017" jdbcType="VARCHAR" />
+    <result column="m1" property="m1" jdbcType="VARCHAR" />
+    <result column="m2" property="m2" jdbcType="VARCHAR" />
+    <result column="m3" property="m3" jdbcType="VARCHAR" />
+    <result column="m4" property="m4" jdbcType="VARCHAR" />
+    <result column="m5" property="m5" jdbcType="VARCHAR" />
+    <result column="m6" property="m6" jdbcType="VARCHAR" />
+    <result column="m7" property="m7" jdbcType="VARCHAR" />
+    <result column="m8" property="m8" jdbcType="VARCHAR" />
+    <result column="m9" property="m9" jdbcType="VARCHAR" />
+    <result column="m10" property="m10" jdbcType="VARCHAR" />
+    <result column="m11" property="m11" jdbcType="VARCHAR" />
+    <result column="m12" property="m12" jdbcType="VARCHAR" />
+    <result column="njlb" property="njlb" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <resultMap id="newResult" type="com.eliteams.quick4j.web.model.QmpWrxxYear" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="dmmc" property="dmmc" jdbcType="VARCHAR" />
+    <result column="goal2020" property="goal2020" jdbcType="VARCHAR" />
+    <result column="goal2016" property="goal2016" jdbcType="VARCHAR" />
+    <result column="goal2017" property="goal2017" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <sql id="qmpWrxxColumns">
+    a.id,
+    a.dmmc,
+    a.goal2020,
+    a.goal2016,
+    a.goal2017
+  </sql>
+
+  <select id="getBySection" parameterType="java.lang.String" resultMap="newResult">
+    SELECT
+    <include refid="qmpWrxxColumns"/>
+    FROM qmp_wrxx_year a
+    WHERE
+    a.dmmc=#{section}
+  </select>
+
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, zrs, ykh, hlsz, cs, dmmc, sshl, dmsx, goal2020, goal2016, goal2017, m1, m2, m3, 
+    m4, m5, m6, m7, m8, m9, m10, m11, m12, njlb
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.eliteams.quick4j.web.model.QmpWrxxYearExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from qmp_wrxx_year
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from qmp_wrxx_year
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from qmp_wrxx_year
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.eliteams.quick4j.web.model.QmpWrxxYearExample" >
+    delete from qmp_wrxx_year
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.eliteams.quick4j.web.model.QmpWrxxYear" >
+    insert into qmp_wrxx_year (id, zrs, ykh, 
+      hlsz, cs, dmmc, sshl, 
+      dmsx, goal2020, goal2016, 
+      goal2017, m1, m2, m3, 
+      m4, m5, m6, m7, 
+      m8, m9, m10, m11, 
+      m12, njlb)
+    values (#{id,jdbcType=INTEGER}, #{zrs,jdbcType=VARCHAR}, #{ykh,jdbcType=VARCHAR}, 
+      #{hlsz,jdbcType=VARCHAR}, #{cs,jdbcType=VARCHAR}, #{dmmc,jdbcType=VARCHAR}, #{sshl,jdbcType=VARCHAR}, 
+      #{dmsx,jdbcType=VARCHAR}, #{goal2020,jdbcType=VARCHAR}, #{goal2016,jdbcType=VARCHAR}, 
+      #{goal2017,jdbcType=VARCHAR}, #{m1,jdbcType=VARCHAR}, #{m2,jdbcType=VARCHAR}, #{m3,jdbcType=VARCHAR}, 
+      #{m4,jdbcType=VARCHAR}, #{m5,jdbcType=VARCHAR}, #{m6,jdbcType=VARCHAR}, #{m7,jdbcType=VARCHAR}, 
+      #{m8,jdbcType=VARCHAR}, #{m9,jdbcType=VARCHAR}, #{m10,jdbcType=VARCHAR}, #{m11,jdbcType=VARCHAR}, 
+      #{m12,jdbcType=VARCHAR}, #{njlb,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.eliteams.quick4j.web.model.QmpWrxxYear" >
+    insert into qmp_wrxx_year
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="zrs != null" >
+        zrs,
+      </if>
+      <if test="ykh != null" >
+        ykh,
+      </if>
+      <if test="hlsz != null" >
+        hlsz,
+      </if>
+      <if test="cs != null" >
+        cs,
+      </if>
+      <if test="dmmc != null" >
+        dmmc,
+      </if>
+      <if test="sshl != null" >
+        sshl,
+      </if>
+      <if test="dmsx != null" >
+        dmsx,
+      </if>
+      <if test="goal2020 != null" >
+        goal2020,
+      </if>
+      <if test="goal2016 != null" >
+        goal2016,
+      </if>
+      <if test="goal2017 != null" >
+        goal2017,
+      </if>
+      <if test="m1 != null" >
+        m1,
+      </if>
+      <if test="m2 != null" >
+        m2,
+      </if>
+      <if test="m3 != null" >
+        m3,
+      </if>
+      <if test="m4 != null" >
+        m4,
+      </if>
+      <if test="m5 != null" >
+        m5,
+      </if>
+      <if test="m6 != null" >
+        m6,
+      </if>
+      <if test="m7 != null" >
+        m7,
+      </if>
+      <if test="m8 != null" >
+        m8,
+      </if>
+      <if test="m9 != null" >
+        m9,
+      </if>
+      <if test="m10 != null" >
+        m10,
+      </if>
+      <if test="m11 != null" >
+        m11,
+      </if>
+      <if test="m12 != null" >
+        m12,
+      </if>
+      <if test="njlb != null" >
+        njlb,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="zrs != null" >
+        #{zrs,jdbcType=VARCHAR},
+      </if>
+      <if test="ykh != null" >
+        #{ykh,jdbcType=VARCHAR},
+      </if>
+      <if test="hlsz != null" >
+        #{hlsz,jdbcType=VARCHAR},
+      </if>
+      <if test="cs != null" >
+        #{cs,jdbcType=VARCHAR},
+      </if>
+      <if test="dmmc != null" >
+        #{dmmc,jdbcType=VARCHAR},
+      </if>
+      <if test="sshl != null" >
+        #{sshl,jdbcType=VARCHAR},
+      </if>
+      <if test="dmsx != null" >
+        #{dmsx,jdbcType=VARCHAR},
+      </if>
+      <if test="goal2020 != null" >
+        #{goal2020,jdbcType=VARCHAR},
+      </if>
+      <if test="goal2016 != null" >
+        #{goal2016,jdbcType=VARCHAR},
+      </if>
+      <if test="goal2017 != null" >
+        #{goal2017,jdbcType=VARCHAR},
+      </if>
+      <if test="m1 != null" >
+        #{m1,jdbcType=VARCHAR},
+      </if>
+      <if test="m2 != null" >
+        #{m2,jdbcType=VARCHAR},
+      </if>
+      <if test="m3 != null" >
+        #{m3,jdbcType=VARCHAR},
+      </if>
+      <if test="m4 != null" >
+        #{m4,jdbcType=VARCHAR},
+      </if>
+      <if test="m5 != null" >
+        #{m5,jdbcType=VARCHAR},
+      </if>
+      <if test="m6 != null" >
+        #{m6,jdbcType=VARCHAR},
+      </if>
+      <if test="m7 != null" >
+        #{m7,jdbcType=VARCHAR},
+      </if>
+      <if test="m8 != null" >
+        #{m8,jdbcType=VARCHAR},
+      </if>
+      <if test="m9 != null" >
+        #{m9,jdbcType=VARCHAR},
+      </if>
+      <if test="m10 != null" >
+        #{m10,jdbcType=VARCHAR},
+      </if>
+      <if test="m11 != null" >
+        #{m11,jdbcType=VARCHAR},
+      </if>
+      <if test="m12 != null" >
+        #{m12,jdbcType=VARCHAR},
+      </if>
+      <if test="njlb != null" >
+        #{njlb,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.eliteams.quick4j.web.model.QmpWrxxYearExample" resultType="java.lang.Integer" >
+    select count(*) from qmp_wrxx_year
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update qmp_wrxx_year
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.zrs != null" >
+        zrs = #{record.zrs,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ykh != null" >
+        ykh = #{record.ykh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hlsz != null" >
+        hlsz = #{record.hlsz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cs != null" >
+        cs = #{record.cs,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dmmc != null" >
+        dmmc = #{record.dmmc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sshl != null" >
+        sshl = #{record.sshl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dmsx != null" >
+        dmsx = #{record.dmsx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goal2020 != null" >
+        goal2020 = #{record.goal2020,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goal2016 != null" >
+        goal2016 = #{record.goal2016,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goal2017 != null" >
+        goal2017 = #{record.goal2017,jdbcType=VARCHAR},
+      </if>
+      <if test="record.m1 != null" >
+        m1 = #{record.m1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.m2 != null" >
+        m2 = #{record.m2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.m3 != null" >
+        m3 = #{record.m3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.m4 != null" >
+        m4 = #{record.m4,jdbcType=VARCHAR},
+      </if>
+      <if test="record.m5 != null" >
+        m5 = #{record.m5,jdbcType=VARCHAR},
+      </if>
+      <if test="record.m6 != null" >
+        m6 = #{record.m6,jdbcType=VARCHAR},
+      </if>
+      <if test="record.m7 != null" >
+        m7 = #{record.m7,jdbcType=VARCHAR},
+      </if>
+      <if test="record.m8 != null" >
+        m8 = #{record.m8,jdbcType=VARCHAR},
+      </if>
+      <if test="record.m9 != null" >
+        m9 = #{record.m9,jdbcType=VARCHAR},
+      </if>
+      <if test="record.m10 != null" >
+        m10 = #{record.m10,jdbcType=VARCHAR},
+      </if>
+      <if test="record.m11 != null" >
+        m11 = #{record.m11,jdbcType=VARCHAR},
+      </if>
+      <if test="record.m12 != null" >
+        m12 = #{record.m12,jdbcType=VARCHAR},
+      </if>
+      <if test="record.njlb != null" >
+        njlb = #{record.njlb,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update qmp_wrxx_year
+    set id = #{record.id,jdbcType=INTEGER},
+      zrs = #{record.zrs,jdbcType=VARCHAR},
+      ykh = #{record.ykh,jdbcType=VARCHAR},
+      hlsz = #{record.hlsz,jdbcType=VARCHAR},
+      cs = #{record.cs,jdbcType=VARCHAR},
+      dmmc = #{record.dmmc,jdbcType=VARCHAR},
+      sshl = #{record.sshl,jdbcType=VARCHAR},
+      dmsx = #{record.dmsx,jdbcType=VARCHAR},
+      goal2020 = #{record.goal2020,jdbcType=VARCHAR},
+      goal2016 = #{record.goal2016,jdbcType=VARCHAR},
+      goal2017 = #{record.goal2017,jdbcType=VARCHAR},
+      m1 = #{record.m1,jdbcType=VARCHAR},
+      m2 = #{record.m2,jdbcType=VARCHAR},
+      m3 = #{record.m3,jdbcType=VARCHAR},
+      m4 = #{record.m4,jdbcType=VARCHAR},
+      m5 = #{record.m5,jdbcType=VARCHAR},
+      m6 = #{record.m6,jdbcType=VARCHAR},
+      m7 = #{record.m7,jdbcType=VARCHAR},
+      m8 = #{record.m8,jdbcType=VARCHAR},
+      m9 = #{record.m9,jdbcType=VARCHAR},
+      m10 = #{record.m10,jdbcType=VARCHAR},
+      m11 = #{record.m11,jdbcType=VARCHAR},
+      m12 = #{record.m12,jdbcType=VARCHAR},
+      njlb = #{record.njlb,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.eliteams.quick4j.web.model.QmpWrxxYear" >
+    update qmp_wrxx_year
+    <set >
+      <if test="zrs != null" >
+        zrs = #{zrs,jdbcType=VARCHAR},
+      </if>
+      <if test="ykh != null" >
+        ykh = #{ykh,jdbcType=VARCHAR},
+      </if>
+      <if test="hlsz != null" >
+        hlsz = #{hlsz,jdbcType=VARCHAR},
+      </if>
+      <if test="cs != null" >
+        cs = #{cs,jdbcType=VARCHAR},
+      </if>
+      <if test="dmmc != null" >
+        dmmc = #{dmmc,jdbcType=VARCHAR},
+      </if>
+      <if test="sshl != null" >
+        sshl = #{sshl,jdbcType=VARCHAR},
+      </if>
+      <if test="dmsx != null" >
+        dmsx = #{dmsx,jdbcType=VARCHAR},
+      </if>
+      <if test="goal2020 != null" >
+        goal2020 = #{goal2020,jdbcType=VARCHAR},
+      </if>
+      <if test="goal2016 != null" >
+        goal2016 = #{goal2016,jdbcType=VARCHAR},
+      </if>
+      <if test="goal2017 != null" >
+        goal2017 = #{goal2017,jdbcType=VARCHAR},
+      </if>
+      <if test="m1 != null" >
+        m1 = #{m1,jdbcType=VARCHAR},
+      </if>
+      <if test="m2 != null" >
+        m2 = #{m2,jdbcType=VARCHAR},
+      </if>
+      <if test="m3 != null" >
+        m3 = #{m3,jdbcType=VARCHAR},
+      </if>
+      <if test="m4 != null" >
+        m4 = #{m4,jdbcType=VARCHAR},
+      </if>
+      <if test="m5 != null" >
+        m5 = #{m5,jdbcType=VARCHAR},
+      </if>
+      <if test="m6 != null" >
+        m6 = #{m6,jdbcType=VARCHAR},
+      </if>
+      <if test="m7 != null" >
+        m7 = #{m7,jdbcType=VARCHAR},
+      </if>
+      <if test="m8 != null" >
+        m8 = #{m8,jdbcType=VARCHAR},
+      </if>
+      <if test="m9 != null" >
+        m9 = #{m9,jdbcType=VARCHAR},
+      </if>
+      <if test="m10 != null" >
+        m10 = #{m10,jdbcType=VARCHAR},
+      </if>
+      <if test="m11 != null" >
+        m11 = #{m11,jdbcType=VARCHAR},
+      </if>
+      <if test="m12 != null" >
+        m12 = #{m12,jdbcType=VARCHAR},
+      </if>
+      <if test="njlb != null" >
+        njlb = #{njlb,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.eliteams.quick4j.web.model.QmpWrxxYear" >
+    update qmp_wrxx_year
+    set zrs = #{zrs,jdbcType=VARCHAR},
+      ykh = #{ykh,jdbcType=VARCHAR},
+      hlsz = #{hlsz,jdbcType=VARCHAR},
+      cs = #{cs,jdbcType=VARCHAR},
+      dmmc = #{dmmc,jdbcType=VARCHAR},
+      sshl = #{sshl,jdbcType=VARCHAR},
+      dmsx = #{dmsx,jdbcType=VARCHAR},
+      goal2020 = #{goal2020,jdbcType=VARCHAR},
+      goal2016 = #{goal2016,jdbcType=VARCHAR},
+      goal2017 = #{goal2017,jdbcType=VARCHAR},
+      m1 = #{m1,jdbcType=VARCHAR},
+      m2 = #{m2,jdbcType=VARCHAR},
+      m3 = #{m3,jdbcType=VARCHAR},
+      m4 = #{m4,jdbcType=VARCHAR},
+      m5 = #{m5,jdbcType=VARCHAR},
+      m6 = #{m6,jdbcType=VARCHAR},
+      m7 = #{m7,jdbcType=VARCHAR},
+      m8 = #{m8,jdbcType=VARCHAR},
+      m9 = #{m9,jdbcType=VARCHAR},
+      m10 = #{m10,jdbcType=VARCHAR},
+      m11 = #{m11,jdbcType=VARCHAR},
+      m12 = #{m12,jdbcType=VARCHAR},
+      njlb = #{njlb,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectQmpGoal" resultMap="BaseResultMap">
+		select
+		*
+		from qmp_wrxx_year
+	</select>
+</mapper>

@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.eliteams.quick4j.web.dao.HlswMapper" >
+  <resultMap id="BaseResultMap" type="com.eliteams.quick4j.web.model.Hlsw" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="hlsw_swzmc" property="hlswSwzmc" jdbcType="VARCHAR" />
+    <result column="hlsw_swzjdd" property="hlswSwzjdd" jdbcType="INTEGER" />
+    <result column="hlsw_swzjdf" property="hlswSwzjdf" jdbcType="INTEGER" />
+    <result column="hlsw_swzjds" property="hlswSwzjds" jdbcType="INTEGER" />
+    <result column="hlsw_swzwdd" property="hlswSwzwdd" jdbcType="INTEGER" />
+    <result column="hlsw_swzwdf" property="hlswSwzwdf" jdbcType="INTEGER" />
+    <result column="hlsw_swzwds" property="hlswSwzwds" jdbcType="DOUBLE" />
+    <result column="hlsw_dmmc" property="hlswDmmc" jdbcType="VARCHAR" />
+    <result column="hlsw_dmbh" property="hlswDmbh" jdbcType="VARCHAR" />
+    <result column="hlsw_hlmc" property="hlswHlmc" jdbcType="VARCHAR" />
+    <result column="hlsw_hlbh" property="hlswHlbh" jdbcType="VARCHAR" />
+    <result column="hlsw_sj" property="hlswSj" jdbcType="TIMESTAMP" />
+    <result column="hlsw_jyl" property="hlswJyl" jdbcType="DOUBLE" />
+    <result column="hlsw_zfl" property="hlswZfl" jdbcType="DOUBLE" />
+    <result column="hlsw_ll" property="hlswLl" jdbcType="DOUBLE" />
+    <result column="hlsw_sw" property="hlswSw" jdbcType="DOUBLE" />
+    <result column="hlsw_ls" property="hlswLs" jdbcType="DOUBLE" />
+    <result column="hlsw_bl1" property="hlswBl1" jdbcType="VARCHAR" />
+    <result column="hlsw_bl2" property="hlswBl2" jdbcType="VARCHAR" />
+    <result column="hlsw_bl3" property="hlswBl3" jdbcType="VARCHAR" />
+    <result column="hlsw_bl4" property="hlswBl4" jdbcType="VARCHAR" />
+    <result column="hlsw_bl5" property="hlswBl5" jdbcType="VARCHAR" />
+    <result column="hlsw_bl6" property="hlswBl6" jdbcType="VARCHAR" />
+    <result column="hlsw_bl7" property="hlswBl7" jdbcType="VARCHAR" />
+    <result column="hlsw_bl8" property="hlswBl8" jdbcType="VARCHAR" />
+    <result column="hlsw_bl9" property="hlswBl9" jdbcType="VARCHAR" />
+    <result column="hlsw_bl10" property="hlswBl10" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, hlsw_swzmc, hlsw_swzjdd, hlsw_swzjdf, hlsw_swzjds, hlsw_swzwdd, hlsw_swzwdf, 
+    hlsw_swzwds, hlsw_dmmc, hlsw_dmbh, hlsw_hlmc, hlsw_hlbh, hlsw_sj, hlsw_jyl, hlsw_zfl, 
+    hlsw_ll, hlsw_sw, hlsw_ls, hlsw_bl1, hlsw_bl2, hlsw_bl3, hlsw_bl4, hlsw_bl5, hlsw_bl6, 
+    hlsw_bl7, hlsw_bl8, hlsw_bl9, hlsw_bl10
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.eliteams.quick4j.web.model.HlswExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tbl_hlsw
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_hlsw
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tbl_hlsw
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.eliteams.quick4j.web.model.HlswExample" >
+    delete from tbl_hlsw
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.eliteams.quick4j.web.model.Hlsw" >
+    insert into tbl_hlsw (id, hlsw_swzmc, hlsw_swzjdd, 
+      hlsw_swzjdf, hlsw_swzjds, hlsw_swzwdd, 
+      hlsw_swzwdf, hlsw_swzwds, hlsw_dmmc, 
+      hlsw_dmbh, hlsw_hlmc, hlsw_hlbh, 
+      hlsw_sj, hlsw_jyl, hlsw_zfl, 
+      hlsw_ll, hlsw_sw, hlsw_ls, 
+      hlsw_bl1, hlsw_bl2, hlsw_bl3, 
+      hlsw_bl4, hlsw_bl5, hlsw_bl6, 
+      hlsw_bl7, hlsw_bl8, hlsw_bl9, 
+      hlsw_bl10)
+    values (#{id,jdbcType=INTEGER}, #{hlswSwzmc,jdbcType=VARCHAR}, #{hlswSwzjdd,jdbcType=INTEGER}, 
+      #{hlswSwzjdf,jdbcType=INTEGER}, #{hlswSwzjds,jdbcType=INTEGER}, #{hlswSwzwdd,jdbcType=INTEGER}, 
+      #{hlswSwzwdf,jdbcType=INTEGER}, #{hlswSwzwds,jdbcType=DOUBLE}, #{hlswDmmc,jdbcType=VARCHAR}, 
+      #{hlswDmbh,jdbcType=VARCHAR}, #{hlswHlmc,jdbcType=VARCHAR}, #{hlswHlbh,jdbcType=VARCHAR}, 
+      #{hlswSj,jdbcType=TIMESTAMP}, #{hlswJyl,jdbcType=DOUBLE}, #{hlswZfl,jdbcType=DOUBLE}, 
+      #{hlswLl,jdbcType=DOUBLE}, #{hlswSw,jdbcType=DOUBLE}, #{hlswLs,jdbcType=DOUBLE}, 
+      #{hlswBl1,jdbcType=VARCHAR}, #{hlswBl2,jdbcType=VARCHAR}, #{hlswBl3,jdbcType=VARCHAR}, 
+      #{hlswBl4,jdbcType=VARCHAR}, #{hlswBl5,jdbcType=VARCHAR}, #{hlswBl6,jdbcType=VARCHAR}, 
+      #{hlswBl7,jdbcType=VARCHAR}, #{hlswBl8,jdbcType=VARCHAR}, #{hlswBl9,jdbcType=VARCHAR}, 
+      #{hlswBl10,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.eliteams.quick4j.web.model.Hlsw" >
+    insert into tbl_hlsw
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="hlswSwzmc != null" >
+        hlsw_swzmc,
+      </if>
+      <if test="hlswSwzjdd != null" >
+        hlsw_swzjdd,
+      </if>
+      <if test="hlswSwzjdf != null" >
+        hlsw_swzjdf,
+      </if>
+      <if test="hlswSwzjds != null" >
+        hlsw_swzjds,
+      </if>
+      <if test="hlswSwzwdd != null" >
+        hlsw_swzwdd,
+      </if>
+      <if test="hlswSwzwdf != null" >
+        hlsw_swzwdf,
+      </if>
+      <if test="hlswSwzwds != null" >
+        hlsw_swzwds,
+      </if>
+      <if test="hlswDmmc != null" >
+        hlsw_dmmc,
+      </if>
+      <if test="hlswDmbh != null" >
+        hlsw_dmbh,
+      </if>
+      <if test="hlswHlmc != null" >
+        hlsw_hlmc,
+      </if>
+      <if test="hlswHlbh != null" >
+        hlsw_hlbh,
+      </if>
+      <if test="hlswSj != null" >
+        hlsw_sj,
+      </if>
+      <if test="hlswJyl != null" >
+        hlsw_jyl,
+      </if>
+      <if test="hlswZfl != null" >
+        hlsw_zfl,
+      </if>
+      <if test="hlswLl != null" >
+        hlsw_ll,
+      </if>
+      <if test="hlswSw != null" >
+        hlsw_sw,
+      </if>
+      <if test="hlswLs != null" >
+        hlsw_ls,
+      </if>
+      <if test="hlswBl1 != null" >
+        hlsw_bl1,
+      </if>
+      <if test="hlswBl2 != null" >
+        hlsw_bl2,
+      </if>
+      <if test="hlswBl3 != null" >
+        hlsw_bl3,
+      </if>
+      <if test="hlswBl4 != null" >
+        hlsw_bl4,
+      </if>
+      <if test="hlswBl5 != null" >
+        hlsw_bl5,
+      </if>
+      <if test="hlswBl6 != null" >
+        hlsw_bl6,
+      </if>
+      <if test="hlswBl7 != null" >
+        hlsw_bl7,
+      </if>
+      <if test="hlswBl8 != null" >
+        hlsw_bl8,
+      </if>
+      <if test="hlswBl9 != null" >
+        hlsw_bl9,
+      </if>
+      <if test="hlswBl10 != null" >
+        hlsw_bl10,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="hlswSwzmc != null" >
+        #{hlswSwzmc,jdbcType=VARCHAR},
+      </if>
+      <if test="hlswSwzjdd != null" >
+        #{hlswSwzjdd,jdbcType=INTEGER},
+      </if>
+      <if test="hlswSwzjdf != null" >
+        #{hlswSwzjdf,jdbcType=INTEGER},
+      </if>
+      <if test="hlswSwzjds != null" >
+        #{hlswSwzjds,jdbcType=INTEGER},
+      </if>
+      <if test="hlswSwzwdd != null" >
+        #{hlswSwzwdd,jdbcType=INTEGER},
+      </if>
+      <if test="hlswSwzwdf != null" >
+        #{hlswSwzwdf,jdbcType=INTEGER},
+      </if>
+      <if test="hlswSwzwds != null" >
+        #{hlswSwzwds,jdbcType=DOUBLE},
+      </if>
+      <if test="hlswDmmc != null" >
+        #{hlswDmmc,jdbcType=VARCHAR},
+      </if>
+      <if test="hlswDmbh != null" >
+        #{hlswDmbh,jdbcType=VARCHAR},
+      </if>
+      <if test="hlswHlmc != null" >
+        #{hlswHlmc,jdbcType=VARCHAR},
+      </if>
+      <if test="hlswHlbh != null" >
+        #{hlswHlbh,jdbcType=VARCHAR},
+      </if>
+      <if test="hlswSj != null" >
+        #{hlswSj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hlswJyl != null" >
+        #{hlswJyl,jdbcType=DOUBLE},
+      </if>
+      <if test="hlswZfl != null" >
+        #{hlswZfl,jdbcType=DOUBLE},
+      </if>
+      <if test="hlswLl != null" >
+        #{hlswLl,jdbcType=DOUBLE},
+      </if>
+      <if test="hlswSw != null" >
+        #{hlswSw,jdbcType=DOUBLE},
+      </if>
+      <if test="hlswLs != null" >
+        #{hlswLs,jdbcType=DOUBLE},
+      </if>
+      <if test="hlswBl1 != null" >
+        #{hlswBl1,jdbcType=VARCHAR},
+      </if>
+      <if test="hlswBl2 != null" >
+        #{hlswBl2,jdbcType=VARCHAR},
+      </if>
+      <if test="hlswBl3 != null" >
+        #{hlswBl3,jdbcType=VARCHAR},
+      </if>
+      <if test="hlswBl4 != null" >
+        #{hlswBl4,jdbcType=VARCHAR},
+      </if>
+      <if test="hlswBl5 != null" >
+        #{hlswBl5,jdbcType=VARCHAR},
+      </if>
+      <if test="hlswBl6 != null" >
+        #{hlswBl6,jdbcType=VARCHAR},
+      </if>
+      <if test="hlswBl7 != null" >
+        #{hlswBl7,jdbcType=VARCHAR},
+      </if>
+      <if test="hlswBl8 != null" >
+        #{hlswBl8,jdbcType=VARCHAR},
+      </if>
+      <if test="hlswBl9 != null" >
+        #{hlswBl9,jdbcType=VARCHAR},
+      </if>
+      <if test="hlswBl10 != null" >
+        #{hlswBl10,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.eliteams.quick4j.web.model.HlswExample" resultType="java.lang.Integer" >
+    select count(*) from tbl_hlsw
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tbl_hlsw
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.hlswSwzmc != null" >
+        hlsw_swzmc = #{record.hlswSwzmc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hlswSwzjdd != null" >
+        hlsw_swzjdd = #{record.hlswSwzjdd,jdbcType=INTEGER},
+      </if>
+      <if test="record.hlswSwzjdf != null" >
+        hlsw_swzjdf = #{record.hlswSwzjdf,jdbcType=INTEGER},
+      </if>
+      <if test="record.hlswSwzjds != null" >
+        hlsw_swzjds = #{record.hlswSwzjds,jdbcType=INTEGER},
+      </if>
+      <if test="record.hlswSwzwdd != null" >
+        hlsw_swzwdd = #{record.hlswSwzwdd,jdbcType=INTEGER},
+      </if>
+      <if test="record.hlswSwzwdf != null" >
+        hlsw_swzwdf = #{record.hlswSwzwdf,jdbcType=INTEGER},
+      </if>
+      <if test="record.hlswSwzwds != null" >
+        hlsw_swzwds = #{record.hlswSwzwds,jdbcType=DOUBLE},
+      </if>
+      <if test="record.hlswDmmc != null" >
+        hlsw_dmmc = #{record.hlswDmmc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hlswDmbh != null" >
+        hlsw_dmbh = #{record.hlswDmbh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hlswHlmc != null" >
+        hlsw_hlmc = #{record.hlswHlmc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hlswHlbh != null" >
+        hlsw_hlbh = #{record.hlswHlbh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hlswSj != null" >
+        hlsw_sj = #{record.hlswSj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.hlswJyl != null" >
+        hlsw_jyl = #{record.hlswJyl,jdbcType=DOUBLE},
+      </if>
+      <if test="record.hlswZfl != null" >
+        hlsw_zfl = #{record.hlswZfl,jdbcType=DOUBLE},
+      </if>
+      <if test="record.hlswLl != null" >
+        hlsw_ll = #{record.hlswLl,jdbcType=DOUBLE},
+      </if>
+      <if test="record.hlswSw != null" >
+        hlsw_sw = #{record.hlswSw,jdbcType=DOUBLE},
+      </if>
+      <if test="record.hlswLs != null" >
+        hlsw_ls = #{record.hlswLs,jdbcType=DOUBLE},
+      </if>
+      <if test="record.hlswBl1 != null" >
+        hlsw_bl1 = #{record.hlswBl1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hlswBl2 != null" >
+        hlsw_bl2 = #{record.hlswBl2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hlswBl3 != null" >
+        hlsw_bl3 = #{record.hlswBl3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hlswBl4 != null" >
+        hlsw_bl4 = #{record.hlswBl4,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hlswBl5 != null" >
+        hlsw_bl5 = #{record.hlswBl5,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hlswBl6 != null" >
+        hlsw_bl6 = #{record.hlswBl6,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hlswBl7 != null" >
+        hlsw_bl7 = #{record.hlswBl7,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hlswBl8 != null" >
+        hlsw_bl8 = #{record.hlswBl8,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hlswBl9 != null" >
+        hlsw_bl9 = #{record.hlswBl9,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hlswBl10 != null" >
+        hlsw_bl10 = #{record.hlswBl10,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tbl_hlsw
+    set id = #{record.id,jdbcType=INTEGER},
+      hlsw_swzmc = #{record.hlswSwzmc,jdbcType=VARCHAR},
+      hlsw_swzjdd = #{record.hlswSwzjdd,jdbcType=INTEGER},
+      hlsw_swzjdf = #{record.hlswSwzjdf,jdbcType=INTEGER},
+      hlsw_swzjds = #{record.hlswSwzjds,jdbcType=INTEGER},
+      hlsw_swzwdd = #{record.hlswSwzwdd,jdbcType=INTEGER},
+      hlsw_swzwdf = #{record.hlswSwzwdf,jdbcType=INTEGER},
+      hlsw_swzwds = #{record.hlswSwzwds,jdbcType=DOUBLE},
+      hlsw_dmmc = #{record.hlswDmmc,jdbcType=VARCHAR},
+      hlsw_dmbh = #{record.hlswDmbh,jdbcType=VARCHAR},
+      hlsw_hlmc = #{record.hlswHlmc,jdbcType=VARCHAR},
+      hlsw_hlbh = #{record.hlswHlbh,jdbcType=VARCHAR},
+      hlsw_sj = #{record.hlswSj,jdbcType=TIMESTAMP},
+      hlsw_jyl = #{record.hlswJyl,jdbcType=DOUBLE},
+      hlsw_zfl = #{record.hlswZfl,jdbcType=DOUBLE},
+      hlsw_ll = #{record.hlswLl,jdbcType=DOUBLE},
+      hlsw_sw = #{record.hlswSw,jdbcType=DOUBLE},
+      hlsw_ls = #{record.hlswLs,jdbcType=DOUBLE},
+      hlsw_bl1 = #{record.hlswBl1,jdbcType=VARCHAR},
+      hlsw_bl2 = #{record.hlswBl2,jdbcType=VARCHAR},
+      hlsw_bl3 = #{record.hlswBl3,jdbcType=VARCHAR},
+      hlsw_bl4 = #{record.hlswBl4,jdbcType=VARCHAR},
+      hlsw_bl5 = #{record.hlswBl5,jdbcType=VARCHAR},
+      hlsw_bl6 = #{record.hlswBl6,jdbcType=VARCHAR},
+      hlsw_bl7 = #{record.hlswBl7,jdbcType=VARCHAR},
+      hlsw_bl8 = #{record.hlswBl8,jdbcType=VARCHAR},
+      hlsw_bl9 = #{record.hlswBl9,jdbcType=VARCHAR},
+      hlsw_bl10 = #{record.hlswBl10,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.eliteams.quick4j.web.model.Hlsw" >
+    update tbl_hlsw
+    <set >
+      <if test="hlswSwzmc != null" >
+        hlsw_swzmc = #{hlswSwzmc,jdbcType=VARCHAR},
+      </if>
+      <if test="hlswSwzjdd != null" >
+        hlsw_swzjdd = #{hlswSwzjdd,jdbcType=INTEGER},
+      </if>
+      <if test="hlswSwzjdf != null" >
+        hlsw_swzjdf = #{hlswSwzjdf,jdbcType=INTEGER},
+      </if>
+      <if test="hlswSwzjds != null" >
+        hlsw_swzjds = #{hlswSwzjds,jdbcType=INTEGER},
+      </if>
+      <if test="hlswSwzwdd != null" >
+        hlsw_swzwdd = #{hlswSwzwdd,jdbcType=INTEGER},
+      </if>
+      <if test="hlswSwzwdf != null" >
+        hlsw_swzwdf = #{hlswSwzwdf,jdbcType=INTEGER},
+      </if>
+      <if test="hlswSwzwds != null" >
+        hlsw_swzwds = #{hlswSwzwds,jdbcType=DOUBLE},
+      </if>
+      <if test="hlswDmmc != null" >
+        hlsw_dmmc = #{hlswDmmc,jdbcType=VARCHAR},
+      </if>
+      <if test="hlswDmbh != null" >
+        hlsw_dmbh = #{hlswDmbh,jdbcType=VARCHAR},
+      </if>
+      <if test="hlswHlmc != null" >
+        hlsw_hlmc = #{hlswHlmc,jdbcType=VARCHAR},
+      </if>
+      <if test="hlswHlbh != null" >
+        hlsw_hlbh = #{hlswHlbh,jdbcType=VARCHAR},
+      </if>
+      <if test="hlswSj != null" >
+        hlsw_sj = #{hlswSj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hlswJyl != null" >
+        hlsw_jyl = #{hlswJyl,jdbcType=DOUBLE},
+      </if>
+      <if test="hlswZfl != null" >
+        hlsw_zfl = #{hlswZfl,jdbcType=DOUBLE},
+      </if>
+      <if test="hlswLl != null" >
+        hlsw_ll = #{hlswLl,jdbcType=DOUBLE},
+      </if>
+      <if test="hlswSw != null" >
+        hlsw_sw = #{hlswSw,jdbcType=DOUBLE},
+      </if>
+      <if test="hlswLs != null" >
+        hlsw_ls = #{hlswLs,jdbcType=DOUBLE},
+      </if>
+      <if test="hlswBl1 != null" >
+        hlsw_bl1 = #{hlswBl1,jdbcType=VARCHAR},
+      </if>
+      <if test="hlswBl2 != null" >
+        hlsw_bl2 = #{hlswBl2,jdbcType=VARCHAR},
+      </if>
+      <if test="hlswBl3 != null" >
+        hlsw_bl3 = #{hlswBl3,jdbcType=VARCHAR},
+      </if>
+      <if test="hlswBl4 != null" >
+        hlsw_bl4 = #{hlswBl4,jdbcType=VARCHAR},
+      </if>
+      <if test="hlswBl5 != null" >
+        hlsw_bl5 = #{hlswBl5,jdbcType=VARCHAR},
+      </if>
+      <if test="hlswBl6 != null" >
+        hlsw_bl6 = #{hlswBl6,jdbcType=VARCHAR},
+      </if>
+      <if test="hlswBl7 != null" >
+        hlsw_bl7 = #{hlswBl7,jdbcType=VARCHAR},
+      </if>
+      <if test="hlswBl8 != null" >
+        hlsw_bl8 = #{hlswBl8,jdbcType=VARCHAR},
+      </if>
+      <if test="hlswBl9 != null" >
+        hlsw_bl9 = #{hlswBl9,jdbcType=VARCHAR},
+      </if>
+      <if test="hlswBl10 != null" >
+        hlsw_bl10 = #{hlswBl10,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.eliteams.quick4j.web.model.Hlsw" >
+    update tbl_hlsw
+    set hlsw_swzmc = #{hlswSwzmc,jdbcType=VARCHAR},
+      hlsw_swzjdd = #{hlswSwzjdd,jdbcType=INTEGER},
+      hlsw_swzjdf = #{hlswSwzjdf,jdbcType=INTEGER},
+      hlsw_swzjds = #{hlswSwzjds,jdbcType=INTEGER},
+      hlsw_swzwdd = #{hlswSwzwdd,jdbcType=INTEGER},
+      hlsw_swzwdf = #{hlswSwzwdf,jdbcType=INTEGER},
+      hlsw_swzwds = #{hlswSwzwds,jdbcType=DOUBLE},
+      hlsw_dmmc = #{hlswDmmc,jdbcType=VARCHAR},
+      hlsw_dmbh = #{hlswDmbh,jdbcType=VARCHAR},
+      hlsw_hlmc = #{hlswHlmc,jdbcType=VARCHAR},
+      hlsw_hlbh = #{hlswHlbh,jdbcType=VARCHAR},
+      hlsw_sj = #{hlswSj,jdbcType=TIMESTAMP},
+      hlsw_jyl = #{hlswJyl,jdbcType=DOUBLE},
+      hlsw_zfl = #{hlswZfl,jdbcType=DOUBLE},
+      hlsw_ll = #{hlswLl,jdbcType=DOUBLE},
+      hlsw_sw = #{hlswSw,jdbcType=DOUBLE},
+      hlsw_ls = #{hlswLs,jdbcType=DOUBLE},
+      hlsw_bl1 = #{hlswBl1,jdbcType=VARCHAR},
+      hlsw_bl2 = #{hlswBl2,jdbcType=VARCHAR},
+      hlsw_bl3 = #{hlswBl3,jdbcType=VARCHAR},
+      hlsw_bl4 = #{hlswBl4,jdbcType=VARCHAR},
+      hlsw_bl5 = #{hlswBl5,jdbcType=VARCHAR},
+      hlsw_bl6 = #{hlswBl6,jdbcType=VARCHAR},
+      hlsw_bl7 = #{hlswBl7,jdbcType=VARCHAR},
+      hlsw_bl8 = #{hlswBl8,jdbcType=VARCHAR},
+      hlsw_bl9 = #{hlswBl9,jdbcType=VARCHAR},
+      hlsw_bl10 = #{hlswBl10,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+
+  <select id="selectDate" parameterType="java.util.Map" resultType="java.lang.Integer">
+    select distinct year(hlsw_sj) from tbl_hlsw
+
+    <where>
+      <if test="map.hlsw_hlmc != null">
+        hlsw_hlmc  LIKE CONCAT('%', #{map.hlsw_hlmc}, '%')
+      </if>
+      <if test="map.hlsw_hlbh != null">
+        and hlsw_hlbh  LIKE CONCAT('%', #{map.hlsw_hlbh}, '%')
+      </if>
+
+    </where>
+  </select>
+
+</mapper>

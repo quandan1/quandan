@@ -1,0 +1,1108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eliteams.quick4j.web.dao.QmpMapper">
+	<resultMap id="BaseResultMap" type="com.eliteams.quick4j.web.model.Qmp">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="section_bh" jdbcType="VARCHAR" property="sectionBh" />
+		<result column="section_dybh" jdbcType="VARCHAR" property="sectionDybh" />
+		<result column="section_dymc" jdbcType="VARCHAR" property="sectionDymc" />
+		<result column="watershed" jdbcType="VARCHAR" property="watershed" />
+		<result column="river_name" jdbcType="VARCHAR" property="riverName" />
+		<result column="river_level" jdbcType="VARCHAR" property="riverLevel" />
+		<result column="river_to" jdbcType="VARCHAR" property="riverTo" />
+		<result column="section_name" jdbcType="VARCHAR" property="sectionName" />
+		<result column="section_property" jdbcType="VARCHAR" property="sectionProperty" />
+		<result column="loc_province" jdbcType="VARCHAR" property="locProvince" />
+		<result column="loc_city" jdbcType="VARCHAR" property="locCity" />
+		<result column="loc_county" jdbcType="VARCHAR" property="locCounty" />
+		<result column="test_by" jdbcType="VARCHAR" property="testBy" />
+		<result column="section_level" jdbcType="VARCHAR" property="sectionLevel" />
+		<result column="section_type" jdbcType="VARCHAR" property="sectionType" />
+		<result column="is_urban" jdbcType="VARCHAR" property="isUrban" />
+		<result column="is_addition" jdbcType="VARCHAR" property="isAddition" />
+		<result column="test_frequency" jdbcType="VARCHAR" property="testFrequency" />
+		<result column="test_items" jdbcType="VARCHAR" property="testItems" />
+		<result column="loc_lon_d" jdbcType="INTEGER" property="locLonD" />
+		<result column="loc_lon_m" jdbcType="INTEGER" property="locLonM" />
+		<result column="loc_lon_s" jdbcType="INTEGER" property="locLonS" />
+		<result column="loc_lat_d" jdbcType="INTEGER" property="locLatD" />
+		<result column="loc_lat_m" jdbcType="INTEGER" property="locLatM" />
+		<result column="loc_lat_s" jdbcType="INTEGER" property="locLatS" />
+		<result column="quality_target" jdbcType="VARCHAR" property="qualityTarget" />
+		<result column="loc_lon" jdbcType="DECIMAL" property="locLon" />
+		<result column="loc_lat" jdbcType="DECIMAL" property="locLat" />
+		<result column="section_shhl" jdbcType="VARCHAR" property="sectionShhl" />
+		<result column="tjnf" jdbcType="INTEGER" property="tjnf" />
+		<result column="is_del" jdbcType="VARCHAR" property="isDel" />
+		<result column="section_bl1" jdbcType="VARCHAR" property="sectionBl1" />
+		<result column="section_bl2" jdbcType="VARCHAR" property="sectionBl2" />
+		<result column="section_bl3" jdbcType="VARCHAR" property="sectionBl3" />
+		<result column="section_bl4" jdbcType="VARCHAR" property="sectionBl4" />
+		<result column="section_bl5" jdbcType="VARCHAR" property="sectionBl5" />
+	</resultMap>
+	<sql id="Example_Where_Clause">
+		<where>
+			<foreach collection="oredCriteria" item="criteria" separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" prefixOverrides="and" suffix=")">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value} and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach close=")" collection="criterion.value" item="listItem"
+										open="(" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Update_By_Example_Where_Clause">
+		<where>
+			<foreach collection="example.oredCriteria" item="criteria"
+				separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" prefixOverrides="and" suffix=")">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value} and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach close=")" collection="criterion.value" item="listItem"
+										open="(" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Base_Column_List">
+	id, section_bh, section_dybh, section_dymc, watershed, river_name, river_level, river_to,
+    section_name, section_property, loc_province, loc_city, loc_county, test_by, section_level,
+    section_type, is_urban, is_addition, test_frequency, test_items, loc_lon_d, loc_lon_m,
+    loc_lon_s, loc_lat_d, loc_lat_m, loc_lat_s, quality_target, loc_lon, loc_lat, section_shhl,
+    tjnf, is_del, section_bl1, section_bl2, section_bl3, section_bl4, section_bl5
+	</sql>
+	<select id="selectByExample" parameterType="com.eliteams.quick4j.web.model.QmpExample"
+		resultMap="BaseResultMap">
+		select
+		<if test="distinct">
+			distinct
+		</if>
+		'true' as QUERYID,
+		<include refid="Base_Column_List" />
+		from qmp
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+		<if test="orderByClause != null">
+			order by ${orderByClause}
+		</if>
+	</select>
+	<select id="selectByPrimaryKey" parameterType="java.lang.Integer"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from qmp
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from qmp
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<delete id="deleteByExample" parameterType="com.eliteams.quick4j.web.model.QmpExample">
+		delete from qmp
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</delete>
+	<insert id="insert" parameterType="com.eliteams.quick4j.web.model.Qmp">
+		insert into qmp (id, section_bh, section_dybh,
+						 section_dymc, watershed, river_name,
+						 river_level, river_to, section_name,
+						 section_property, loc_province, loc_city,
+						 loc_county, test_by, section_level,
+						 section_type, is_urban, is_addition,
+						 test_frequency, test_items, loc_lon_d,
+						 loc_lon_m, loc_lon_s, loc_lat_d,
+						 loc_lat_m, loc_lat_s, quality_target,
+						 loc_lon, loc_lat, section_shhl,
+						 tjnf, is_del, section_bl1,
+						 section_bl2, section_bl3, section_bl4,
+						 section_bl5)
+		values (#{id,jdbcType=INTEGER}, #{sectionBh,jdbcType=VARCHAR}, #{sectionDybh,jdbcType=VARCHAR},
+				#{sectionDymc,jdbcType=VARCHAR}, #{watershed,jdbcType=VARCHAR}, #{riverName,jdbcType=VARCHAR},
+				#{riverLevel,jdbcType=VARCHAR}, #{riverTo,jdbcType=VARCHAR}, #{sectionName,jdbcType=VARCHAR},
+				#{sectionProperty,jdbcType=VARCHAR}, #{locProvince,jdbcType=VARCHAR}, #{locCity,jdbcType=VARCHAR},
+				#{locCounty,jdbcType=VARCHAR}, #{testBy,jdbcType=VARCHAR}, #{sectionLevel,jdbcType=VARCHAR},
+				#{sectionType,jdbcType=VARCHAR}, #{isUrban,jdbcType=VARCHAR}, #{isAddition,jdbcType=VARCHAR},
+				#{testFrequency,jdbcType=VARCHAR}, #{testItems,jdbcType=VARCHAR}, #{locLonD,jdbcType=INTEGER},
+				#{locLonM,jdbcType=INTEGER}, #{locLonS,jdbcType=INTEGER}, #{locLatD,jdbcType=INTEGER},
+				#{locLatM,jdbcType=INTEGER}, #{locLatS,jdbcType=INTEGER}, #{qualityTarget,jdbcType=VARCHAR},
+				#{locLon,jdbcType=DECIMAL}, #{locLat,jdbcType=DECIMAL}, #{sectionShhl,jdbcType=VARCHAR},
+				#{tjnf,jdbcType=INTEGER}, #{isDel,jdbcType=VARCHAR}, #{sectionBl1,jdbcType=VARCHAR},
+				#{sectionBl2,jdbcType=VARCHAR}, #{sectionBl3,jdbcType=VARCHAR}, #{sectionBl4,jdbcType=VARCHAR},
+				#{sectionBl5,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="com.eliteams.quick4j.web.model.Qmp">
+		insert into qmp
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="sectionBh != null">
+				section_bh,
+			</if>
+			<if test="sectionDybh != null">
+				section_dybh,
+			</if>
+			<if test="sectionDymc != null">
+				section_dymc,
+			</if>
+			<if test="watershed != null">
+				watershed,
+			</if>
+			<if test="riverName != null">
+				river_name,
+			</if>
+			<if test="riverLevel != null">
+				river_level,
+			</if>
+			<if test="riverTo != null">
+				river_to,
+			</if>
+			<if test="sectionName != null">
+				section_name,
+			</if>
+			<if test="sectionProperty != null">
+				section_property,
+			</if>
+			<if test="locProvince != null">
+				loc_province,
+			</if>
+			<if test="locCity != null">
+				loc_city,
+			</if>
+			<if test="locCounty != null">
+				loc_county,
+			</if>
+			<if test="testBy != null">
+				test_by,
+			</if>
+			<if test="sectionLevel != null">
+				section_level,
+			</if>
+			<if test="sectionType != null">
+				section_type,
+			</if>
+			<if test="isUrban != null">
+				is_urban,
+			</if>
+			<if test="isAddition != null">
+				is_addition,
+			</if>
+			<if test="testFrequency != null">
+				test_frequency,
+			</if>
+			<if test="testItems != null">
+				test_items,
+			</if>
+			<if test="locLonD != null">
+				loc_lon_d,
+			</if>
+			<if test="locLonM != null">
+				loc_lon_m,
+			</if>
+			<if test="locLonS != null">
+				loc_lon_s,
+			</if>
+			<if test="locLatD != null">
+				loc_lat_d,
+			</if>
+			<if test="locLatM != null">
+				loc_lat_m,
+			</if>
+			<if test="locLatS != null">
+				loc_lat_s,
+			</if>
+			<if test="qualityTarget != null">
+				quality_target,
+			</if>
+			<if test="locLon != null">
+				loc_lon,
+			</if>
+			<if test="locLat != null">
+				loc_lat,
+			</if>
+			<if test="sectionShhl != null">
+				section_shhl,
+			</if>
+			<if test="tjnf != null">
+				tjnf,
+			</if>
+			<if test="isDel != null">
+				is_del,
+			</if>
+			<if test="sectionBl1 != null">
+				section_bl1,
+			</if>
+			<if test="sectionBl2 != null">
+				section_bl2,
+			</if>
+			<if test="sectionBl3 != null">
+				section_bl3,
+			</if>
+			<if test="sectionBl4 != null">
+				section_bl4,
+			</if>
+			<if test="sectionBl5 != null">
+				section_bl5,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="sectionBh != null">
+				#{sectionBh,jdbcType=VARCHAR},
+			</if>
+			<if test="sectionDybh != null">
+				#{sectionDybh,jdbcType=VARCHAR},
+			</if>
+			<if test="sectionDymc != null">
+				#{sectionDymc,jdbcType=VARCHAR},
+			</if>
+			<if test="watershed != null">
+				#{watershed,jdbcType=VARCHAR},
+			</if>
+			<if test="riverName != null">
+				#{riverName,jdbcType=VARCHAR},
+			</if>
+			<if test="riverLevel != null">
+				#{riverLevel,jdbcType=VARCHAR},
+			</if>
+			<if test="riverTo != null">
+				#{riverTo,jdbcType=VARCHAR},
+			</if>
+			<if test="sectionName != null">
+				#{sectionName,jdbcType=VARCHAR},
+			</if>
+			<if test="sectionProperty != null">
+				#{sectionProperty,jdbcType=VARCHAR},
+			</if>
+			<if test="locProvince != null">
+				#{locProvince,jdbcType=VARCHAR},
+			</if>
+			<if test="locCity != null">
+				#{locCity,jdbcType=VARCHAR},
+			</if>
+			<if test="locCounty != null">
+				#{locCounty,jdbcType=VARCHAR},
+			</if>
+			<if test="testBy != null">
+				#{testBy,jdbcType=VARCHAR},
+			</if>
+			<if test="sectionLevel != null">
+				#{sectionLevel,jdbcType=VARCHAR},
+			</if>
+			<if test="sectionType != null">
+				#{sectionType,jdbcType=VARCHAR},
+			</if>
+			<if test="isUrban != null">
+				#{isUrban,jdbcType=VARCHAR},
+			</if>
+			<if test="isAddition != null">
+				#{isAddition,jdbcType=VARCHAR},
+			</if>
+			<if test="testFrequency != null">
+				#{testFrequency,jdbcType=VARCHAR},
+			</if>
+			<if test="testItems != null">
+				#{testItems,jdbcType=VARCHAR},
+			</if>
+			<if test="locLonD != null">
+				#{locLonD,jdbcType=INTEGER},
+			</if>
+			<if test="locLonM != null">
+				#{locLonM,jdbcType=INTEGER},
+			</if>
+			<if test="locLonS != null">
+				#{locLonS,jdbcType=INTEGER},
+			</if>
+			<if test="locLatD != null">
+				#{locLatD,jdbcType=INTEGER},
+			</if>
+			<if test="locLatM != null">
+				#{locLatM,jdbcType=INTEGER},
+			</if>
+			<if test="locLatS != null">
+				#{locLatS,jdbcType=INTEGER},
+			</if>
+			<if test="qualityTarget != null">
+				#{qualityTarget,jdbcType=VARCHAR},
+			</if>
+			<if test="locLon != null">
+				#{locLon,jdbcType=DECIMAL},
+			</if>
+			<if test="locLat != null">
+				#{locLat,jdbcType=DECIMAL},
+			</if>
+			<if test="sectionShhl != null">
+				#{sectionShhl,jdbcType=VARCHAR},
+			</if>
+			<if test="tjnf != null">
+				#{tjnf,jdbcType=INTEGER},
+			</if>
+			<if test="isDel != null">
+				#{isDel,jdbcType=VARCHAR},
+			</if>
+			<if test="sectionBl1 != null">
+				#{sectionBl1,jdbcType=VARCHAR},
+			</if>
+			<if test="sectionBl2 != null">
+				#{sectionBl2,jdbcType=VARCHAR},
+			</if>
+			<if test="sectionBl3 != null">
+				#{sectionBl3,jdbcType=VARCHAR},
+			</if>
+			<if test="sectionBl4 != null">
+				#{sectionBl4,jdbcType=VARCHAR},
+			</if>
+			<if test="sectionBl5 != null">
+				#{sectionBl5,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<select id="countByExample" parameterType="com.eliteams.quick4j.web.model.QmpExample"
+		resultType="java.lang.Long">
+		select count(*) from qmp
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</select>
+	<update id="updateByExampleSelective" parameterType="map">
+		update qmp
+		<set>
+			<if test="record.id != null">
+				id = #{record.id,jdbcType=INTEGER},
+			</if>
+			<if test="record.sectionBh != null">
+				section_bh = #{record.sectionBh,jdbcType=VARCHAR},
+			</if>
+			<if test="record.sectionDybh != null">
+				section_dybh = #{record.sectionDybh,jdbcType=VARCHAR},
+			</if>
+			<if test="record.sectionDymc != null">
+				section_dymc = #{record.sectionDymc,jdbcType=VARCHAR},
+			</if>
+			<if test="record.watershed != null">
+				watershed = #{record.watershed,jdbcType=VARCHAR},
+			</if>
+			<if test="record.riverName != null">
+				river_name = #{record.riverName,jdbcType=VARCHAR},
+			</if>
+			<if test="record.riverLevel != null">
+				river_level = #{record.riverLevel,jdbcType=VARCHAR},
+			</if>
+			<if test="record.riverTo != null">
+				river_to = #{record.riverTo,jdbcType=VARCHAR},
+			</if>
+			<if test="record.sectionName != null">
+				section_name = #{record.sectionName,jdbcType=VARCHAR},
+			</if>
+			<if test="record.sectionProperty != null">
+				section_property = #{record.sectionProperty,jdbcType=VARCHAR},
+			</if>
+			<if test="record.locProvince != null">
+				loc_province = #{record.locProvince,jdbcType=VARCHAR},
+			</if>
+			<if test="record.locCity != null">
+				loc_city = #{record.locCity,jdbcType=VARCHAR},
+			</if>
+			<if test="record.locCounty != null">
+				loc_county = #{record.locCounty,jdbcType=VARCHAR},
+			</if>
+			<if test="record.testBy != null">
+				test_by = #{record.testBy,jdbcType=VARCHAR},
+			</if>
+			<if test="record.sectionLevel != null">
+				section_level = #{record.sectionLevel,jdbcType=VARCHAR},
+			</if>
+			<if test="record.sectionType != null">
+				section_type = #{record.sectionType,jdbcType=VARCHAR},
+			</if>
+			<if test="record.isUrban != null">
+				is_urban = #{record.isUrban,jdbcType=VARCHAR},
+			</if>
+			<if test="record.isAddition != null">
+				is_addition = #{record.isAddition,jdbcType=VARCHAR},
+			</if>
+			<if test="record.testFrequency != null">
+				test_frequency = #{record.testFrequency,jdbcType=VARCHAR},
+			</if>
+			<if test="record.testItems != null">
+				test_items = #{record.testItems,jdbcType=VARCHAR},
+			</if>
+			<if test="record.locLonD != null">
+				loc_lon_d = #{record.locLonD,jdbcType=INTEGER},
+			</if>
+			<if test="record.locLonM != null">
+				loc_lon_m = #{record.locLonM,jdbcType=INTEGER},
+			</if>
+			<if test="record.locLonS != null">
+				loc_lon_s = #{record.locLonS,jdbcType=INTEGER},
+			</if>
+			<if test="record.locLatD != null">
+				loc_lat_d = #{record.locLatD,jdbcType=INTEGER},
+			</if>
+			<if test="record.locLatM != null">
+				loc_lat_m = #{record.locLatM,jdbcType=INTEGER},
+			</if>
+			<if test="record.locLatS != null">
+				loc_lat_s = #{record.locLatS,jdbcType=INTEGER},
+			</if>
+			<if test="record.qualityTarget != null">
+				quality_target = #{record.qualityTarget,jdbcType=VARCHAR},
+			</if>
+			<if test="record.locLon != null">
+				loc_lon = #{record.locLon,jdbcType=DECIMAL},
+			</if>
+			<if test="record.locLat != null">
+				loc_lat = #{record.locLat,jdbcType=DECIMAL},
+			</if>
+			<if test="record.sectionShhl != null">
+				section_shhl = #{record.sectionShhl,jdbcType=VARCHAR},
+			</if>
+			<if test="record.tjnf != null">
+				tjnf = #{record.tjnf,jdbcType=INTEGER},
+			</if>
+			<if test="record.isDel != null">
+				is_del = #{record.isDel,jdbcType=VARCHAR},
+			</if>
+			<if test="record.sectionBl1 != null">
+				section_bl1 = #{record.sectionBl1,jdbcType=VARCHAR},
+			</if>
+			<if test="record.sectionBl2 != null">
+				section_bl2 = #{record.sectionBl2,jdbcType=VARCHAR},
+			</if>
+			<if test="record.sectionBl3 != null">
+				section_bl3 = #{record.sectionBl3,jdbcType=VARCHAR},
+			</if>
+			<if test="record.sectionBl4 != null">
+				section_bl4 = #{record.sectionBl4,jdbcType=VARCHAR},
+			</if>
+			<if test="record.sectionBl5 != null">
+				section_bl5 = #{record.sectionBl5,jdbcType=VARCHAR},
+			</if>
+		</set>
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByExample" parameterType="map">
+		update qmp
+		set id = #{record.id,jdbcType=INTEGER},
+		section_bh = #{record.sectionBh,jdbcType=VARCHAR},
+		section_dybh = #{record.sectionDybh,jdbcType=VARCHAR},
+		section_dymc = #{record.sectionDymc,jdbcType=VARCHAR},
+		watershed = #{record.watershed,jdbcType=VARCHAR},
+		river_name = #{record.riverName,jdbcType=VARCHAR},
+		river_level = #{record.riverLevel,jdbcType=VARCHAR},
+		river_to = #{record.riverTo,jdbcType=VARCHAR},
+		section_name = #{record.sectionName,jdbcType=VARCHAR},
+		section_property = #{record.sectionProperty,jdbcType=VARCHAR},
+		loc_province = #{record.locProvince,jdbcType=VARCHAR},
+		loc_city = #{record.locCity,jdbcType=VARCHAR},
+		loc_county = #{record.locCounty,jdbcType=VARCHAR},
+		test_by = #{record.testBy,jdbcType=VARCHAR},
+		section_level = #{record.sectionLevel,jdbcType=VARCHAR},
+		section_type = #{record.sectionType,jdbcType=VARCHAR},
+		is_urban = #{record.isUrban,jdbcType=VARCHAR},
+		is_addition = #{record.isAddition,jdbcType=VARCHAR},
+		test_frequency = #{record.testFrequency,jdbcType=VARCHAR},
+		test_items = #{record.testItems,jdbcType=VARCHAR},
+		loc_lon_d = #{record.locLonD,jdbcType=INTEGER},
+		loc_lon_m = #{record.locLonM,jdbcType=INTEGER},
+		loc_lon_s = #{record.locLonS,jdbcType=INTEGER},
+		loc_lat_d = #{record.locLatD,jdbcType=INTEGER},
+		loc_lat_m = #{record.locLatM,jdbcType=INTEGER},
+		loc_lat_s = #{record.locLatS,jdbcType=INTEGER},
+		quality_target = #{record.qualityTarget,jdbcType=VARCHAR},
+		loc_lon = #{record.locLon,jdbcType=DECIMAL},
+		loc_lat = #{record.locLat,jdbcType=DECIMAL},
+		section_shhl = #{record.sectionShhl,jdbcType=VARCHAR},
+		tjnf = #{record.tjnf,jdbcType=INTEGER},
+		is_del = #{record.isDel,jdbcType=VARCHAR},
+		section_bl1 = #{record.sectionBl1,jdbcType=VARCHAR},
+		section_bl2 = #{record.sectionBl2,jdbcType=VARCHAR},
+		section_bl3 = #{record.sectionBl3,jdbcType=VARCHAR},
+		section_bl4 = #{record.sectionBl4,jdbcType=VARCHAR},
+		section_bl5 = #{record.sectionBl5,jdbcType=VARCHAR}
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByPrimaryKeySelective" parameterType="com.eliteams.quick4j.web.model.Qmp">
+		update qmp
+		<set>
+			<if test="sectionBh != null">
+				section_bh = #{sectionBh,jdbcType=VARCHAR},
+			</if>
+			<if test="sectionDybh != null">
+				section_dybh = #{sectionDybh,jdbcType=VARCHAR},
+			</if>
+			<if test="sectionDymc != null">
+				section_dymc = #{sectionDymc,jdbcType=VARCHAR},
+			</if>
+			<if test="watershed != null">
+				watershed = #{watershed,jdbcType=VARCHAR},
+			</if>
+			<if test="riverName != null">
+				river_name = #{riverName,jdbcType=VARCHAR},
+			</if>
+			<if test="riverLevel != null">
+				river_level = #{riverLevel,jdbcType=VARCHAR},
+			</if>
+			<if test="riverTo != null">
+				river_to = #{riverTo,jdbcType=VARCHAR},
+			</if>
+			<if test="sectionName != null">
+				section_name = #{sectionName,jdbcType=VARCHAR},
+			</if>
+			<if test="sectionProperty != null">
+				section_property = #{sectionProperty,jdbcType=VARCHAR},
+			</if>
+			<if test="locProvince != null">
+				loc_province = #{locProvince,jdbcType=VARCHAR},
+			</if>
+			<if test="locCity != null">
+				loc_city = #{locCity,jdbcType=VARCHAR},
+			</if>
+			<if test="locCounty != null">
+				loc_county = #{locCounty,jdbcType=VARCHAR},
+			</if>
+			<if test="testBy != null">
+				test_by = #{testBy,jdbcType=VARCHAR},
+			</if>
+			<if test="sectionLevel != null">
+				section_level = #{sectionLevel,jdbcType=VARCHAR},
+			</if>
+			<if test="sectionType != null">
+				section_type = #{sectionType,jdbcType=VARCHAR},
+			</if>
+			<if test="isUrban != null">
+				is_urban = #{isUrban,jdbcType=VARCHAR},
+			</if>
+			<if test="isAddition != null">
+				is_addition = #{isAddition,jdbcType=VARCHAR},
+			</if>
+			<if test="testFrequency != null">
+				test_frequency = #{testFrequency,jdbcType=VARCHAR},
+			</if>
+			<if test="testItems != null">
+				test_items = #{testItems,jdbcType=VARCHAR},
+			</if>
+			<if test="locLonD != null">
+				loc_lon_d = #{locLonD,jdbcType=INTEGER},
+			</if>
+			<if test="locLonM != null">
+				loc_lon_m = #{locLonM,jdbcType=INTEGER},
+			</if>
+			<if test="locLonS != null">
+				loc_lon_s = #{locLonS,jdbcType=INTEGER},
+			</if>
+			<if test="locLatD != null">
+				loc_lat_d = #{locLatD,jdbcType=INTEGER},
+			</if>
+			<if test="locLatM != null">
+				loc_lat_m = #{locLatM,jdbcType=INTEGER},
+			</if>
+			<if test="locLatS != null">
+				loc_lat_s = #{locLatS,jdbcType=INTEGER},
+			</if>
+			<if test="qualityTarget != null">
+				quality_target = #{qualityTarget,jdbcType=VARCHAR},
+			</if>
+			<if test="locLon != null">
+				loc_lon = #{locLon,jdbcType=DECIMAL},
+			</if>
+			<if test="locLat != null">
+				loc_lat = #{locLat,jdbcType=DECIMAL},
+			</if>
+			<if test="sectionShhl != null">
+				section_shhl = #{sectionShhl,jdbcType=VARCHAR},
+			</if>
+			<if test="tjnf != null">
+				tjnf = #{tjnf,jdbcType=INTEGER},
+			</if>
+			<if test="isDel != null">
+				is_del = #{isDel,jdbcType=VARCHAR},
+			</if>
+			<if test="sectionBl1 != null">
+				section_bl1 = #{sectionBl1,jdbcType=VARCHAR},
+			</if>
+			<if test="sectionBl2 != null">
+				section_bl2 = #{sectionBl2,jdbcType=VARCHAR},
+			</if>
+			<if test="sectionBl3 != null">
+				section_bl3 = #{sectionBl3,jdbcType=VARCHAR},
+			</if>
+			<if test="sectionBl4 != null">
+				section_bl4 = #{sectionBl4,jdbcType=VARCHAR},
+			</if>
+			<if test="sectionBl5 != null">
+				section_bl5 = #{sectionBl5,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.eliteams.quick4j.web.model.Qmp">
+		update qmp
+		set section_bh = #{sectionBh,jdbcType=VARCHAR},
+			section_dybh = #{sectionDybh,jdbcType=VARCHAR},
+			section_dymc = #{sectionDymc,jdbcType=VARCHAR},
+			watershed = #{watershed,jdbcType=VARCHAR},
+			river_name = #{riverName,jdbcType=VARCHAR},
+			river_level = #{riverLevel,jdbcType=VARCHAR},
+			river_to = #{riverTo,jdbcType=VARCHAR},
+			section_name = #{sectionName,jdbcType=VARCHAR},
+			section_property = #{sectionProperty,jdbcType=VARCHAR},
+			loc_province = #{locProvince,jdbcType=VARCHAR},
+			loc_city = #{locCity,jdbcType=VARCHAR},
+			loc_county = #{locCounty,jdbcType=VARCHAR},
+			test_by = #{testBy,jdbcType=VARCHAR},
+			section_level = #{sectionLevel,jdbcType=VARCHAR},
+			section_type = #{sectionType,jdbcType=VARCHAR},
+			is_urban = #{isUrban,jdbcType=VARCHAR},
+			is_addition = #{isAddition,jdbcType=VARCHAR},
+			test_frequency = #{testFrequency,jdbcType=VARCHAR},
+			test_items = #{testItems,jdbcType=VARCHAR},
+			loc_lon_d = #{locLonD,jdbcType=INTEGER},
+			loc_lon_m = #{locLonM,jdbcType=INTEGER},
+			loc_lon_s = #{locLonS,jdbcType=INTEGER},
+			loc_lat_d = #{locLatD,jdbcType=INTEGER},
+			loc_lat_m = #{locLatM,jdbcType=INTEGER},
+			loc_lat_s = #{locLatS,jdbcType=INTEGER},
+			quality_target = #{qualityTarget,jdbcType=VARCHAR},
+			loc_lon = #{locLon,jdbcType=DECIMAL},
+			loc_lat = #{locLat,jdbcType=DECIMAL},
+			section_shhl = #{sectionShhl,jdbcType=VARCHAR},
+			tjnf = #{tjnf,jdbcType=INTEGER},
+			is_del = #{isDel,jdbcType=VARCHAR},
+			section_bl1 = #{sectionBl1,jdbcType=VARCHAR},
+			section_bl2 = #{sectionBl2,jdbcType=VARCHAR},
+			section_bl3 = #{sectionBl3,jdbcType=VARCHAR},
+			section_bl4 = #{sectionBl4,jdbcType=VARCHAR},
+			section_bl5 = #{sectionBl5,jdbcType=VARCHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+
+	<update id="deleteById" parameterType="java.lang.Integer">
+		update qmp
+		set is_del = 1
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+
+
+	<select id="listAll" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from qmp
+		where 
+			<if test="map.tjnf != null">
+				tjnf LIKE CONCAT('%', #{map.tjnf}, '%') and
+			</if>		
+		is_del = 0
+	</select>
+
+	<!-- 分页SQL语句 -->
+	<select id="selectByPage" resultMap="BaseResultMap">
+		select
+		*
+		from qmp
+		WHERE
+			<if test="map.tjnf != null">
+				tjnf LIKE CONCAT('%', #{map.tjnf}, '%') and
+			</if>		
+		is_del =
+		0
+		limit #{startPos},#{pageSize}
+	</select>
+	<!-- 取得记录的总数 -->
+	<select id="getCount" resultType="java.lang.Integer">
+		select
+		count(*)
+		from qmp
+		where
+			<if test="map.tjnf != null">
+				tjnf LIKE CONCAT('%', #{map.tjnf}, '%') and
+			</if>
+		is_del = 0
+	</select>
+
+	<select id="getSearchCount" resultType="java.lang.Integer" parameterType="java.util.Map">
+		select
+		count(*)
+		from qmp
+		WHERE
+		<trim>
+			<if test="map.id != null">
+				id = #{map.id} and
+			</if>
+			<if test="map.tjnf != null">
+				tjnf LIKE CONCAT('%', #{map.tjnf}, '%') and
+			</if>			
+			<if test="map.watershed != null">
+				watershed LIKE CONCAT('%', #{map.watershed}, '%') and
+			</if>
+			<if test="map.river_name != null">
+				river_name LIKE CONCAT('%', #{map.river_name}, '%') and
+			</if>
+			<if test="map.river_level != null">
+				river_level LIKE CONCAT('%', #{map.river_level}, '%') and
+			</if>
+			<if test="map.river_to != null">
+				river_to LIKE CONCAT('%', #{map.river_to}, '%') and
+			</if>
+			<if test="map.section_name != null">
+				section_name LIKE CONCAT('%', #{map.section_name}, '%') and
+			</if>
+			<if test="map.section_property != null">
+				section_property LIKE CONCAT('%', #{map.section_property}, '%') and
+			</if>
+			<if test="map.loc_province != null">
+				loc_province LIKE CONCAT('%', #{map.loc_province}, '%') and
+			</if>
+			<if test="map.loc_city != null">
+				loc_city LIKE CONCAT('%', #{map.loc_city}, '%') and
+			</if>
+			<if test="map.loc_county != null">
+				loc_county LIKE CONCAT('%', #{map.loc_county}, '%') and
+			</if>
+			<if test="map.test_by != null">
+				test_by LIKE CONCAT('%', #{map.test_by}, '%') and
+			</if>
+			<if test="map.section_level != null">
+				section_level LIKE CONCAT('%', #{map.section_level}, '%') and
+			</if>
+			<if test="map.section_type != null">
+				section_type LIKE CONCAT('%', #{map.section_type}, '%') and
+			</if>
+			<if test="map.is_urban != null">
+				is_urban LIKE CONCAT('%', #{map.is_urban}, '%') and
+			</if>
+			<if test="map.is_addition != null">
+				is_addition LIKE CONCAT('%', #{map.is_addition}, '%') and
+			</if>
+			<if test="map.test_frequency != null">
+				test_frequency LIKE CONCAT('%', #{map.test_frequency}, '%') and
+			</if>
+			<if test="map.test_items != null">
+				test_items LIKE CONCAT('%', #{map.test_items}, '%') and
+			</if>
+			<if test="map.quality_target != null">
+				quality_target LIKE CONCAT('%', #{map.quality_target}, '%') and
+			</if>
+			is_del = 0
+		</trim>
+	</select>
+
+	<select id="getSections" resultType="java.lang.String" parameterType="java.util.Map">
+		SELECT section_name FROM qmp WHERE
+		<trim>
+			<if test="map.loc_city != null">
+				loc_city LIKE CONCAT('%',#{map.loc_city},'%')  AND
+			</if>
+			<if test="map.loc_county != null">
+				loc_county LIKE CONCAT('%',#{map.loc_county},'%') AND
+			</if>
+			is_del=0
+		</trim>
+	</select>
+
+	<select id="getDMs" resultType="java.lang.String" parameterType="java.util.Map">
+		SELECT section_name FROM qmp_bas_info WHERE
+		<trim>
+			<if test="map.loc_city != null">
+				loc_city LIKE CONCAT('%',#{map.loc_city},'%')  AND
+			</if>
+			<if test="map.level != 'all'">
+				section_level LIKE CONCAT('%',#{map.level},'%')  AND
+			</if>
+			is_del=0
+		</trim>
+	</select>
+
+	<select id="getDmBasInfos" resultType="java.util.Map" parameterType="java.lang.String">
+		SELECT section_level,ykh_108,hlsz_90,original_id,loc_city,section_name,basin,river_name,section_sx,sksk FROM qmp_bas_info WHERE
+		<trim>
+			<if test="section_name != null">
+				section_name =#{section_name}  AND
+			</if>
+			is_del=0
+		</trim>
+	</select>
+
+	<select id="getDmPartBasInfos" resultType="java.util.Map" parameterType="java.lang.String">
+		SELECT section_level,loc_city,section_name,river_name FROM qmp_bas_info WHERE
+		<trim>
+			<if test="section_name != null">
+				section_name =#{section_name}  AND
+			</if>
+			is_del=0
+		</trim>
+	</select>
+
+	<select id="getSzzbbz" resultType="java.util.Map" parameterType="java.lang.String">
+		SELECT * FROM szzbbz
+	</select>
+
+	<select id="getDmZbs" resultType="java.util.Map" parameterType="java.util.Map">
+		SELECT ph,rjy,cod_mn,cod_cr,nh_n,t_p,cu,zn,pb,cd,bod5,t_as,t_se,t_hg,cr_6,f_,cn_,hff,syl,las,s2_ FROM qmp_test_data WHERE
+		<trim>
+			<if test="map.section_name != null">
+				section_name = #{map.section_name} AND
+			</if>
+			<if test="map.year != null">
+				year = #{map.year} AND
+			</if>
+			<if test="map.month != null">
+				month = #{map.month} AND
+			</if>
+			is_del=0
+		</trim>
+	</select>
+
+	<select id="getDmZbsPar" resultType="java.util.Map">
+		SELECT ph,rjy,cod_mn,cod_cr,nh_n,t_p,cu,zn,pb,cd,bod5,t_as,t_se,t_hg,cr_6,f_,cn_,hff,syl,las,s2_ FROM qmp_test_data WHERE
+		<trim>
+			<if test="section_name != null">
+				section_name = #{section_name} AND
+			</if>
+			<if test="year != null">
+				year = #{year} AND
+			</if>
+			<if test="month != null">
+				month = #{month} AND
+			</if>
+			is_del=0
+		</trim>
+	</select>
+
+	<select id="getTotalZbs" resultType="java.util.Map" parameterType="java.util.Map">
+		SELECT SUM(rjy) as rjy,SUM(cod_mn) as cod_mn,SUM(cod_cr) as cod_cr,SUM(nh_n) as nh_n,SUM(t_p) as t_p,
+			   SUM(cu) as cu,SUM(zn) as zn,SUM(pb) as pb,SUM(cd) as cd,SUM(bod5) as bod5,
+			   SUM(t_as) as t_as,SUM(t_se) as t_se,SUM(t_hg) as t_hg,SUM(cr_6) as cr_6,SUM(f_) as f_,
+			   SUM(cn_) as cn_,SUM(hff) as hff,SUM(syl) as syl,SUM(las) as las,SUM(s2_) as s2_
+		from qmp_test_data
+		WHERE section_name=#{param.dm}
+			  AND nh_n!='-1' AND rjy!='-1' and cod_mn!='-1' and cod_cr!='-1' and t_p!='-1'
+			  and cu!='-1' and zn!='-1' and pb!='-1' and cd!='-1' and bod5!='-1'
+			  and t_as!='-1' and t_se!='-1' and t_hg!='-1' and cr_6!='-1' and f_!='-1'
+			  and cn_!='-1' and hff!='-1' and syl!='-1' and las!='-1' AND s2_!='-1'
+			  AND `month` BETWEEN #{param.start_m} and #{param.end_m}
+			  AND year=#{param.year};
+	</select>
+
+	<select id="getDmProp" resultType="java.lang.String" parameterType="java.lang.String">
+		SELECT river_level FROM qmp_bas_info WHERE
+		<trim>
+			<if test="section_name != null">
+				section_name = #{section_name} AND
+			</if>
+			is_del=0
+		</trim>
+	</select>
+
+	<insert id="storeCountRes" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="id">
+		insert into qmp_test_data_result(section_level,ykh_108,hlsz_90,original_id,loc_city,section_name,
+        basin,river_name,section_sx,sksk,target_2020,target_2016,target_2017,target_2018,
+        category_info1,category_info2,category_info3,category_info4,category_info5,category_info6,category_info7,
+        category_info8,category_info9,category_info10,category_info11,category_info12,
+		aver)
+		values
+		<foreach collection="list" item="item" separator=",">
+			(#{item.section_level}, #{item.ykh_108}, #{item.hlsz_90}, #{item.original_id}, #{item.loc_city}
+			, #{item.section_name}, #{item.basin}, #{item.river_name}, #{item.section_sx}, #{item.sksk},
+			#{item.target_2020}, #{item.target_2016}, #{item.target_2017}, #{item.target_2018}, #{item.category_info1}
+			, #{item.category_info2}, #{item.category_info3}, #{item.category_info4}, #{item.category_info5}
+			, #{item.category_info6}, #{item.category_info7}, #{item.category_info8}, #{item.category_info9}
+			, #{item.category_info10}, #{item.category_info11}, #{item.category_info12}, #{item.aver})
+		</foreach>
+	</insert>
+    <select id="getStoredRes" resultType="java.util.Map" parameterType="java.util.Map">
+        select *from qmp_test_data_result where
+        <trim>
+            <if test="map.loc_city!='all'">
+                loc_city=#{map.loc_city} and
+            </if>
+            <if test="map.section_level!='all'">
+                level=#{map.section_level} and
+            </if>
+            year=#{map.year}
+        </trim>
+    </select>
+
+	<select id="searchByPage" resultMap="BaseResultMap">
+		select
+		*
+		from qmp
+		WHERE
+		<trim>
+			<if test="map.id != null">
+				id = #{map.id} and
+			</if>
+			<if test="map.tjnf != null">
+				tjnf LIKE CONCAT('%', #{map.tjnf}, '%') and
+			</if>
+			<if test="map.watershed != null">
+				watershed LIKE CONCAT('%', #{map.watershed}, '%') and
+			</if>
+			<if test="map.river_name != null">
+				river_name LIKE CONCAT('%', #{map.river_name}, '%') and
+			</if>
+			<if test="map.river_level != null">
+				river_level LIKE CONCAT('%', #{map.river_level}, '%') and
+			</if>
+			<if test="map.river_to != null">
+				river_to LIKE CONCAT('%', #{map.river_to}, '%') and
+			</if>
+			<if test="map.section_name != null">
+				section_name LIKE CONCAT('%', #{map.section_name}, '%') and
+			</if>
+			<if test="map.section_property != null">
+				section_property LIKE CONCAT('%', #{map.section_property}, '%') and
+			</if>
+			<if test="map.loc_province != null">
+				loc_province LIKE CONCAT('%', #{map.loc_province}, '%') and
+			</if>
+			<if test="map.loc_city != null">
+				loc_city LIKE CONCAT('%', #{map.loc_city}, '%') and
+			</if>
+			<if test="map.loc_county != null">
+				loc_county LIKE CONCAT('%', #{map.loc_county}, '%') and
+			</if>
+			<if test="map.test_by != null">
+				test_by LIKE CONCAT('%', #{map.test_by}, '%') and
+			</if>
+			<if test="map.section_level != null">
+				section_level LIKE CONCAT('%', #{map.section_level}, '%') and
+			</if>
+			<if test="map.section_type != null">
+				section_type LIKE CONCAT('%', #{map.section_type}, '%') and
+			</if>
+			<if test="map.is_urban != null">
+				is_urban LIKE CONCAT('%', #{map.is_urban}, '%') and
+			</if>
+			<if test="map.is_addition != null">
+				is_addition LIKE CONCAT('%', #{map.is_addition}, '%') and
+			</if>
+			<if test="map.test_frequency != null">
+				test_frequency LIKE CONCAT('%', #{map.test_frequency}, '%') and
+			</if>
+			<if test="map.test_items != null">
+				test_items LIKE CONCAT('%', #{map.test_items}, '%') and
+			</if>
+			<if test="map.quality_target != null">
+				quality_target LIKE CONCAT('%', #{map.quality_target}, '%') and
+			</if>
+			is_del = 0
+		</trim>
+		limit #{startPos},#{pageSize}
+	</select>
+	
+	<select id="selectForMap" resultMap="BaseResultMap">
+		select
+		*
+		from qmp
+		WHERE
+		<trim>
+			<if test="map.id != null">
+				id = #{map.id} and
+			</if>
+			<if test="map.tjnf != null">
+				tjnf LIKE CONCAT('%', #{map.tjnf}, '%') and
+			</if>
+			<if test="map.watershed != null">
+				watershed LIKE CONCAT('%', #{map.watershed}, '%') and
+			</if>
+			<if test="map.river_name != null">
+				river_name LIKE CONCAT('%', #{map.river_name}, '%') and
+			</if>
+			<if test="map.river_level != null">
+				river_level LIKE CONCAT('%', #{map.river_level}, '%') and
+			</if>
+			<if test="map.river_to != null">
+				river_to LIKE CONCAT('%', #{map.river_to}, '%') and
+			</if>
+			<if test="map.section_name != null">
+				section_name LIKE CONCAT('%', #{map.section_name}, '%') and
+			</if>
+			<if test="map.section_property != null">
+				section_property LIKE CONCAT('%', #{map.section_property}, '%') and
+			</if>
+			<if test="map.loc_province != null">
+				loc_province LIKE CONCAT('%', #{map.loc_province}, '%') and
+			</if>
+			<if test="map.loc_city != null">
+				loc_city LIKE CONCAT('%', #{map.loc_city}, '%') and
+			</if>
+			<if test="map.loc_county != null">
+				loc_county LIKE CONCAT('%', #{map.loc_county}, '%') and
+			</if>
+			<if test="map.test_by != null">
+				test_by LIKE CONCAT('%', #{map.test_by}, '%') and
+			</if>
+			<if test="map.section_level != null">
+				section_level LIKE CONCAT('%', #{map.section_level}, '%') and
+			</if>
+			<if test="map.section_type != null">
+				section_type LIKE CONCAT('%', #{map.section_type}, '%') and
+			</if>
+			<if test="map.is_urban != null">
+				is_urban LIKE CONCAT('%', #{map.is_urban}, '%') and
+			</if>
+			<if test="map.is_addition != null">
+				is_addition LIKE CONCAT('%', #{map.is_addition}, '%') and
+			</if>
+			<if test="map.test_frequency != null">
+				test_frequency LIKE CONCAT('%', #{map.test_frequency}, '%') and
+			</if>
+			<if test="map.test_items != null">
+				test_items LIKE CONCAT('%', #{map.test_items}, '%') and
+			</if>
+			<if test="map.quality_target != null">
+				quality_target LIKE CONCAT('%', #{map.quality_target}, '%') and
+			</if>
+			is_del = 0
+		</trim>
+	</select>
+
+</mapper>

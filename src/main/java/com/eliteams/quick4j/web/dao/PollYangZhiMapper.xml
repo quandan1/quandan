@@ -1,0 +1,1686 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.eliteams.quick4j.web.dao.PollYangZhiMapper" >
+  <resultMap id="BaseResultMap" type="com.eliteams.quick4j.web.model.PollYangZhi" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="XZQHDM" property="xzqhdm" jdbcType="VARCHAR" />
+    <result column="XZQHMC" property="xzqhmc" jdbcType="VARCHAR" />
+    <result column="TJNF" property="tjnf" jdbcType="VARCHAR" />
+    <result column="YZCBM" property="yzcbm" jdbcType="VARCHAR" />
+    <result column="YZCMC" property="yzcmc" jdbcType="VARCHAR" />
+    <result column="JD" property="jd" jdbcType="VARCHAR" />
+    <result column="WD" property="wd" jdbcType="VARCHAR" />
+    <result column="KZDM" property="kzdm" jdbcType="VARCHAR" />
+    <result column="KZDY" property="kzdy" jdbcType="VARCHAR" />
+    <result column="YZLX" property="yzlx" jdbcType="VARCHAR" />
+    <result column="BHHS" property="bhhs" jdbcType="VARCHAR" />
+    <result column="FZR" property="fzr" jdbcType="VARCHAR" />
+    <result column="LXDH" property="lxdh" jdbcType="VARCHAR" />
+    <result column="DZ_P" property="dzP" jdbcType="VARCHAR" />
+    <result column="DZ_S" property="dzS" jdbcType="VARCHAR" />
+    <result column="DZ_X" property="dzX" jdbcType="VARCHAR" />
+    <result column="XZ" property="xz" jdbcType="VARCHAR" />
+    <result column="JC" property="jc" jdbcType="VARCHAR" />
+    <result column="SZLYMC" property="szlymc" jdbcType="VARCHAR" />
+    <result column="SZLYDM" property="szlydm" jdbcType="VARCHAR" />
+    <result column="SNSTMC" property="snstmc" jdbcType="VARCHAR" />
+    <result column="SNSTDM" property="snstdm" jdbcType="VARCHAR" />
+    <result column="XQZL" property="xqzl" jdbcType="VARCHAR" />
+    <result column="YZCLSZMJ" property="yzclszmj" jdbcType="VARCHAR" />
+    <result column="ZWSSLJTZ" property="zwssljtz" jdbcType="VARCHAR" />
+    <result column="XZGDZC" property="xzgdzc" jdbcType="VARCHAR" />
+    <result column="PTNYTDLYMJ" property="ptnytdlymj" jdbcType="VARCHAR" />
+    <result column="PTNYTDLYFS" property="ptnytdlyfs" jdbcType="VARCHAR" />
+    <result column="PTSCYZSMMJ" property="ptscyzsmmj" jdbcType="VARCHAR" />
+    <result column="SYL" property="syl" jdbcType="VARCHAR" />
+    <result column="SYZQ" property="syzq" jdbcType="VARCHAR" />
+    <result column="DCYZFSSZBL" property="dcyzfsszbl" jdbcType="VARCHAR" />
+    <result column="DLNYLY" property="dlnyly" jdbcType="VARCHAR" />
+    <result column="DLSCYJF" property="dlscyjf" jdbcType="VARCHAR" />
+    <result column="DLWCL" property="dlwcl" jdbcType="VARCHAR" />
+    <result column="GQF_YZFSSZBL" property="gqfYzfsszbl" jdbcType="VARCHAR" />
+    <result column="GQF_ZJLYL" property="gqfZjlyl" jdbcType="VARCHAR" />
+    <result column="GQF_SCYJFL" property="gqfScyjfl" jdbcType="VARCHAR" />
+    <result column="GQF_SCZQL" property="gqfSczql" jdbcType="VARCHAR" />
+    <result column="GQF_WCLL" property="gqfWcll" jdbcType="VARCHAR" />
+    <result column="GQFWS_ZJNYLYL" property="gqfwsZjnylyl" jdbcType="VARCHAR" />
+    <result column="GQFWS_YYCLL" property="gqfwsYycll" jdbcType="VARCHAR" />
+    <result column="GQFWS_YY_NYLYL" property="gqfwsYyNylyl" jdbcType="VARCHAR" />
+    <result column="GQFWS_YY_HYLYL" property="gqfwsYyHylyl" jdbcType="VARCHAR" />
+    <result column="GQFWS_YY_HY_SDCLL" property="gqfwsYyHySdcll" jdbcType="VARCHAR" />
+    <result column="GQFWS_WCLL" property="gqfwsWcll" jdbcType="VARCHAR" />
+    <result column="SCF_YZFSSZBL" property="scfYzfsszbl" jdbcType="VARCHAR" />
+    <result column="SCF_ZJNYLYL" property="scfZjnylyl" jdbcType="VARCHAR" />
+    <result column="SCF_SCYJFL" property="scfScyjfl" jdbcType="VARCHAR" />
+    <result column="SCF_SCZQL" property="scfSczql" jdbcType="VARCHAR" />
+    <result column="SCF_WCLL" property="scfWcll" jdbcType="VARCHAR" />
+    <result column="SCFNYWS_ZJNYLYL" property="scfnywsZjnylyl" jdbcType="VARCHAR" />
+    <result column="SCFNYWS_YYCLL" property="scfnywsYycll" jdbcType="VARCHAR" />
+    <result column="SCFNYWS_YY_NYLYL" property="scfnywsYyNylyl" jdbcType="VARCHAR" />
+    <result column="SCFNYWS_YY_HYCLL" property="scfnywsYyHycll" jdbcType="VARCHAR" />
+    <result column="SCFNYWS_YY_HY_SDCLL" property="scfnywsYyHySdcll" jdbcType="VARCHAR" />
+    <result column="SCFNYWS_WCLL" property="scfnywsWcll" jdbcType="VARCHAR" />
+    <result column="JPHDHXXYLQCL" property="jphdhxxylqcl" jdbcType="VARCHAR" />
+    <result column="JPHDADQCL" property="jphdadqcl" jdbcType="VARCHAR" />
+    <result column="CSL_HXXYL" property="cslHxxyl" jdbcType="VARCHAR" />
+    <result column="CSL_ZD" property="cslZd" jdbcType="VARCHAR" />
+    <result column="CSL_ZL" property="cslZl" jdbcType="VARCHAR" />
+    <result column="CSL_AD" property="cslAd" jdbcType="VARCHAR" />
+    <result column="PFL_HXXYL" property="pflHxxyl" jdbcType="VARCHAR" />
+    <result column="PFL_ZD" property="pflZd" jdbcType="VARCHAR" />
+    <result column="PFL_ZL" property="pflZl" jdbcType="VARCHAR" />
+    <result column="PFL_AD" property="pflAd" jdbcType="VARCHAR" />
+    <result column="QCL_HXXYL" property="qclHxxyl" jdbcType="VARCHAR" />
+    <result column="QCL_ZD" property="qclZd" jdbcType="VARCHAR" />
+    <result column="QCL_ZL" property="qclZl" jdbcType="VARCHAR" />
+    <result column="QCL_AD" property="qclAd" jdbcType="VARCHAR" />
+    <result column="BZ" property="bz" jdbcType="VARCHAR" />
+    <result column="is_del" property="isDel" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, XZQHDM, XZQHMC, TJNF, YZCBM, YZCMC, JD, WD, KZDM, KZDY, YZLX, BHHS, FZR, LXDH, 
+    DZ_P, DZ_S, DZ_X, XZ, JC, SZLYMC, SZLYDM, SNSTMC, SNSTDM, XQZL, YZCLSZMJ, ZWSSLJTZ, 
+    XZGDZC, PTNYTDLYMJ, PTNYTDLYFS, PTSCYZSMMJ, SYL, SYZQ, DCYZFSSZBL, DLNYLY, DLSCYJF, 
+    DLWCL, GQF_YZFSSZBL, GQF_ZJLYL, GQF_SCYJFL, GQF_SCZQL, GQF_WCLL, GQFWS_ZJNYLYL, GQFWS_YYCLL, 
+    GQFWS_YY_NYLYL, GQFWS_YY_HYLYL, GQFWS_YY_HY_SDCLL, GQFWS_WCLL, SCF_YZFSSZBL, SCF_ZJNYLYL, 
+    SCF_SCYJFL, SCF_SCZQL, SCF_WCLL, SCFNYWS_ZJNYLYL, SCFNYWS_YYCLL, SCFNYWS_YY_NYLYL, 
+    SCFNYWS_YY_HYCLL, SCFNYWS_YY_HY_SDCLL, SCFNYWS_WCLL, JPHDHXXYLQCL, JPHDADQCL, CSL_HXXYL, 
+    CSL_ZD, CSL_ZL, CSL_AD, PFL_HXXYL, PFL_ZD, PFL_ZL, PFL_AD, QCL_HXXYL, QCL_ZD, QCL_ZL, 
+    QCL_AD, BZ, is_del
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.eliteams.quick4j.web.model.PollYangZhiExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from poll_yangzhi
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from poll_yangzhi
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from poll_yangzhi
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.eliteams.quick4j.web.model.PollYangZhiExample" >
+    delete from poll_yangzhi
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.eliteams.quick4j.web.model.PollYangZhi" >
+    insert into poll_yangzhi (id, XZQHDM, XZQHMC, 
+      TJNF, YZCBM, YZCMC, 
+      JD, WD, KZDM, KZDY, 
+      YZLX, BHHS, FZR, LXDH, 
+      DZ_P, DZ_S, DZ_X, XZ, 
+      JC, SZLYMC, SZLYDM, 
+      SNSTMC, SNSTDM, XQZL, 
+      YZCLSZMJ, ZWSSLJTZ, XZGDZC, 
+      PTNYTDLYMJ, PTNYTDLYFS, PTSCYZSMMJ, 
+      SYL, SYZQ, DCYZFSSZBL, 
+      DLNYLY, DLSCYJF, DLWCL, 
+      GQF_YZFSSZBL, GQF_ZJLYL, GQF_SCYJFL, 
+      GQF_SCZQL, GQF_WCLL, GQFWS_ZJNYLYL, 
+      GQFWS_YYCLL, GQFWS_YY_NYLYL, GQFWS_YY_HYLYL, 
+      GQFWS_YY_HY_SDCLL, GQFWS_WCLL, SCF_YZFSSZBL, 
+      SCF_ZJNYLYL, SCF_SCYJFL, SCF_SCZQL, 
+      SCF_WCLL, SCFNYWS_ZJNYLYL, SCFNYWS_YYCLL, 
+      SCFNYWS_YY_NYLYL, SCFNYWS_YY_HYCLL, SCFNYWS_YY_HY_SDCLL, 
+      SCFNYWS_WCLL, JPHDHXXYLQCL, JPHDADQCL, 
+      CSL_HXXYL, CSL_ZD, CSL_ZL, 
+      CSL_AD, PFL_HXXYL, PFL_ZD, 
+      PFL_ZL, PFL_AD, QCL_HXXYL, 
+      QCL_ZD, QCL_ZL, QCL_AD, 
+      BZ, is_del)
+    values (#{id,jdbcType=INTEGER}, #{xzqhdm,jdbcType=VARCHAR}, #{xzqhmc,jdbcType=VARCHAR}, 
+      #{tjnf,jdbcType=VARCHAR}, #{yzcbm,jdbcType=VARCHAR}, #{yzcmc,jdbcType=VARCHAR}, 
+      #{jd,jdbcType=VARCHAR}, #{wd,jdbcType=VARCHAR}, #{kzdm,jdbcType=VARCHAR}, #{kzdy,jdbcType=VARCHAR}, 
+      #{yzlx,jdbcType=VARCHAR}, #{bhhs,jdbcType=VARCHAR}, #{fzr,jdbcType=VARCHAR}, #{lxdh,jdbcType=VARCHAR}, 
+      #{dzP,jdbcType=VARCHAR}, #{dzS,jdbcType=VARCHAR}, #{dzX,jdbcType=VARCHAR}, #{xz,jdbcType=VARCHAR}, 
+      #{jc,jdbcType=VARCHAR}, #{szlymc,jdbcType=VARCHAR}, #{szlydm,jdbcType=VARCHAR}, 
+      #{snstmc,jdbcType=VARCHAR}, #{snstdm,jdbcType=VARCHAR}, #{xqzl,jdbcType=VARCHAR}, 
+      #{yzclszmj,jdbcType=VARCHAR}, #{zwssljtz,jdbcType=VARCHAR}, #{xzgdzc,jdbcType=VARCHAR}, 
+      #{ptnytdlymj,jdbcType=VARCHAR}, #{ptnytdlyfs,jdbcType=VARCHAR}, #{ptscyzsmmj,jdbcType=VARCHAR}, 
+      #{syl,jdbcType=VARCHAR}, #{syzq,jdbcType=VARCHAR}, #{dcyzfsszbl,jdbcType=VARCHAR}, 
+      #{dlnyly,jdbcType=VARCHAR}, #{dlscyjf,jdbcType=VARCHAR}, #{dlwcl,jdbcType=VARCHAR}, 
+      #{gqfYzfsszbl,jdbcType=VARCHAR}, #{gqfZjlyl,jdbcType=VARCHAR}, #{gqfScyjfl,jdbcType=VARCHAR}, 
+      #{gqfSczql,jdbcType=VARCHAR}, #{gqfWcll,jdbcType=VARCHAR}, #{gqfwsZjnylyl,jdbcType=VARCHAR}, 
+      #{gqfwsYycll,jdbcType=VARCHAR}, #{gqfwsYyNylyl,jdbcType=VARCHAR}, #{gqfwsYyHylyl,jdbcType=VARCHAR}, 
+      #{gqfwsYyHySdcll,jdbcType=VARCHAR}, #{gqfwsWcll,jdbcType=VARCHAR}, #{scfYzfsszbl,jdbcType=VARCHAR}, 
+      #{scfZjnylyl,jdbcType=VARCHAR}, #{scfScyjfl,jdbcType=VARCHAR}, #{scfSczql,jdbcType=VARCHAR}, 
+      #{scfWcll,jdbcType=VARCHAR}, #{scfnywsZjnylyl,jdbcType=VARCHAR}, #{scfnywsYycll,jdbcType=VARCHAR}, 
+      #{scfnywsYyNylyl,jdbcType=VARCHAR}, #{scfnywsYyHycll,jdbcType=VARCHAR}, #{scfnywsYyHySdcll,jdbcType=VARCHAR}, 
+      #{scfnywsWcll,jdbcType=VARCHAR}, #{jphdhxxylqcl,jdbcType=VARCHAR}, #{jphdadqcl,jdbcType=VARCHAR}, 
+      #{cslHxxyl,jdbcType=VARCHAR}, #{cslZd,jdbcType=VARCHAR}, #{cslZl,jdbcType=VARCHAR}, 
+      #{cslAd,jdbcType=VARCHAR}, #{pflHxxyl,jdbcType=VARCHAR}, #{pflZd,jdbcType=VARCHAR}, 
+      #{pflZl,jdbcType=VARCHAR}, #{pflAd,jdbcType=VARCHAR}, #{qclHxxyl,jdbcType=VARCHAR}, 
+      #{qclZd,jdbcType=VARCHAR}, #{qclZl,jdbcType=VARCHAR}, #{qclAd,jdbcType=VARCHAR}, 
+      #{bz,jdbcType=VARCHAR}, #{isDel,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.eliteams.quick4j.web.model.PollYangZhi" >
+    insert into poll_yangzhi
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="xzqhdm != null" >
+        XZQHDM,
+      </if>
+      <if test="xzqhmc != null" >
+        XZQHMC,
+      </if>
+      <if test="tjnf != null" >
+        TJNF,
+      </if>
+      <if test="yzcbm != null" >
+        YZCBM,
+      </if>
+      <if test="yzcmc != null" >
+        YZCMC,
+      </if>
+      <if test="jd != null" >
+        JD,
+      </if>
+      <if test="wd != null" >
+        WD,
+      </if>
+      <if test="kzdm != null" >
+        KZDM,
+      </if>
+      <if test="kzdy != null" >
+        KZDY,
+      </if>
+      <if test="yzlx != null" >
+        YZLX,
+      </if>
+      <if test="bhhs != null" >
+        BHHS,
+      </if>
+      <if test="fzr != null" >
+        FZR,
+      </if>
+      <if test="lxdh != null" >
+        LXDH,
+      </if>
+      <if test="dzP != null" >
+        DZ_P,
+      </if>
+      <if test="dzS != null" >
+        DZ_S,
+      </if>
+      <if test="dzX != null" >
+        DZ_X,
+      </if>
+      <if test="xz != null" >
+        XZ,
+      </if>
+      <if test="jc != null" >
+        JC,
+      </if>
+      <if test="szlymc != null" >
+        SZLYMC,
+      </if>
+      <if test="szlydm != null" >
+        SZLYDM,
+      </if>
+      <if test="snstmc != null" >
+        SNSTMC,
+      </if>
+      <if test="snstdm != null" >
+        SNSTDM,
+      </if>
+      <if test="xqzl != null" >
+        XQZL,
+      </if>
+      <if test="yzclszmj != null" >
+        YZCLSZMJ,
+      </if>
+      <if test="zwssljtz != null" >
+        ZWSSLJTZ,
+      </if>
+      <if test="xzgdzc != null" >
+        XZGDZC,
+      </if>
+      <if test="ptnytdlymj != null" >
+        PTNYTDLYMJ,
+      </if>
+      <if test="ptnytdlyfs != null" >
+        PTNYTDLYFS,
+      </if>
+      <if test="ptscyzsmmj != null" >
+        PTSCYZSMMJ,
+      </if>
+      <if test="syl != null" >
+        SYL,
+      </if>
+      <if test="syzq != null" >
+        SYZQ,
+      </if>
+      <if test="dcyzfsszbl != null" >
+        DCYZFSSZBL,
+      </if>
+      <if test="dlnyly != null" >
+        DLNYLY,
+      </if>
+      <if test="dlscyjf != null" >
+        DLSCYJF,
+      </if>
+      <if test="dlwcl != null" >
+        DLWCL,
+      </if>
+      <if test="gqfYzfsszbl != null" >
+        GQF_YZFSSZBL,
+      </if>
+      <if test="gqfZjlyl != null" >
+        GQF_ZJLYL,
+      </if>
+      <if test="gqfScyjfl != null" >
+        GQF_SCYJFL,
+      </if>
+      <if test="gqfSczql != null" >
+        GQF_SCZQL,
+      </if>
+      <if test="gqfWcll != null" >
+        GQF_WCLL,
+      </if>
+      <if test="gqfwsZjnylyl != null" >
+        GQFWS_ZJNYLYL,
+      </if>
+      <if test="gqfwsYycll != null" >
+        GQFWS_YYCLL,
+      </if>
+      <if test="gqfwsYyNylyl != null" >
+        GQFWS_YY_NYLYL,
+      </if>
+      <if test="gqfwsYyHylyl != null" >
+        GQFWS_YY_HYLYL,
+      </if>
+      <if test="gqfwsYyHySdcll != null" >
+        GQFWS_YY_HY_SDCLL,
+      </if>
+      <if test="gqfwsWcll != null" >
+        GQFWS_WCLL,
+      </if>
+      <if test="scfYzfsszbl != null" >
+        SCF_YZFSSZBL,
+      </if>
+      <if test="scfZjnylyl != null" >
+        SCF_ZJNYLYL,
+      </if>
+      <if test="scfScyjfl != null" >
+        SCF_SCYJFL,
+      </if>
+      <if test="scfSczql != null" >
+        SCF_SCZQL,
+      </if>
+      <if test="scfWcll != null" >
+        SCF_WCLL,
+      </if>
+      <if test="scfnywsZjnylyl != null" >
+        SCFNYWS_ZJNYLYL,
+      </if>
+      <if test="scfnywsYycll != null" >
+        SCFNYWS_YYCLL,
+      </if>
+      <if test="scfnywsYyNylyl != null" >
+        SCFNYWS_YY_NYLYL,
+      </if>
+      <if test="scfnywsYyHycll != null" >
+        SCFNYWS_YY_HYCLL,
+      </if>
+      <if test="scfnywsYyHySdcll != null" >
+        SCFNYWS_YY_HY_SDCLL,
+      </if>
+      <if test="scfnywsWcll != null" >
+        SCFNYWS_WCLL,
+      </if>
+      <if test="jphdhxxylqcl != null" >
+        JPHDHXXYLQCL,
+      </if>
+      <if test="jphdadqcl != null" >
+        JPHDADQCL,
+      </if>
+      <if test="cslHxxyl != null" >
+        CSL_HXXYL,
+      </if>
+      <if test="cslZd != null" >
+        CSL_ZD,
+      </if>
+      <if test="cslZl != null" >
+        CSL_ZL,
+      </if>
+      <if test="cslAd != null" >
+        CSL_AD,
+      </if>
+      <if test="pflHxxyl != null" >
+        PFL_HXXYL,
+      </if>
+      <if test="pflZd != null" >
+        PFL_ZD,
+      </if>
+      <if test="pflZl != null" >
+        PFL_ZL,
+      </if>
+      <if test="pflAd != null" >
+        PFL_AD,
+      </if>
+      <if test="qclHxxyl != null" >
+        QCL_HXXYL,
+      </if>
+      <if test="qclZd != null" >
+        QCL_ZD,
+      </if>
+      <if test="qclZl != null" >
+        QCL_ZL,
+      </if>
+      <if test="qclAd != null" >
+        QCL_AD,
+      </if>
+      <if test="bz != null" >
+        BZ,
+      </if>
+      <if test="isDel != null" >
+        is_del,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="xzqhdm != null" >
+        #{xzqhdm,jdbcType=VARCHAR},
+      </if>
+      <if test="xzqhmc != null" >
+        #{xzqhmc,jdbcType=VARCHAR},
+      </if>
+      <if test="tjnf != null" >
+        #{tjnf,jdbcType=VARCHAR},
+      </if>
+      <if test="yzcbm != null" >
+        #{yzcbm,jdbcType=VARCHAR},
+      </if>
+      <if test="yzcmc != null" >
+        #{yzcmc,jdbcType=VARCHAR},
+      </if>
+      <if test="jd != null" >
+        #{jd,jdbcType=VARCHAR},
+      </if>
+      <if test="wd != null" >
+        #{wd,jdbcType=VARCHAR},
+      </if>
+      <if test="kzdm != null" >
+        #{kzdm,jdbcType=VARCHAR},
+      </if>
+      <if test="kzdy != null" >
+        #{kzdy,jdbcType=VARCHAR},
+      </if>
+      <if test="yzlx != null" >
+        #{yzlx,jdbcType=VARCHAR},
+      </if>
+      <if test="bhhs != null" >
+        #{bhhs,jdbcType=VARCHAR},
+      </if>
+      <if test="fzr != null" >
+        #{fzr,jdbcType=VARCHAR},
+      </if>
+      <if test="lxdh != null" >
+        #{lxdh,jdbcType=VARCHAR},
+      </if>
+      <if test="dzP != null" >
+        #{dzP,jdbcType=VARCHAR},
+      </if>
+      <if test="dzS != null" >
+        #{dzS,jdbcType=VARCHAR},
+      </if>
+      <if test="dzX != null" >
+        #{dzX,jdbcType=VARCHAR},
+      </if>
+      <if test="xz != null" >
+        #{xz,jdbcType=VARCHAR},
+      </if>
+      <if test="jc != null" >
+        #{jc,jdbcType=VARCHAR},
+      </if>
+      <if test="szlymc != null" >
+        #{szlymc,jdbcType=VARCHAR},
+      </if>
+      <if test="szlydm != null" >
+        #{szlydm,jdbcType=VARCHAR},
+      </if>
+      <if test="snstmc != null" >
+        #{snstmc,jdbcType=VARCHAR},
+      </if>
+      <if test="snstdm != null" >
+        #{snstdm,jdbcType=VARCHAR},
+      </if>
+      <if test="xqzl != null" >
+        #{xqzl,jdbcType=VARCHAR},
+      </if>
+      <if test="yzclszmj != null" >
+        #{yzclszmj,jdbcType=VARCHAR},
+      </if>
+      <if test="zwssljtz != null" >
+        #{zwssljtz,jdbcType=VARCHAR},
+      </if>
+      <if test="xzgdzc != null" >
+        #{xzgdzc,jdbcType=VARCHAR},
+      </if>
+      <if test="ptnytdlymj != null" >
+        #{ptnytdlymj,jdbcType=VARCHAR},
+      </if>
+      <if test="ptnytdlyfs != null" >
+        #{ptnytdlyfs,jdbcType=VARCHAR},
+      </if>
+      <if test="ptscyzsmmj != null" >
+        #{ptscyzsmmj,jdbcType=VARCHAR},
+      </if>
+      <if test="syl != null" >
+        #{syl,jdbcType=VARCHAR},
+      </if>
+      <if test="syzq != null" >
+        #{syzq,jdbcType=VARCHAR},
+      </if>
+      <if test="dcyzfsszbl != null" >
+        #{dcyzfsszbl,jdbcType=VARCHAR},
+      </if>
+      <if test="dlnyly != null" >
+        #{dlnyly,jdbcType=VARCHAR},
+      </if>
+      <if test="dlscyjf != null" >
+        #{dlscyjf,jdbcType=VARCHAR},
+      </if>
+      <if test="dlwcl != null" >
+        #{dlwcl,jdbcType=VARCHAR},
+      </if>
+      <if test="gqfYzfsszbl != null" >
+        #{gqfYzfsszbl,jdbcType=VARCHAR},
+      </if>
+      <if test="gqfZjlyl != null" >
+        #{gqfZjlyl,jdbcType=VARCHAR},
+      </if>
+      <if test="gqfScyjfl != null" >
+        #{gqfScyjfl,jdbcType=VARCHAR},
+      </if>
+      <if test="gqfSczql != null" >
+        #{gqfSczql,jdbcType=VARCHAR},
+      </if>
+      <if test="gqfWcll != null" >
+        #{gqfWcll,jdbcType=VARCHAR},
+      </if>
+      <if test="gqfwsZjnylyl != null" >
+        #{gqfwsZjnylyl,jdbcType=VARCHAR},
+      </if>
+      <if test="gqfwsYycll != null" >
+        #{gqfwsYycll,jdbcType=VARCHAR},
+      </if>
+      <if test="gqfwsYyNylyl != null" >
+        #{gqfwsYyNylyl,jdbcType=VARCHAR},
+      </if>
+      <if test="gqfwsYyHylyl != null" >
+        #{gqfwsYyHylyl,jdbcType=VARCHAR},
+      </if>
+      <if test="gqfwsYyHySdcll != null" >
+        #{gqfwsYyHySdcll,jdbcType=VARCHAR},
+      </if>
+      <if test="gqfwsWcll != null" >
+        #{gqfwsWcll,jdbcType=VARCHAR},
+      </if>
+      <if test="scfYzfsszbl != null" >
+        #{scfYzfsszbl,jdbcType=VARCHAR},
+      </if>
+      <if test="scfZjnylyl != null" >
+        #{scfZjnylyl,jdbcType=VARCHAR},
+      </if>
+      <if test="scfScyjfl != null" >
+        #{scfScyjfl,jdbcType=VARCHAR},
+      </if>
+      <if test="scfSczql != null" >
+        #{scfSczql,jdbcType=VARCHAR},
+      </if>
+      <if test="scfWcll != null" >
+        #{scfWcll,jdbcType=VARCHAR},
+      </if>
+      <if test="scfnywsZjnylyl != null" >
+        #{scfnywsZjnylyl,jdbcType=VARCHAR},
+      </if>
+      <if test="scfnywsYycll != null" >
+        #{scfnywsYycll,jdbcType=VARCHAR},
+      </if>
+      <if test="scfnywsYyNylyl != null" >
+        #{scfnywsYyNylyl,jdbcType=VARCHAR},
+      </if>
+      <if test="scfnywsYyHycll != null" >
+        #{scfnywsYyHycll,jdbcType=VARCHAR},
+      </if>
+      <if test="scfnywsYyHySdcll != null" >
+        #{scfnywsYyHySdcll,jdbcType=VARCHAR},
+      </if>
+      <if test="scfnywsWcll != null" >
+        #{scfnywsWcll,jdbcType=VARCHAR},
+      </if>
+      <if test="jphdhxxylqcl != null" >
+        #{jphdhxxylqcl,jdbcType=VARCHAR},
+      </if>
+      <if test="jphdadqcl != null" >
+        #{jphdadqcl,jdbcType=VARCHAR},
+      </if>
+      <if test="cslHxxyl != null" >
+        #{cslHxxyl,jdbcType=VARCHAR},
+      </if>
+      <if test="cslZd != null" >
+        #{cslZd,jdbcType=VARCHAR},
+      </if>
+      <if test="cslZl != null" >
+        #{cslZl,jdbcType=VARCHAR},
+      </if>
+      <if test="cslAd != null" >
+        #{cslAd,jdbcType=VARCHAR},
+      </if>
+      <if test="pflHxxyl != null" >
+        #{pflHxxyl,jdbcType=VARCHAR},
+      </if>
+      <if test="pflZd != null" >
+        #{pflZd,jdbcType=VARCHAR},
+      </if>
+      <if test="pflZl != null" >
+        #{pflZl,jdbcType=VARCHAR},
+      </if>
+      <if test="pflAd != null" >
+        #{pflAd,jdbcType=VARCHAR},
+      </if>
+      <if test="qclHxxyl != null" >
+        #{qclHxxyl,jdbcType=VARCHAR},
+      </if>
+      <if test="qclZd != null" >
+        #{qclZd,jdbcType=VARCHAR},
+      </if>
+      <if test="qclZl != null" >
+        #{qclZl,jdbcType=VARCHAR},
+      </if>
+      <if test="qclAd != null" >
+        #{qclAd,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null" >
+        #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.eliteams.quick4j.web.model.PollYangZhiExample" resultType="java.lang.Integer" >
+    select count(*) from poll_yangzhi
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update poll_yangzhi
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.xzqhdm != null" >
+        XZQHDM = #{record.xzqhdm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xzqhmc != null" >
+        XZQHMC = #{record.xzqhmc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tjnf != null" >
+        TJNF = #{record.tjnf,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yzcbm != null" >
+        YZCBM = #{record.yzcbm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yzcmc != null" >
+        YZCMC = #{record.yzcmc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jd != null" >
+        JD = #{record.jd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wd != null" >
+        WD = #{record.wd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.kzdm != null" >
+        KZDM = #{record.kzdm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.kzdy != null" >
+        KZDY = #{record.kzdy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yzlx != null" >
+        YZLX = #{record.yzlx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bhhs != null" >
+        BHHS = #{record.bhhs,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fzr != null" >
+        FZR = #{record.fzr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lxdh != null" >
+        LXDH = #{record.lxdh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dzP != null" >
+        DZ_P = #{record.dzP,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dzS != null" >
+        DZ_S = #{record.dzS,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dzX != null" >
+        DZ_X = #{record.dzX,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xz != null" >
+        XZ = #{record.xz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jc != null" >
+        JC = #{record.jc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.szlymc != null" >
+        SZLYMC = #{record.szlymc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.szlydm != null" >
+        SZLYDM = #{record.szlydm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.snstmc != null" >
+        SNSTMC = #{record.snstmc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.snstdm != null" >
+        SNSTDM = #{record.snstdm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xqzl != null" >
+        XQZL = #{record.xqzl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yzclszmj != null" >
+        YZCLSZMJ = #{record.yzclszmj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zwssljtz != null" >
+        ZWSSLJTZ = #{record.zwssljtz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xzgdzc != null" >
+        XZGDZC = #{record.xzgdzc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ptnytdlymj != null" >
+        PTNYTDLYMJ = #{record.ptnytdlymj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ptnytdlyfs != null" >
+        PTNYTDLYFS = #{record.ptnytdlyfs,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ptscyzsmmj != null" >
+        PTSCYZSMMJ = #{record.ptscyzsmmj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.syl != null" >
+        SYL = #{record.syl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.syzq != null" >
+        SYZQ = #{record.syzq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dcyzfsszbl != null" >
+        DCYZFSSZBL = #{record.dcyzfsszbl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dlnyly != null" >
+        DLNYLY = #{record.dlnyly,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dlscyjf != null" >
+        DLSCYJF = #{record.dlscyjf,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dlwcl != null" >
+        DLWCL = #{record.dlwcl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gqfYzfsszbl != null" >
+        GQF_YZFSSZBL = #{record.gqfYzfsszbl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gqfZjlyl != null" >
+        GQF_ZJLYL = #{record.gqfZjlyl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gqfScyjfl != null" >
+        GQF_SCYJFL = #{record.gqfScyjfl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gqfSczql != null" >
+        GQF_SCZQL = #{record.gqfSczql,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gqfWcll != null" >
+        GQF_WCLL = #{record.gqfWcll,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gqfwsZjnylyl != null" >
+        GQFWS_ZJNYLYL = #{record.gqfwsZjnylyl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gqfwsYycll != null" >
+        GQFWS_YYCLL = #{record.gqfwsYycll,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gqfwsYyNylyl != null" >
+        GQFWS_YY_NYLYL = #{record.gqfwsYyNylyl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gqfwsYyHylyl != null" >
+        GQFWS_YY_HYLYL = #{record.gqfwsYyHylyl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gqfwsYyHySdcll != null" >
+        GQFWS_YY_HY_SDCLL = #{record.gqfwsYyHySdcll,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gqfwsWcll != null" >
+        GQFWS_WCLL = #{record.gqfwsWcll,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scfYzfsszbl != null" >
+        SCF_YZFSSZBL = #{record.scfYzfsszbl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scfZjnylyl != null" >
+        SCF_ZJNYLYL = #{record.scfZjnylyl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scfScyjfl != null" >
+        SCF_SCYJFL = #{record.scfScyjfl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scfSczql != null" >
+        SCF_SCZQL = #{record.scfSczql,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scfWcll != null" >
+        SCF_WCLL = #{record.scfWcll,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scfnywsZjnylyl != null" >
+        SCFNYWS_ZJNYLYL = #{record.scfnywsZjnylyl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scfnywsYycll != null" >
+        SCFNYWS_YYCLL = #{record.scfnywsYycll,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scfnywsYyNylyl != null" >
+        SCFNYWS_YY_NYLYL = #{record.scfnywsYyNylyl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scfnywsYyHycll != null" >
+        SCFNYWS_YY_HYCLL = #{record.scfnywsYyHycll,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scfnywsYyHySdcll != null" >
+        SCFNYWS_YY_HY_SDCLL = #{record.scfnywsYyHySdcll,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scfnywsWcll != null" >
+        SCFNYWS_WCLL = #{record.scfnywsWcll,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jphdhxxylqcl != null" >
+        JPHDHXXYLQCL = #{record.jphdhxxylqcl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jphdadqcl != null" >
+        JPHDADQCL = #{record.jphdadqcl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cslHxxyl != null" >
+        CSL_HXXYL = #{record.cslHxxyl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cslZd != null" >
+        CSL_ZD = #{record.cslZd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cslZl != null" >
+        CSL_ZL = #{record.cslZl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cslAd != null" >
+        CSL_AD = #{record.cslAd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pflHxxyl != null" >
+        PFL_HXXYL = #{record.pflHxxyl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pflZd != null" >
+        PFL_ZD = #{record.pflZd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pflZl != null" >
+        PFL_ZL = #{record.pflZl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pflAd != null" >
+        PFL_AD = #{record.pflAd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qclHxxyl != null" >
+        QCL_HXXYL = #{record.qclHxxyl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qclZd != null" >
+        QCL_ZD = #{record.qclZd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qclZl != null" >
+        QCL_ZL = #{record.qclZl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qclAd != null" >
+        QCL_AD = #{record.qclAd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bz != null" >
+        BZ = #{record.bz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isDel != null" >
+        is_del = #{record.isDel,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update poll_yangzhi
+    set id = #{record.id,jdbcType=INTEGER},
+      XZQHDM = #{record.xzqhdm,jdbcType=VARCHAR},
+      XZQHMC = #{record.xzqhmc,jdbcType=VARCHAR},
+      TJNF = #{record.tjnf,jdbcType=VARCHAR},
+      YZCBM = #{record.yzcbm,jdbcType=VARCHAR},
+      YZCMC = #{record.yzcmc,jdbcType=VARCHAR},
+      JD = #{record.jd,jdbcType=VARCHAR},
+      WD = #{record.wd,jdbcType=VARCHAR},
+      KZDM = #{record.kzdm,jdbcType=VARCHAR},
+      KZDY = #{record.kzdy,jdbcType=VARCHAR},
+      YZLX = #{record.yzlx,jdbcType=VARCHAR},
+      BHHS = #{record.bhhs,jdbcType=VARCHAR},
+      FZR = #{record.fzr,jdbcType=VARCHAR},
+      LXDH = #{record.lxdh,jdbcType=VARCHAR},
+      DZ_P = #{record.dzP,jdbcType=VARCHAR},
+      DZ_S = #{record.dzS,jdbcType=VARCHAR},
+      DZ_X = #{record.dzX,jdbcType=VARCHAR},
+      XZ = #{record.xz,jdbcType=VARCHAR},
+      JC = #{record.jc,jdbcType=VARCHAR},
+      SZLYMC = #{record.szlymc,jdbcType=VARCHAR},
+      SZLYDM = #{record.szlydm,jdbcType=VARCHAR},
+      SNSTMC = #{record.snstmc,jdbcType=VARCHAR},
+      SNSTDM = #{record.snstdm,jdbcType=VARCHAR},
+      XQZL = #{record.xqzl,jdbcType=VARCHAR},
+      YZCLSZMJ = #{record.yzclszmj,jdbcType=VARCHAR},
+      ZWSSLJTZ = #{record.zwssljtz,jdbcType=VARCHAR},
+      XZGDZC = #{record.xzgdzc,jdbcType=VARCHAR},
+      PTNYTDLYMJ = #{record.ptnytdlymj,jdbcType=VARCHAR},
+      PTNYTDLYFS = #{record.ptnytdlyfs,jdbcType=VARCHAR},
+      PTSCYZSMMJ = #{record.ptscyzsmmj,jdbcType=VARCHAR},
+      SYL = #{record.syl,jdbcType=VARCHAR},
+      SYZQ = #{record.syzq,jdbcType=VARCHAR},
+      DCYZFSSZBL = #{record.dcyzfsszbl,jdbcType=VARCHAR},
+      DLNYLY = #{record.dlnyly,jdbcType=VARCHAR},
+      DLSCYJF = #{record.dlscyjf,jdbcType=VARCHAR},
+      DLWCL = #{record.dlwcl,jdbcType=VARCHAR},
+      GQF_YZFSSZBL = #{record.gqfYzfsszbl,jdbcType=VARCHAR},
+      GQF_ZJLYL = #{record.gqfZjlyl,jdbcType=VARCHAR},
+      GQF_SCYJFL = #{record.gqfScyjfl,jdbcType=VARCHAR},
+      GQF_SCZQL = #{record.gqfSczql,jdbcType=VARCHAR},
+      GQF_WCLL = #{record.gqfWcll,jdbcType=VARCHAR},
+      GQFWS_ZJNYLYL = #{record.gqfwsZjnylyl,jdbcType=VARCHAR},
+      GQFWS_YYCLL = #{record.gqfwsYycll,jdbcType=VARCHAR},
+      GQFWS_YY_NYLYL = #{record.gqfwsYyNylyl,jdbcType=VARCHAR},
+      GQFWS_YY_HYLYL = #{record.gqfwsYyHylyl,jdbcType=VARCHAR},
+      GQFWS_YY_HY_SDCLL = #{record.gqfwsYyHySdcll,jdbcType=VARCHAR},
+      GQFWS_WCLL = #{record.gqfwsWcll,jdbcType=VARCHAR},
+      SCF_YZFSSZBL = #{record.scfYzfsszbl,jdbcType=VARCHAR},
+      SCF_ZJNYLYL = #{record.scfZjnylyl,jdbcType=VARCHAR},
+      SCF_SCYJFL = #{record.scfScyjfl,jdbcType=VARCHAR},
+      SCF_SCZQL = #{record.scfSczql,jdbcType=VARCHAR},
+      SCF_WCLL = #{record.scfWcll,jdbcType=VARCHAR},
+      SCFNYWS_ZJNYLYL = #{record.scfnywsZjnylyl,jdbcType=VARCHAR},
+      SCFNYWS_YYCLL = #{record.scfnywsYycll,jdbcType=VARCHAR},
+      SCFNYWS_YY_NYLYL = #{record.scfnywsYyNylyl,jdbcType=VARCHAR},
+      SCFNYWS_YY_HYCLL = #{record.scfnywsYyHycll,jdbcType=VARCHAR},
+      SCFNYWS_YY_HY_SDCLL = #{record.scfnywsYyHySdcll,jdbcType=VARCHAR},
+      SCFNYWS_WCLL = #{record.scfnywsWcll,jdbcType=VARCHAR},
+      JPHDHXXYLQCL = #{record.jphdhxxylqcl,jdbcType=VARCHAR},
+      JPHDADQCL = #{record.jphdadqcl,jdbcType=VARCHAR},
+      CSL_HXXYL = #{record.cslHxxyl,jdbcType=VARCHAR},
+      CSL_ZD = #{record.cslZd,jdbcType=VARCHAR},
+      CSL_ZL = #{record.cslZl,jdbcType=VARCHAR},
+      CSL_AD = #{record.cslAd,jdbcType=VARCHAR},
+      PFL_HXXYL = #{record.pflHxxyl,jdbcType=VARCHAR},
+      PFL_ZD = #{record.pflZd,jdbcType=VARCHAR},
+      PFL_ZL = #{record.pflZl,jdbcType=VARCHAR},
+      PFL_AD = #{record.pflAd,jdbcType=VARCHAR},
+      QCL_HXXYL = #{record.qclHxxyl,jdbcType=VARCHAR},
+      QCL_ZD = #{record.qclZd,jdbcType=VARCHAR},
+      QCL_ZL = #{record.qclZl,jdbcType=VARCHAR},
+      QCL_AD = #{record.qclAd,jdbcType=VARCHAR},
+      BZ = #{record.bz,jdbcType=VARCHAR},
+      is_del = #{record.isDel,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.eliteams.quick4j.web.model.PollYangZhi" >
+    update poll_yangzhi
+    <set >
+      <if test="xzqhdm != null" >
+        XZQHDM = #{xzqhdm,jdbcType=VARCHAR},
+      </if>
+      <if test="xzqhmc != null" >
+        XZQHMC = #{xzqhmc,jdbcType=VARCHAR},
+      </if>
+      <if test="tjnf != null" >
+        TJNF = #{tjnf,jdbcType=VARCHAR},
+      </if>
+      <if test="yzcbm != null" >
+        YZCBM = #{yzcbm,jdbcType=VARCHAR},
+      </if>
+      <if test="yzcmc != null" >
+        YZCMC = #{yzcmc,jdbcType=VARCHAR},
+      </if>
+      <if test="jd != null" >
+        JD = #{jd,jdbcType=VARCHAR},
+      </if>
+      <if test="wd != null" >
+        WD = #{wd,jdbcType=VARCHAR},
+      </if>
+      <if test="kzdm != null" >
+        KZDM = #{kzdm,jdbcType=VARCHAR},
+      </if>
+      <if test="kzdy != null" >
+        KZDY = #{kzdy,jdbcType=VARCHAR},
+      </if>
+      <if test="yzlx != null" >
+        YZLX = #{yzlx,jdbcType=VARCHAR},
+      </if>
+      <if test="bhhs != null" >
+        BHHS = #{bhhs,jdbcType=VARCHAR},
+      </if>
+      <if test="fzr != null" >
+        FZR = #{fzr,jdbcType=VARCHAR},
+      </if>
+      <if test="lxdh != null" >
+        LXDH = #{lxdh,jdbcType=VARCHAR},
+      </if>
+      <if test="dzP != null" >
+        DZ_P = #{dzP,jdbcType=VARCHAR},
+      </if>
+      <if test="dzS != null" >
+        DZ_S = #{dzS,jdbcType=VARCHAR},
+      </if>
+      <if test="dzX != null" >
+        DZ_X = #{dzX,jdbcType=VARCHAR},
+      </if>
+      <if test="xz != null" >
+        XZ = #{xz,jdbcType=VARCHAR},
+      </if>
+      <if test="jc != null" >
+        JC = #{jc,jdbcType=VARCHAR},
+      </if>
+      <if test="szlymc != null" >
+        SZLYMC = #{szlymc,jdbcType=VARCHAR},
+      </if>
+      <if test="szlydm != null" >
+        SZLYDM = #{szlydm,jdbcType=VARCHAR},
+      </if>
+      <if test="snstmc != null" >
+        SNSTMC = #{snstmc,jdbcType=VARCHAR},
+      </if>
+      <if test="snstdm != null" >
+        SNSTDM = #{snstdm,jdbcType=VARCHAR},
+      </if>
+      <if test="xqzl != null" >
+        XQZL = #{xqzl,jdbcType=VARCHAR},
+      </if>
+      <if test="yzclszmj != null" >
+        YZCLSZMJ = #{yzclszmj,jdbcType=VARCHAR},
+      </if>
+      <if test="zwssljtz != null" >
+        ZWSSLJTZ = #{zwssljtz,jdbcType=VARCHAR},
+      </if>
+      <if test="xzgdzc != null" >
+        XZGDZC = #{xzgdzc,jdbcType=VARCHAR},
+      </if>
+      <if test="ptnytdlymj != null" >
+        PTNYTDLYMJ = #{ptnytdlymj,jdbcType=VARCHAR},
+      </if>
+      <if test="ptnytdlyfs != null" >
+        PTNYTDLYFS = #{ptnytdlyfs,jdbcType=VARCHAR},
+      </if>
+      <if test="ptscyzsmmj != null" >
+        PTSCYZSMMJ = #{ptscyzsmmj,jdbcType=VARCHAR},
+      </if>
+      <if test="syl != null" >
+        SYL = #{syl,jdbcType=VARCHAR},
+      </if>
+      <if test="syzq != null" >
+        SYZQ = #{syzq,jdbcType=VARCHAR},
+      </if>
+      <if test="dcyzfsszbl != null" >
+        DCYZFSSZBL = #{dcyzfsszbl,jdbcType=VARCHAR},
+      </if>
+      <if test="dlnyly != null" >
+        DLNYLY = #{dlnyly,jdbcType=VARCHAR},
+      </if>
+      <if test="dlscyjf != null" >
+        DLSCYJF = #{dlscyjf,jdbcType=VARCHAR},
+      </if>
+      <if test="dlwcl != null" >
+        DLWCL = #{dlwcl,jdbcType=VARCHAR},
+      </if>
+      <if test="gqfYzfsszbl != null" >
+        GQF_YZFSSZBL = #{gqfYzfsszbl,jdbcType=VARCHAR},
+      </if>
+      <if test="gqfZjlyl != null" >
+        GQF_ZJLYL = #{gqfZjlyl,jdbcType=VARCHAR},
+      </if>
+      <if test="gqfScyjfl != null" >
+        GQF_SCYJFL = #{gqfScyjfl,jdbcType=VARCHAR},
+      </if>
+      <if test="gqfSczql != null" >
+        GQF_SCZQL = #{gqfSczql,jdbcType=VARCHAR},
+      </if>
+      <if test="gqfWcll != null" >
+        GQF_WCLL = #{gqfWcll,jdbcType=VARCHAR},
+      </if>
+      <if test="gqfwsZjnylyl != null" >
+        GQFWS_ZJNYLYL = #{gqfwsZjnylyl,jdbcType=VARCHAR},
+      </if>
+      <if test="gqfwsYycll != null" >
+        GQFWS_YYCLL = #{gqfwsYycll,jdbcType=VARCHAR},
+      </if>
+      <if test="gqfwsYyNylyl != null" >
+        GQFWS_YY_NYLYL = #{gqfwsYyNylyl,jdbcType=VARCHAR},
+      </if>
+      <if test="gqfwsYyHylyl != null" >
+        GQFWS_YY_HYLYL = #{gqfwsYyHylyl,jdbcType=VARCHAR},
+      </if>
+      <if test="gqfwsYyHySdcll != null" >
+        GQFWS_YY_HY_SDCLL = #{gqfwsYyHySdcll,jdbcType=VARCHAR},
+      </if>
+      <if test="gqfwsWcll != null" >
+        GQFWS_WCLL = #{gqfwsWcll,jdbcType=VARCHAR},
+      </if>
+      <if test="scfYzfsszbl != null" >
+        SCF_YZFSSZBL = #{scfYzfsszbl,jdbcType=VARCHAR},
+      </if>
+      <if test="scfZjnylyl != null" >
+        SCF_ZJNYLYL = #{scfZjnylyl,jdbcType=VARCHAR},
+      </if>
+      <if test="scfScyjfl != null" >
+        SCF_SCYJFL = #{scfScyjfl,jdbcType=VARCHAR},
+      </if>
+      <if test="scfSczql != null" >
+        SCF_SCZQL = #{scfSczql,jdbcType=VARCHAR},
+      </if>
+      <if test="scfWcll != null" >
+        SCF_WCLL = #{scfWcll,jdbcType=VARCHAR},
+      </if>
+      <if test="scfnywsZjnylyl != null" >
+        SCFNYWS_ZJNYLYL = #{scfnywsZjnylyl,jdbcType=VARCHAR},
+      </if>
+      <if test="scfnywsYycll != null" >
+        SCFNYWS_YYCLL = #{scfnywsYycll,jdbcType=VARCHAR},
+      </if>
+      <if test="scfnywsYyNylyl != null" >
+        SCFNYWS_YY_NYLYL = #{scfnywsYyNylyl,jdbcType=VARCHAR},
+      </if>
+      <if test="scfnywsYyHycll != null" >
+        SCFNYWS_YY_HYCLL = #{scfnywsYyHycll,jdbcType=VARCHAR},
+      </if>
+      <if test="scfnywsYyHySdcll != null" >
+        SCFNYWS_YY_HY_SDCLL = #{scfnywsYyHySdcll,jdbcType=VARCHAR},
+      </if>
+      <if test="scfnywsWcll != null" >
+        SCFNYWS_WCLL = #{scfnywsWcll,jdbcType=VARCHAR},
+      </if>
+      <if test="jphdhxxylqcl != null" >
+        JPHDHXXYLQCL = #{jphdhxxylqcl,jdbcType=VARCHAR},
+      </if>
+      <if test="jphdadqcl != null" >
+        JPHDADQCL = #{jphdadqcl,jdbcType=VARCHAR},
+      </if>
+      <if test="cslHxxyl != null" >
+        CSL_HXXYL = #{cslHxxyl,jdbcType=VARCHAR},
+      </if>
+      <if test="cslZd != null" >
+        CSL_ZD = #{cslZd,jdbcType=VARCHAR},
+      </if>
+      <if test="cslZl != null" >
+        CSL_ZL = #{cslZl,jdbcType=VARCHAR},
+      </if>
+      <if test="cslAd != null" >
+        CSL_AD = #{cslAd,jdbcType=VARCHAR},
+      </if>
+      <if test="pflHxxyl != null" >
+        PFL_HXXYL = #{pflHxxyl,jdbcType=VARCHAR},
+      </if>
+      <if test="pflZd != null" >
+        PFL_ZD = #{pflZd,jdbcType=VARCHAR},
+      </if>
+      <if test="pflZl != null" >
+        PFL_ZL = #{pflZl,jdbcType=VARCHAR},
+      </if>
+      <if test="pflAd != null" >
+        PFL_AD = #{pflAd,jdbcType=VARCHAR},
+      </if>
+      <if test="qclHxxyl != null" >
+        QCL_HXXYL = #{qclHxxyl,jdbcType=VARCHAR},
+      </if>
+      <if test="qclZd != null" >
+        QCL_ZD = #{qclZd,jdbcType=VARCHAR},
+      </if>
+      <if test="qclZl != null" >
+        QCL_ZL = #{qclZl,jdbcType=VARCHAR},
+      </if>
+      <if test="qclAd != null" >
+        QCL_AD = #{qclAd,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null" >
+        BZ = #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        is_del = #{isDel,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.eliteams.quick4j.web.model.PollYangZhi" >
+    update poll_yangzhi
+    set XZQHDM = #{xzqhdm,jdbcType=VARCHAR},
+      XZQHMC = #{xzqhmc,jdbcType=VARCHAR},
+      TJNF = #{tjnf,jdbcType=VARCHAR},
+      YZCBM = #{yzcbm,jdbcType=VARCHAR},
+      YZCMC = #{yzcmc,jdbcType=VARCHAR},
+      JD = #{jd,jdbcType=VARCHAR},
+      WD = #{wd,jdbcType=VARCHAR},
+      KZDM = #{kzdm,jdbcType=VARCHAR},
+      KZDY = #{kzdy,jdbcType=VARCHAR},
+      YZLX = #{yzlx,jdbcType=VARCHAR},
+      BHHS = #{bhhs,jdbcType=VARCHAR},
+      FZR = #{fzr,jdbcType=VARCHAR},
+      LXDH = #{lxdh,jdbcType=VARCHAR},
+      DZ_P = #{dzP,jdbcType=VARCHAR},
+      DZ_S = #{dzS,jdbcType=VARCHAR},
+      DZ_X = #{dzX,jdbcType=VARCHAR},
+      XZ = #{xz,jdbcType=VARCHAR},
+      JC = #{jc,jdbcType=VARCHAR},
+      SZLYMC = #{szlymc,jdbcType=VARCHAR},
+      SZLYDM = #{szlydm,jdbcType=VARCHAR},
+      SNSTMC = #{snstmc,jdbcType=VARCHAR},
+      SNSTDM = #{snstdm,jdbcType=VARCHAR},
+      XQZL = #{xqzl,jdbcType=VARCHAR},
+      YZCLSZMJ = #{yzclszmj,jdbcType=VARCHAR},
+      ZWSSLJTZ = #{zwssljtz,jdbcType=VARCHAR},
+      XZGDZC = #{xzgdzc,jdbcType=VARCHAR},
+      PTNYTDLYMJ = #{ptnytdlymj,jdbcType=VARCHAR},
+      PTNYTDLYFS = #{ptnytdlyfs,jdbcType=VARCHAR},
+      PTSCYZSMMJ = #{ptscyzsmmj,jdbcType=VARCHAR},
+      SYL = #{syl,jdbcType=VARCHAR},
+      SYZQ = #{syzq,jdbcType=VARCHAR},
+      DCYZFSSZBL = #{dcyzfsszbl,jdbcType=VARCHAR},
+      DLNYLY = #{dlnyly,jdbcType=VARCHAR},
+      DLSCYJF = #{dlscyjf,jdbcType=VARCHAR},
+      DLWCL = #{dlwcl,jdbcType=VARCHAR},
+      GQF_YZFSSZBL = #{gqfYzfsszbl,jdbcType=VARCHAR},
+      GQF_ZJLYL = #{gqfZjlyl,jdbcType=VARCHAR},
+      GQF_SCYJFL = #{gqfScyjfl,jdbcType=VARCHAR},
+      GQF_SCZQL = #{gqfSczql,jdbcType=VARCHAR},
+      GQF_WCLL = #{gqfWcll,jdbcType=VARCHAR},
+      GQFWS_ZJNYLYL = #{gqfwsZjnylyl,jdbcType=VARCHAR},
+      GQFWS_YYCLL = #{gqfwsYycll,jdbcType=VARCHAR},
+      GQFWS_YY_NYLYL = #{gqfwsYyNylyl,jdbcType=VARCHAR},
+      GQFWS_YY_HYLYL = #{gqfwsYyHylyl,jdbcType=VARCHAR},
+      GQFWS_YY_HY_SDCLL = #{gqfwsYyHySdcll,jdbcType=VARCHAR},
+      GQFWS_WCLL = #{gqfwsWcll,jdbcType=VARCHAR},
+      SCF_YZFSSZBL = #{scfYzfsszbl,jdbcType=VARCHAR},
+      SCF_ZJNYLYL = #{scfZjnylyl,jdbcType=VARCHAR},
+      SCF_SCYJFL = #{scfScyjfl,jdbcType=VARCHAR},
+      SCF_SCZQL = #{scfSczql,jdbcType=VARCHAR},
+      SCF_WCLL = #{scfWcll,jdbcType=VARCHAR},
+      SCFNYWS_ZJNYLYL = #{scfnywsZjnylyl,jdbcType=VARCHAR},
+      SCFNYWS_YYCLL = #{scfnywsYycll,jdbcType=VARCHAR},
+      SCFNYWS_YY_NYLYL = #{scfnywsYyNylyl,jdbcType=VARCHAR},
+      SCFNYWS_YY_HYCLL = #{scfnywsYyHycll,jdbcType=VARCHAR},
+      SCFNYWS_YY_HY_SDCLL = #{scfnywsYyHySdcll,jdbcType=VARCHAR},
+      SCFNYWS_WCLL = #{scfnywsWcll,jdbcType=VARCHAR},
+      JPHDHXXYLQCL = #{jphdhxxylqcl,jdbcType=VARCHAR},
+      JPHDADQCL = #{jphdadqcl,jdbcType=VARCHAR},
+      CSL_HXXYL = #{cslHxxyl,jdbcType=VARCHAR},
+      CSL_ZD = #{cslZd,jdbcType=VARCHAR},
+      CSL_ZL = #{cslZl,jdbcType=VARCHAR},
+      CSL_AD = #{cslAd,jdbcType=VARCHAR},
+      PFL_HXXYL = #{pflHxxyl,jdbcType=VARCHAR},
+      PFL_ZD = #{pflZd,jdbcType=VARCHAR},
+      PFL_ZL = #{pflZl,jdbcType=VARCHAR},
+      PFL_AD = #{pflAd,jdbcType=VARCHAR},
+      QCL_HXXYL = #{qclHxxyl,jdbcType=VARCHAR},
+      QCL_ZD = #{qclZd,jdbcType=VARCHAR},
+      QCL_ZL = #{qclZl,jdbcType=VARCHAR},
+      QCL_AD = #{qclAd,jdbcType=VARCHAR},
+      BZ = #{bz,jdbcType=VARCHAR},
+      is_del = #{isDel,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  
+  <update id="deleteById" parameterType="java.lang.Long">
+		update poll_yangzhi
+		set is_del = 1
+		where ID = #{id,jdbcType=INTEGER}
+	
+  	</update>
+    <select id="listAll" resultMap="BaseResultMap">    
+        select 
+        <include refid="Base_Column_List" />
+        from poll_yangzhi
+        where 
+        <if test="map.tjnf != null"> TJNF = #{map.tjnf} and  </if>
+        is_del = 0  
+        ORDER BY XZQHMC
+   </select>  
+   <!-- 分页SQL语句 -->
+	<select id="selectByPage" resultMap="BaseResultMap">
+		select
+		*
+		from poll_yangzhi
+		WHERE
+		<if test="map.tjnf != null"> TJNF = #{map.tjnf} and  </if>
+		is_del = 0
+		ORDER BY XZQHMC
+		limit #{startPos},#{pageSize}
+	</select>
+	<!-- 取得记录的总数 -->
+	<select id="getCount" resultType="long">
+		select
+		count(*)
+		from poll_yangzhi
+		where
+		<if test="map.tjnf != null"> TJNF = #{map.tjnf} and  </if>
+		is_del = 0
+		ORDER BY XZQHMC
+	</select> 
+    <select id="getSearchCount" resultType="java.lang.Integer" parameterType="java.util.Map">
+		select
+		count(*)
+		from poll_yangzhi
+		WHERE
+		<trim>  
+				<if test="map.tjnf != null"> TJNF = #{map.tjnf} and  </if>
+				<if test="map.id !=null"> id LIKE CONCAT('%', #{map.id},'%') and </if>
+				<if test="map.xzqhmc !=null"> XZQHMC LIKE CONCAT('%', #{map.xzqhmc},'%') and </if>
+				<if test="map.yzcbm !=null"> YZCBM LIKE CONCAT('%', #{map.yzcbm},'%') and </if>
+				<if test="map.yzcmc !=null"> YZCMC LIKE CONCAT('%', #{map.yzcmc},'%') and </if>
+				<if test="map.kzdm !=null"> KZDM LIKE CONCAT('%', #{map.kzdm},'%') and </if>
+				<if test="map.kzdy !=null"> KZDY LIKE CONCAT('%', #{map.kzdy},'%') and </if>
+				<if test="map.jd !=null"> JD LIKE CONCAT('%', #{map.jd},'%') and </if>
+				<if test="map.wd !=null"> WD LIKE CONCAT('%', #{map.wd},'%') and </if>
+				<if test="map.dzS !=null"> DZ_S LIKE CONCAT('%', #{map.dzS},'%') and </if>
+				<if test="map.dzX !=null"> DZ_X LIKE CONCAT('%', #{map.dzX},'%') and </if>
+				<if test="map.xz !=null"> XZ LIKE CONCAT('%', #{map.xz},'%') and </if>
+				<if test="map.jc !=null"> JC LIKE CONCAT('%', #{map.jc},'%') and </if>
+				<if test="map.szlymc !=null"> SZLYMC LIKE CONCAT('%', #{map.szlymc},'%') and </if>
+				<if test="map.snstmc !=null"> SNSTMC LIKE CONCAT('%', #{map.snstmc},'%') and </if>
+				<if test="map.xqzl !=null"> XQZL LIKE CONCAT('%', #{map.xqzl},'%') and </if>
+				<if test="map.syl !=null"> SYL LIKE CONCAT('%', #{map.syl},'%') and </if>
+				<if test="map.pflHxxyl !=null"> PFL_HXXYL LIKE CONCAT('%', #{map.pflHxxyl},'%') and </if>
+				<if test="map.pflZd !=null"> PFL_ZD LIKE CONCAT('%', #{map.pflZd},'%') and </if>
+				<if test="map.pflZl !=null"> PFL_ZL LIKE CONCAT('%', #{map.pflZl},'%') and </if>
+				<if test="map.pflAd !=null"> PFL_AD LIKE CONCAT('%', #{map.pflAd},'%') and </if>
+				<if test="map.qclHxxyl !=null"> QCL_HXXYL LIKE CONCAT('%', #{map.qclHxxyl},'%') and </if>
+				<if test="map.qclZd !=null"> QCL_ZD LIKE CONCAT('%', #{map.qclZd},'%') and </if>
+				<if test="map.qclZl !=null"> QCL_ZL LIKE CONCAT('%', #{map.qclZl},'%') and </if>
+				<if test="map.qclAd !=null"> QCL_AD LIKE CONCAT('%', #{map.qclAd},'%') and </if>
+		        is_del = 0
+		</trim>
+		ORDER BY XZQHMC
+	</select>	
+ 	<select id="searchByPage" resultMap="BaseResultMap">
+		select
+		*
+		from poll_yangzhi
+		WHERE
+		<trim>
+				<if test="map.tjnf != null"> TJNF = #{map.tjnf} and  </if>  
+				<if test="map.id !=null"> id LIKE CONCAT('%', #{map.id},'%') and </if>
+				<if test="map.xzqhmc !=null"> XZQHMC LIKE CONCAT('%', #{map.xzqhmc},'%') and </if>
+				<if test="map.yzcbm !=null"> YZCBM LIKE CONCAT('%', #{map.yzcbm},'%') and </if>
+				<if test="map.yzcmc !=null"> YZCMC LIKE CONCAT('%', #{map.yzcmc},'%') and </if>
+				<if test="map.kzdm !=null"> KZDM LIKE CONCAT('%', #{map.kzdm},'%') and </if>
+				<if test="map.kzdy !=null"> KZDY LIKE CONCAT('%', #{map.kzdy},'%') and </if>
+				<if test="map.jd !=null"> JD LIKE CONCAT('%', #{map.jd},'%') and </if>
+				<if test="map.wd !=null"> WD LIKE CONCAT('%', #{map.wd},'%') and </if>
+				<if test="map.dzS !=null"> DZ_S LIKE CONCAT('%', #{map.dzS},'%') and </if>
+				<if test="map.dzX !=null"> DZ_X LIKE CONCAT('%', #{map.dzX},'%') and </if>
+				<if test="map.xz !=null"> XZ LIKE CONCAT('%', #{map.xz},'%') and </if>
+				<if test="map.jc !=null"> JC LIKE CONCAT('%', #{map.jc},'%') and </if>
+				<if test="map.szlymc !=null"> SZLYMC LIKE CONCAT('%', #{map.szlymc},'%') and </if>
+				<if test="map.snstmc !=null"> SNSTMC LIKE CONCAT('%', #{map.snstmc},'%') and </if>
+				<if test="map.xqzl !=null"> XQZL LIKE CONCAT('%', #{map.xqzl},'%') and </if>
+				<if test="map.syl !=null"> SYL LIKE CONCAT('%', #{map.syl},'%') and </if>
+				<if test="map.pflHxxyl !=null"> PFL_HXXYL LIKE CONCAT('%', #{map.pflHxxyl},'%') and </if>
+				<if test="map.pflZd !=null"> PFL_ZD LIKE CONCAT('%', #{map.pflZd},'%') and </if>
+				<if test="map.pflZl !=null"> PFL_ZL LIKE CONCAT('%', #{map.pflZl},'%') and </if>
+				<if test="map.pflAd !=null"> PFL_AD LIKE CONCAT('%', #{map.pflAd},'%') and </if>
+				<if test="map.qclHxxyl !=null"> QCL_HXXYL LIKE CONCAT('%', #{map.qclHxxyl},'%') and </if>
+				<if test="map.qclZd !=null"> QCL_ZD LIKE CONCAT('%', #{map.qclZd},'%') and </if>
+				<if test="map.qclZl !=null"> QCL_ZL LIKE CONCAT('%', #{map.qclZl},'%') and </if>
+				<if test="map.qclAd !=null"> QCL_AD LIKE CONCAT('%', #{map.qclAd},'%') and </if>
+		        is_del = 0
+		</trim>
+		ORDER BY XZQHMC
+		limit #{startPos},#{pageSize}
+	</select>	
+  
+	<select id="selectForMap" resultMap="BaseResultMap">
+		select
+		*
+		from poll_yangzhi
+		WHERE
+		<trim>  
+				<if test="map.tjnf != null"> TJNF = #{map.tjnf} and  </if>
+				<if test="map.id !=null"> id LIKE CONCAT('%', #{map.id},'%') and </if>
+				<if test="map.xzqhmc !=null"> XZQHMC LIKE CONCAT('%', #{map.xzqhmc},'%') and </if>
+				<if test="map.yzcbm !=null"> YZCBM LIKE CONCAT('%', #{map.yzcbm},'%') and </if>
+				<if test="map.yzcmc !=null"> YZCMC LIKE CONCAT('%', #{map.yzcmc},'%') and </if>
+				<if test="map.kzdm !=null"> KZDM LIKE CONCAT('%', #{map.kzdm},'%') and </if>
+				<if test="map.kzdy !=null"> KZDY LIKE CONCAT('%', #{map.kzdy},'%') and </if>
+				<if test="map.jd !=null"> JD LIKE CONCAT('%', #{map.jd},'%') and </if>
+				<if test="map.wd !=null"> WD LIKE CONCAT('%', #{map.wd},'%') and </if>
+				<if test="map.dzS !=null"> DZ_S LIKE CONCAT('%', #{map.dzS},'%') and </if>
+				<if test="map.dzX !=null"> DZ_X LIKE CONCAT('%', #{map.dzX},'%') and </if>
+				<if test="map.xz !=null"> XZ LIKE CONCAT('%', #{map.xz},'%') and </if>
+				<if test="map.jc !=null"> JC LIKE CONCAT('%', #{map.jc},'%') and </if>
+				<if test="map.szlymc !=null"> SZLYMC LIKE CONCAT('%', #{map.szlymc},'%') and </if>
+				<if test="map.snstmc !=null"> SNSTMC LIKE CONCAT('%', #{map.snstmc},'%') and </if>
+				<if test="map.xqzl !=null"> XQZL LIKE CONCAT('%', #{map.xqzl},'%') and </if>
+				<if test="map.syl !=null"> SYL LIKE CONCAT('%', #{map.syl},'%') and </if>
+				<if test="map.pflHxxyl !=null"> PFL_HXXYL LIKE CONCAT('%', #{map.pflHxxyl},'%') and </if>
+				<if test="map.pflZd !=null"> PFL_ZD LIKE CONCAT('%', #{map.pflZd},'%') and </if>
+				<if test="map.pflZl !=null"> PFL_ZL LIKE CONCAT('%', #{map.pflZl},'%') and </if>
+				<if test="map.pflAd !=null"> PFL_AD LIKE CONCAT('%', #{map.pflAd},'%') and </if>
+				<if test="map.qclHxxyl !=null"> QCL_HXXYL LIKE CONCAT('%', #{map.qclHxxyl},'%') and </if>
+				<if test="map.qclZd !=null"> QCL_ZD LIKE CONCAT('%', #{map.qclZd},'%') and </if>
+				<if test="map.qclZl !=null"> QCL_ZL LIKE CONCAT('%', #{map.qclZl},'%') and </if>
+				<if test="map.qclAd !=null"> QCL_AD LIKE CONCAT('%', #{map.qclAd},'%') and </if>
+		        is_del = 0
+		</trim>
+	</select>
+	
+	
+	<select id="selectKzdySum" resultType="Map">
+        select KZDY,SUM(cast(PFL_HXXYL as SIGNED INTEGER)) as PFL_HXXYL,SUM(cast(PFL_AD as SIGNED INTEGER)) as PFL_AD
+        from poll_yangzhi 
+        where 
+        <trim>  
+	      <if test="map.xxdzdqSZM != null">
+	        DZ_S LIKE CONCAT('%', #{map.xxdzdqSZM}, '%') and
+	      </if>
+	      <if test="map.xzqhmc != null">
+	        XZQHMC LIKE CONCAT('%', #{map.xzqhmc}, '%') and
+	      </if>
+	      <if test="map.sy != null">
+	        SZLYMC LIKE CONCAT('%', #{map.sy}, '%') and
+	      </if>
+	        is_del = 0 and KZDY != ''
+		</trim> 
+		group by KZDY
+    </select>
+    <select id="selectKzdmSum" resultType="Map">
+        select KZDM,SUM(cast(PFL_HXXYL as SIGNED INTEGER)) as PFL_HXXYL,SUM(cast(PFL_AD as SIGNED INTEGER)) as PFL_AD
+        from poll_yangzhi 
+        where 
+        <trim>  
+	      <if test="map.xxdzdqSZM != null">
+	        DZ_S LIKE CONCAT('%', #{map.xxdzdqSZM}, '%') and
+	      </if>
+	      <if test="map.xzqhmc != null">
+	        XZQHMC LIKE CONCAT('%', #{map.xzqhmc}, '%') and
+	      </if>
+	      <if test="map.sy != null">
+	        SZLYMC LIKE CONCAT('%', #{map.sy}, '%') and
+	      </if>
+	        is_del = 0 and KZDM != ''
+		</trim> 
+		group by KZDM
+    </select>
+	<select id="selectKzdyTotal" resultType="Map">
+        select KZDY,SUM(cast(CSL_HXXYL as SIGNED INTEGER)) as CSL_HXXYL,SUM(cast(PFL_HXXYL as SIGNED INTEGER)) as PFL_HXXYL,SUM(cast(CSL_AD as SIGNED INTEGER)) as CSL_AD,SUM(cast(PFL_AD as SIGNED INTEGER)) as PFL_AD,SUM(cast(SYL as SIGNED INTEGER)) as SYL
+        from poll_yangzhi 
+        where 
+        <trim>  
+	      <if test="map.xxdzdqSZM != null">
+	        DZ_S LIKE CONCAT('%', #{map.xxdzdqSZM}, '%') and
+	      </if>
+	      <if test="map.xzqhmc != null">
+	        XZQHMC LIKE CONCAT('%', #{map.xzqhmc}, '%') and
+	      </if>
+	      <if test="map.sy != null">
+	        SZLYMC LIKE CONCAT('%', #{map.sy}, '%') and
+	      </if>
+	      <if test="list != null and list.size()>0">
+	         KZDY in
+	         <foreach item="item" index="index" collection="list" open="(" separator="," close=")">  
+                 #{item}  
+             </foreach>
+             and
+	      </if>
+	        is_del = 0 and KZDY != ''
+		</trim> 
+        group by KZDY limit #{startPos},#{pageSize}
+    </select>
+    <select id="getKzdyCount" resultType="java.lang.Integer">
+        select count(*) from (select KZDY from poll_yangzhi
+        where 
+        <trim>  
+	      <if test="map.xxdzdqSZM != null">
+	        DZ_S LIKE CONCAT('%', #{map.xxdzdqSZM}, '%') and
+	      </if>
+	      <if test="map.xzqhmc != null">
+	        XZQHMC LIKE CONCAT('%', #{map.xzqhmc}, '%') and
+	      </if>
+	      <if test="map.sy != null">
+	        SZLYMC LIKE CONCAT('%', #{map.sy}, '%') and
+	      </if>
+	      <if test="list != null and list.size()>0">
+	         KZDY in
+	         <foreach item="item" index="index" collection="list" open="(" separator="," close=")">  
+                 #{item}  
+             </foreach>
+             and
+	      </if>
+	        is_del = 0 and KZDY != ''
+		</trim> 
+        group by KZDY) as total
+    </select>
+        <select id="selectKzdyTotalByName" resultType="Map">
+        select KZDY,SUM(cast(CSL_HXXYL as SIGNED INTEGER)) as CSL_HXXYL,SUM(cast(PFL_HXXYL as SIGNED INTEGER)) as PFL_HXXYL,SUM(cast(CSL_AD as SIGNED INTEGER)) as CSL_AD,SUM(cast(PFL_AD as SIGNED INTEGER)) as PFL_AD,SUM(cast(SYL as SIGNED INTEGER)) as SYL
+        from poll_yangzhi
+        where 
+        <trim>  
+	      <if test="map.xxdzdqSZM != null">
+	        DZ_S LIKE CONCAT('%', #{map.xxdzdqSZM}, '%') and
+	      </if>
+	      <if test="map.xzqhmc != null">
+	        XZQHMC LIKE CONCAT('%', #{map.xzqhmc}, '%') and
+	      </if>
+	      <if test="name != null">
+	        KZDY LIKE CONCAT('%', #{name}, '%') and
+	      </if>
+	        is_del = 0 and KZDY != ''
+		</trim> 
+        group by KZDY limit #{startPos},#{pageSize}
+    </select>
+    <select id="getKzdyCountByName" resultType="java.lang.Integer">
+        select count(*) from (select KZDY from poll_yangzhi
+        where
+        <trim>  
+	      <if test="map.xxdzdqSZM != null">
+	        DZ_S LIKE CONCAT('%', #{map.xxdzdqSZM}, '%') and
+	      </if>
+	      <if test="map.xzqhmc != null">
+	        XZQHMC LIKE CONCAT('%', #{map.xzqhmc}, '%') and
+	      </if>
+	      <if test="name != null">
+	        KZDY LIKE CONCAT('%', #{name}, '%') and
+	      </if>
+	        is_del = 0 and KZDY != ''
+		</trim>  
+        group by KZDY) as total
+    </select>
+    <select id="computeKzdyTotal" resultType="java.lang.Integer">
+        select 
+        <trim prefix="COALESCE(SUM(cast(" suffix="as SIGNED INTEGER)),0)">
+        ${map.prop}
+        </trim>
+        from poll_yangzhi
+        where
+        <trim>
+	      <if test="map.kzdy != null">
+	        KZDY = #{map.kzdy} and
+	      </if>
+	        is_del = 0 and KZDY != ''
+		</trim>  
+    </select>
+    <select id="selectKzdmTotal" resultType="Map">
+        select KZDM,SUM(cast(CSL_HXXYL as SIGNED INTEGER)) as CSL_HXXYL,SUM(cast(PFL_HXXYL as SIGNED INTEGER)) as PFL_HXXYL,SUM(cast(CSL_AD as SIGNED INTEGER)) as CSL_AD,SUM(cast(PFL_AD as SIGNED INTEGER)) as PFL_AD,SUM(cast(SYL as SIGNED INTEGER)) as SYL
+        from poll_yangzhi
+        where 
+        <trim>  
+	      <if test="map.xxdzdqSZM != null">
+	        DZ_S LIKE CONCAT('%', #{map.xxdzdqSZM}, '%') and
+	      </if>
+	      <if test="map.xzqhmc != null">
+	        XZQHMC LIKE CONCAT('%', #{map.xzqhmc}, '%') and
+	      </if>
+	      <if test="map.sy != null">
+	        SZLYMC LIKE CONCAT('%', #{map.sy}, '%') and
+	      </if>
+	      <if test="list != null and list.size()>0">
+	         KZDM in
+	         <foreach item="item" index="index" collection="list" open="(" separator="," close=")">  
+                 #{item}  
+             </foreach>
+             and
+	      </if>
+	       KZDM is not null and KZDM != '' and
+	        is_del = 0 
+		</trim> 
+        group by KZDM limit #{startPos},#{pageSize}
+    </select>
+    <select id="getKzdmCount" resultType="java.lang.Integer">
+        select count(*) from (select KZDM from poll_yangzhi
+        where 
+        <trim>  
+	      <if test="map.xxdzdqSZM != null">
+	        DZ_S LIKE CONCAT('%', #{map.xxdzdqSZM}, '%') and
+	      </if>
+	      <if test="map.xzqhmc != null">
+	        XZQHMC LIKE CONCAT('%', #{map.xzqhmc}, '%') and
+	      </if>
+	      <if test="map.sy != null">
+	        SZLYMC LIKE CONCAT('%', #{map.sy}, '%') and
+	      </if>
+	      <if test="list != null and list.size()>0">
+	         KZDM in
+	         <foreach item="item" index="index" collection="list" open="(" separator="," close=")">  
+                 #{item}  
+             </foreach>
+             and
+	      </if>
+	      KZDM is not null and KZDM != '' and
+	        is_del = 0 
+		</trim> 
+        group by KZDM) as total
+    </select>
+        <select id="selectKzdmTotalByName" resultType="Map">
+        select KZDM,SUM(cast(CSL_HXXYL as SIGNED INTEGER)) as CSL_HXXYL,SUM(cast(PFL_HXXYL as SIGNED INTEGER)) as PFL_HXXYL,SUM(cast(CSL_AD as SIGNED INTEGER)) as CSL_AD,SUM(cast(PFL_AD as SIGNED INTEGER)) as PFL_AD,SUM(cast(SYL as SIGNED INTEGER)) as SYL
+        from poll_yangzhi
+        where 
+        <trim>  
+	      <if test="map.xxdzdqSZM != null">
+	        DZ_S LIKE CONCAT('%', #{map.xxdzdqSZM}, '%') and
+	      </if>
+	      <if test="map.xzqhmc != null">
+	        XZQHMC LIKE CONCAT('%', #{map.xzqhmc}, '%') and
+	      </if>
+	      <if test="name != null">
+	        KZDM LIKE CONCAT('%', #{name}, '%') and
+	      </if>
+	        is_del = 0 and KZDM != ''
+		</trim> 
+        group by KZDM limit #{startPos},#{pageSize}
+    </select>
+    <select id="getKzdmCountByName" resultType="java.lang.Integer">
+        select count(*) from (select KZDM from poll_yangzhi
+        where
+        <trim>  
+	      <if test="map.xxdzdqSZM != null">
+	        DZ_S LIKE CONCAT('%', #{map.xxdzdqSZM}, '%') and
+	      </if>
+	      <if test="map.xzqhmc != null">
+	        XZQHMC LIKE CONCAT('%', #{map.xzqhmc}, '%') and
+	      </if>
+	      <if test="name != null">
+	        KZDM LIKE CONCAT('%', #{name}, '%') and
+	      </if>
+	        is_del = 0 and KZDM != ''
+		</trim>  
+        group by KZDM) as total
+    </select>
+    <select id="computeKzdmTotal" resultType="java.lang.Integer">
+        select 
+        <trim prefix="COALESCE(SUM(cast(" suffix="as SIGNED INTEGER)),0)">
+        ${map.prop}
+        </trim>
+        from poll_yangzhi
+        where
+        <trim>
+	      <if test="map.kzdm != null">
+	        KZDM = #{map.kzdm} and
+	      </if>
+	        is_del = 0 and KZDM != ''
+		</trim>  
+    </select>
+	<select id="selectWater" resultType="Map">
+        select distinct SZLYMC
+        from poll_yangzhi
+        where
+	    is_del = 0 and SZLYMC != ''
+    </select>
+	
+	
+</mapper>
